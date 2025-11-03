@@ -98,14 +98,17 @@
             </div>
         </section>
 
-        <!-- 🧩 Sekcja: Bezpieczeństwo i Prywatność -->
-<section class="feature-section" id="bezpieczenstwo-section">
-    <div class="feature-text" id="tekst-bezpieczenstwo"></div>
-    <div class="feature-gallery">
-        <img src="images/pin.png" alt="Ekran ustawiania kodu PIN">
-        <img src="images/bezpieczenstwo.png" alt="Ekran opcji bezpieczeństwa i prywatności">
-    </div>
-</section>
+        <!-- 🛡️ Sekcja: Bezpieczeństwo i prywatność -->
+        <section class="feature-section" id="bezpieczenstwo-section">
+            <div class="feature-text" id="tekst-bezpieczenstwo"></div>
+        </section>
+
+        <!-- 🔗 Przycisk do polityki prywatności -->
+        <div class="privacy-button-container">
+            <a href="https://sites.google.com/view/mojezdrowie-polityka-home" target="_blank" class="privacy-button">
+                📜 Polityka prywatności
+            </a>
+        </div>
     </main>
 
     <footer class="footer">
@@ -207,33 +210,29 @@
     `;
     document.getElementById("tekst-info").innerHTML = tekstInfo;
 
-        // --- Sekcja: Bezpieczeństwo i Prywatność ---
-const tekstBezpieczenstwo = `
-    <h3>Sekcja: Bezpieczeństwo i Prywatność</h3>
-    <p>W sekcji „Bezpieczeństwo i Prywatność” znajdziesz szereg funkcji, które chronią Twoje dane i zapewniają pełną kontrolę nad prywatnością.</p>
-    <p>Możesz:</p>
-    <ul>
-        <li>• ustawić własny kod PIN, który zabezpiecza dostęp do aplikacji,</li>
-        <li>• włączyć logowanie biometryczne (odcisk palca lub rozpoznawanie twarzy),</li>
-        <li>• odzyskać dostęp, jeśli zapomnisz PIN-u — po potwierdzeniu tożsamości biometrią lub blokadą ekranu telefonu,</li>
-        <li>• mieć pewność, że PIN i dane logowania są szyfrowane i przechowywane wyłącznie lokalnie na urządzeniu,</li>
-        <li>• korzystać z dodatkowych warstw ochrony, aby tylko Ty miał(a) dostęp do aplikacji,</li>
-        <li>• zarządzać zgodami na spersonalizowane reklamy dzięki przyciskowi „Zarządzaj ustawieniami prywatności”.</li>
-    </ul>
-    <p>Bezpieczeństwo Twoich danych to dla nas priorytet.</p>
+        // --- Sekcja: Bezpieczeństwo i prywatność ---
+        const tekstBezpieczenstwo = `
+        <h3>Sekcja: Bezpieczeństwo i Prywatność</h3>
+        <p>W sekcji „Bezpieczeństwo i Prywatność” znajdziesz szereg funkcji, które chronią Twoje dane i zapewniają pełną kontrolę nad prywatnością.</p>
+        <p>Możesz:</p>
+        <ul>
+            <li>ustawić własny kod PIN, który zabezpiecza dostęp do aplikacji,</li>
+            <li>włączyć logowanie biometryczne (odcisk palca lub rozpoznawanie twarzy),</li>
+            <li>odzyskać dostęp, jeśli zapomnisz PIN-u — po potwierdzeniu tożsamości biometrią lub blokadą ekranu telefonu,</li>
+            <li>mieć pewność, że PIN i dane logowania są szyfrowane i przechowywane wyłącznie lokalnie na urządzeniu,</li>
+            <li>korzystać z dodatkowych warstw ochrony, aby tylko Ty miał(a) dostęp do aplikacji,</li>
+            <li>zarządzać zgodami na spersonalizowane reklamy dzięki przyciskowi „Zarządzaj ustawieniami prywatności”.</li>
+        </ul>
+        <p>Bezpieczeństwo Twoich danych to dla nas priorytet.</p>
 
-    <div class="policy-button-container">
-        <a href="https://sites.google.com/view/mojezdrowie-polityka-home" target="_blank" class="policy-button">
-            Zobacz Politykę Prywatności
-        </a>
-    </div>
-`;
-document.getElementById("tekst-bezpieczenstwo").innerHTML = tekstBezpieczenstwo;
-
-        console.log("Witamy w aplikacji MedOpiekun!");
+        <div class="image-container">
+            <img src="images/pin.png" alt="Ekran ustawiania kodu PIN" class="feature-image" />
+            <img src="images/bezpieczenstwo.png" alt="Ekran opcji bezpieczeństwa i prywatności" class="feature-image" />
+        </div>
+        `;
+        document.getElementById("tekst-bezpieczenstwo").innerHTML = tekstBezpieczenstwo;
     </script>
 
     <script src="script.js"></script>
 </body>
 </html>
-
