@@ -67,36 +67,8 @@
         <a href="https://play.google.com/store/apps/details?id=com.gutowianin.mojezdrowie" class="download-button" target="_blank" rel="noopener">
             <img src="images/google_play.png" alt="Pobierz z Google Play" />
         </a>
-        // --- Sekcja: Podstawowe informacje o aplikacji ---
-const tekstAppInfo = `
-    <h3>Informacje o aplikacji „MedOpiekun”</h3>
-    <p>„MedOpiekun” to intuicyjna i praktyczna aplikacja mobilna stworzona z myślą o osobach, które chcą lepiej zarządzać swoim zdrowiem i lekami.</p>
-    
-    <p>Sprawdzi się idealnie dla:</p>
-    <ul>
-        <li>• osób przyjmujących leki regularnie (np. osoby starsze, chorujące przewlekle),</li>
-        <li>• osób opiekujących się bliskimi i potrzebujących kontroli nad ich leczeniem,</li>
-        <li>• każdego, kto chce śledzić swoje wyniki badań (np. ciśnienie, cukier, saturacja),</li>
-        <li>• osób dbających o profilaktykę zdrowotną.</li>
-    </ul>
 
-    <p>Aplikacja pozwala:</p>
-    <ul>
-        <li>• zarządzać lekami — kontrolować zapasy i dawkowanie,</li>
-        <li>• dodawać i analizować wyniki pomiarów zdrowotnych,</li>
-        <li>• ustawiać przypomnienia o zażyciu leków,</li>
-        <li>• eksportować dane do pliku PDF lub JSON,</li>
-        <li>• zapisać dane osobiste i kontaktowe – na wypadek nagłych sytuacji.</li>
-    </ul>
-
-    <p>„MedOpiekun” działa w pełni offline i nie wymaga zakładania konta — Twoje dane są bezpieczne i dostępne tylko na Twoim urządzeniu.</p>
-
-    <p>Aplikacja została zaprojektowana z myślą o prostocie i wygodzie, aby każdy – niezależnie od wieku czy doświadczenia z technologią – mógł z niej korzystać bez problemu.</p>
-`;
-document.getElementById("tekst-appinfo").innerHTML = tekstAppInfo;
-
-
-        <!-- 🧩 Sekcja: Leki -->
+        <!-- 🧩 Sekcje funkcjonalności -->
         <section class="feature-section" id="leki-section">
             <div class="feature-text" id="tekst-leki"></div>
             <div class="feature-gallery">
@@ -105,7 +77,6 @@ document.getElementById("tekst-appinfo").innerHTML = tekstAppInfo;
             </div>
         </section>
 
-        <!-- 🧩 Sekcja: Badania -->
         <section class="feature-section" id="badania-section">
             <div class="feature-text" id="tekst-badania"></div>
             <div class="feature-gallery">
@@ -113,7 +84,6 @@ document.getElementById("tekst-appinfo").innerHTML = tekstAppInfo;
             </div>
         </section>
 
-        <!-- 🧩 Sekcja: Wizyty -->
         <section class="feature-section" id="wizyty-section">
             <div class="feature-text" id="tekst-wizyty"></div>
             <div class="feature-gallery">
@@ -121,7 +91,6 @@ document.getElementById("tekst-appinfo").innerHTML = tekstAppInfo;
             </div>
         </section>
 
-        <!-- 🧩 Sekcja: Informacje medyczne -->
         <section class="feature-section" id="info-section">
             <div class="feature-text" id="tekst-info"></div>
             <div class="feature-gallery">
@@ -130,16 +99,13 @@ document.getElementById("tekst-appinfo").innerHTML = tekstAppInfo;
             </div>
         </section>
 
-        <!-- 🛡️ Sekcja: Bezpieczeństwo i prywatność -->
-       <section class="feature-section" id="bezpieczenstwo-section">
-    <div class="feature-text" id="tekst-bezpieczenstwo"></div>
-    <div class="feature-gallery bezpieczenstwo-gallery">
-        <img src="images/pin.png" alt="Ustawienie PIN">
-        <img src="images/bezpieczenstwo.png" alt="Bezpieczeństwo danych">
-    </div>
-</section>
-
-
+        <section class="feature-section" id="bezpieczenstwo-section">
+            <div class="feature-text" id="tekst-bezpieczenstwo"></div>
+            <div class="feature-gallery bezpieczenstwo-gallery">
+                <img src="images/pin.png" alt="Ustawienie PIN">
+                <img src="images/bezpieczenstwo.png" alt="Bezpieczeństwo danych">
+            </div>
+        </section>
 
     </main>
 
@@ -150,8 +116,35 @@ document.getElementById("tekst-appinfo").innerHTML = tekstAppInfo;
         </div>
     </footer>
 
-    <!-- ✅ Skrypt wypełniający treści sekcji -->
+    <!-- ✅ Skrypty wypełniające treści sekcji -->
     <script>
+        // --- Sekcja: Podstawowe informacje o aplikacji ---
+        const tekstAppInfo = `
+            <h3>Informacje o aplikacji „MedOpiekun”</h3>
+            <p>„MedOpiekun” to intuicyjna i praktyczna aplikacja mobilna stworzona z myślą o osobach, które chcą lepiej zarządzać swoim zdrowiem i lekami.</p>
+            
+            <p>Sprawdzi się idealnie dla:</p>
+            <ul>
+                <li>• osób przyjmujących leki regularnie (np. osoby starsze, chorujące przewlekle),</li>
+                <li>• osób opiekujących się bliskimi i potrzebujących kontroli nad ich leczeniem,</li>
+                <li>• każdego, kto chce śledzić swoje wyniki badań (np. ciśnienie, cukier, saturacja),</li>
+                <li>• osób dbających o profilaktykę zdrowotną.</li>
+            </ul>
+
+            <p>Aplikacja pozwala:</p>
+            <ul>
+                <li>• zarządzać lekami — kontrolować zapasy i dawkowanie,</li>
+                <li>• dodawać i analizować wyniki pomiarów zdrowotnych,</li>
+                <li>• ustawiać przypomnienia o zażyciu leków,</li>
+                <li>• eksportować dane do pliku PDF lub JSON,</li>
+                <li>• zapisać dane osobiste i kontaktowe – na wypadek nagłych sytuacji.</li>
+            </ul>
+
+            <p>„MedOpiekun” działa w pełni offline i nie wymaga zakładania konta — Twoje dane są bezpieczne i dostępne tylko na Twoim urządzeniu.</p>
+
+            <p>Aplikacja została zaprojektowana z myślą o prostocie i wygodzie, aby każdy – niezależnie od wieku czy doświadczenia z technologią – mógł z niej korzystać bez problemu.</p>
+        `;
+        document.getElementById("tekst-appinfo").innerHTML = tekstAppInfo;
         // --- Sekcja: Leki ---
         const tekstLeki = `
             <h3>Sekcja: Leki</h3>
