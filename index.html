@@ -48,14 +48,13 @@
             </div>
         </section>
 
-                <!-- 🧩 Sekcja: Wizyty -->
+        <!-- 🧩 Sekcja: Wizyty -->
         <section class="wizyty-section" id="wizyty-section">
             <div id="tekst-wizyty"></div>
             <div class="wizyty-gallery">
                 <img src="images/wizyty.jpg" alt="Zrzut ekranu - Wizyty">
             </div>
         </section>
-
     </main>
 
     <footer class="footer">
@@ -70,11 +69,7 @@
         <p>Aplikacja MedOpiekun pomaga w zarządzaniu Twoimi lekami — przypomina o porach dawkowania, dawkach oraz terminach recept.</p>
         <p>W prosty sposób możesz dodać, edytować lub usunąć lek, a także śledzić historię stosowania.</p>
     `;
-
-    const tekstContainerLeki = document.getElementById("tekst-leki");
-    if (tekstContainerLeki) {
-        tekstContainerLeki.innerHTML = tekstLeki;
-    }
+    document.getElementById("tekst-leki").innerHTML = tekstLeki;
 
     // --- Sekcja: Badania ---
     const tekstBadania = `
@@ -82,11 +77,15 @@
         <p>Moduł badań w aplikacji MedOpiekun umożliwia zapisywanie wyników i dat badań lekarskich.</p>
         <p>Możesz przechowywać historię pomiarów, analizować zmiany i mieć wszystkie dane zdrowotne zawsze przy sobie.</p>
     `;
+    document.getElementById("tekst-badania").innerHTML = tekstBadania;
 
-    const tekstContainerBadania = document.getElementById("tekst-badania");
-    if (tekstContainerBadania) {
-        tekstContainerBadania.innerHTML = tekstBadania;
-    }
+    // --- Sekcja: Wizyty ---
+    const tekstWizyty = `
+        <h3>Sekcja: Wizyty</h3>
+        <p>Wizyty lekarskie w MedOpiekunie pozwalają Ci uporządkować kalendarz spotkań ze specjalistami.</p>
+        <p>Dodaj datę, nazwę lekarza, lokalizację oraz notatki — a aplikacja przypomni Ci o nadchodzących wizytach.</p>
+    `;
+    document.getElementById("tekst-wizyty").innerHTML = tekstWizyty;
 
     console.log("Witamy w aplikacji MedOpiekun!");
     </script>
@@ -94,5 +93,4 @@
     <script src="script.js"></script>
 </body>
 </html>
-
 
