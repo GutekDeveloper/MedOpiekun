@@ -124,33 +124,12 @@
 
     <!-- ✅ Skrypty wypełniające treści sekcji -->
     <script>
-        // --- Sekcja: Podstawowe informacje o aplikacji ---
-        const tekstAppInfo = `
-            <h3>Informacje o aplikacji „MedOpiekun”</h3>
-            <p>„MedOpiekun” to intuicyjna i praktyczna aplikacja mobilna stworzona z myślą o osobach, które chcą lepiej zarządzać swoim zdrowiem i lekami.</p>
-            
-            <p>Sprawdzi się idealnie dla:</p>
-            <ul>
-                <li>• osób przyjmujących leki regularnie (np. osoby starsze, chorujące przewlekle),</li>
-                <li>• osób opiekujących się bliskimi i potrzebujących kontroli nad ich leczeniem,</li>
-                <li>• każdego, kto chce śledzić swoje wyniki badań (np. ciśnienie, cukier, saturacja),</li>
-                <li>• osób dbających o profilaktykę zdrowotną.</li>
-            </ul>
+        <!-- Najpierw plik z tekstem -->
+<script src="tekstleki.js"></script>
 
-            <p>Aplikacja pozwala:</p>
-            <ul>
-                <li>• zarządzać lekami — kontrolować zapasy i dawkowanie,</li>
-                <li>• dodawać i analizować wyniki pomiarów zdrowotnych,</li>
-                <li>• ustawiać przypomnienia o zażyciu leków,</li>
-                <li>• eksportować dane do pliku PDF lub JSON,</li>
-                <li>• zapisać dane osobiste i kontaktowe – na wypadek nagłych sytuacji.</li>
-            </ul>
+<!-- Potem Twój główny skrypt -->
+<script src="app.js"></script>
 
-            <p>„MedOpiekun” działa w pełni offline i nie wymaga zakładania konta — Twoje dane są bezpieczne i dostępne tylko na Twoim urządzeniu.</p>
-
-            <p>Aplikacja została zaprojektowana z myślą o prostocie i wygodzie, aby każdy – niezależnie od wieku czy doświadczenia z technologią – mógł z niej korzystać bez problemu.</p>
-        `;
-        document.getElementById("tekst-appinfo").innerHTML = tekstAppInfo;
         // --- Sekcja: Leki ---
         const tekstLeki = `
             <h3>Sekcja: Leki</h3>
