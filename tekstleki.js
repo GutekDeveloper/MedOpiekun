@@ -6,7 +6,6 @@ const tekstLeki = `
 
 console.log("Witamy w aplikacji MedOpiekun!");
 
-// Wstawienie tekstu sekcji Leki
 const tekstContainer = document.getElementById("tekst-leki");
 if (tekstContainer) {
     tekstContainer.innerHTML = tekstLeki;
