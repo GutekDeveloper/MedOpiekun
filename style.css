@@ -111,14 +111,53 @@ body {
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
 
-/*zdjęcie badania*/
-.badania-gallery img {
-    max-width: 400px;
-    width: 100%;
-    border-radius: 10px;
-    display: block;
-    margin: 20px auto;
+/* --- Sekcja: Badania --- */
+.badania-section {
+    margin-top: 60px;
+    padding: 40px 20px;
+    background-color: #e3f2fd;
+    border-top: 2px solid #90caf9;
+    text-align: center;
 }
+
+#tekst-badania {
+    max-width: 750px;
+    margin: 0 auto 30px;
+    color: #0d47a1;
+}
+
+#tekst-badania h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#tekst-badania p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #1565c0;
+}
+
+/* --- Galeria badań --- */
+.badania-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.badania-gallery img {
+    width: 250px;              /* ✅ mniejsze zdjęcie */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    margin: 10px;
+}
+
+.badania-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
 
 
 /* --- Stopka --- */
