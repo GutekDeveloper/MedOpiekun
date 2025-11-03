@@ -8,15 +8,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Animacja kształtów po bokach przy scrollu
+// Animacja kształtów po bokach przy scrollu z pętlą
 window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
+    const offsetTopBar = 80; // wysokość topbara + margines
 
     document.querySelectorAll(".left-shapes .shape").forEach((el, i) => {
-        el.style.transform = `translateY(${scrollY * 0.3 + i*20}px) rotate(${scrollY * 0.05}deg)`;
+        const y = offsetTopBar + ((scrollY * 0.3 + i * 10) % (window.innerHeight + 100));
+        el.style.transform = `translateY(${y}px) rotate(${scrollY * 0.05}deg)`;
     });
 
     document.querySelectorAll(".right-shapes .shape").forEach((el, i) => {
-        el.style.transform = `translateY(${scrollY * 0.2 + i*30}px) rotate(${scrollY * 0.03}deg)`;
+        const y = offsetTopBar + ((scrollY * 0.2 + i * 15) % (window.innerHeight + 100));
+        el.style.transform = `translateY(${y}px) rotate(${scrollY * 0.03}deg)`;
     });
 });
