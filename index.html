@@ -33,7 +33,6 @@
 
         <!-- 🧩 Sekcja: Leki -->
         <section class="leki-section" id="leki-section">
-            <!-- Tekst zostanie wstawiony tutaj z tekstleki.js -->
             <div id="tekst-leki"></div>
 
             <div class="leki-gallery">
@@ -47,8 +46,23 @@
         <p>© 2025 Gutek Developer. Wszelkie prawa zastrzeżone.</p>
     </footer>
 
-    <!-- kolejność ma znaczenie -->
-    <script src="tekstleki.js"></script>
+    <!-- ✅ Skrypt przeniesiony bezpośrednio do HTML -->
+    <script>
+    const tekstLeki = `
+    <h3>Sekcja: Leki</h3>
+    <p>Aplikacja MedOpiekun pomaga w zarządzaniu Twoimi lekami — przypomina o porach dawkowania, dawkach oraz terminach recept.</p>
+    <p>W prosty sposób możesz dodać, edytować lub usunąć lek, a także śledzić historię stosowania.</p>
+    `;
+
+    console.log("Witamy w aplikacji MedOpiekun!");
+
+    const tekstContainer = document.getElementById("tekst-leki");
+    if (tekstContainer) {
+        tekstContainer.innerHTML = tekstLeki;
+    }
+    </script>
+
     <script src="script.js"></script>
 </body>
 </html>
+
