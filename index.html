@@ -170,17 +170,33 @@
     `;
     document.getElementById("tekst-wizyty").innerHTML = tekstWizyty;
 
-        // --- Sekcja: Informacje medyczne ---
-        const tekstInfo = `
-            <h3>Sekcja: Informacje medyczne</h3>
-            <p>W aplikacji możesz zapisać wszystkie ważne informacje o sobie i osobie kontaktowej.</p>
-            <p>Dodaj swoje imię i nazwisko, datę urodzenia, adres zamieszkania, wagę i wzrost — a aplikacja automatycznie obliczy BMI wraz z komentarzem.</p>
-            <p>Zapisz swoje schorzenia, alergie, aktualne kuracje, grupę krwi oraz deklarację dawstwa (krew, organy, szpik).</p>
-            <p>Dodatkowo wskaż osobę kontaktową na wypadek nagłych sytuacji — imię, nazwisko i numer telefonu.</p>
-            <p>Dzięki temu Twoje dane będą łatwo dostępne podczas wizyty u lekarza, pobytu w szpitalu lub sytuacji awaryjnej.</p>
-            <p><b>Z MedOpiekunem masz wszystko pod kontrolą!</b></p>
-        `;
-        document.getElementById("tekst-info").innerHTML = tekstInfo;
+         // --- Sekcja: Informacje medyczne ---
+    const tekstInfo = `
+        <h3>Sekcja: Informacje medyczne</h3>
+        <p>W aplikacji możesz zapisać podstawowe i najważniejsze dane o sobie, dzięki czemu w każdej chwili masz szybki dostęp do informacji medycznych.</p>
+        <p>W zakładce <b>„Informacje medyczne”</b> możesz zapisać:</p>
+
+        <ul>
+            <li>• <b>Imię i nazwisko</b>,</li>
+            <li>• <b>Datę urodzenia</b>,</li>
+            <li>• <b>Adres zamieszkania</b>,</li>
+            <li>• <b>Wagę i wzrost</b> – na ich podstawie aplikacja automatycznie oblicza wartość BMI wraz z komentarzem (np. „Prawidłowa waga”),</li>
+            <li>• <b>Schorzenia, alergie i aktualne kuracje</b>,</li>
+            <li>• <b>Grupę krwi</b> oraz <b>deklarację dawstwa</b> (krew, organy, szpik).</li>
+        </ul>
+
+        <p>Dodatkowo możesz wskazać <b>osobę kontaktową</b> na wypadek nagłych sytuacji:</p>
+
+        <ul>
+            <li>• <b>Imię i nazwisko</b>,</li>
+            <li>• <b>Numer telefonu</b>.</li>
+        </ul>
+
+        <p>Dane te mogą być niezwykle przydatne podczas wizyty u lekarza, pobytu w szpitalu lub w sytuacjach awaryjnych, kiedy szybki dostęp do informacji może mieć znaczenie.</p>
+
+        <p><b>Z MedOpiekunem masz wszystko pod kontrolą!</b></p>
+    `;
+    document.getElementById("tekst-info").innerHTML = tekstInfo;
 
         console.log("Witamy w aplikacji MedOpiekun!");
     </script>
