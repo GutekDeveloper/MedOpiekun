@@ -76,7 +76,7 @@ body {
     transform: scale(1.07);
 }
 
-/* --- WSPÓLNE USTAWIENIA SEKCJI --- */
+/* --- UKŁAD SEKCJI --- */
 section {
     margin: 60px auto;
     max-width: 1000px;
@@ -86,158 +86,48 @@ section {
     padding: 40px 20px;
 }
 
-/* --- SEKCJA LEKI --- */
-#tekst-leki {
-    max-width: 750px;
-    margin: 0 auto 30px;
-    color: #0d47a1;
-    text-align: center;
+/* --- UKŁAD TEKST + OBRAZY --- */
+.feature-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
 }
 
-#tekst-leki h3 {
-    font-size: 24px;
+.feature-text {
+    flex: 1 1 45%;
+    text-align: left;
+}
+
+.feature-text h3 {
+    font-size: 26px;
     margin-bottom: 10px;
+    color: #0d47a1;
 }
 
-#tekst-leki p {
+.feature-text p {
     font-size: 17px;
-    line-height: 1.6;
     color: #1565c0;
+    line-height: 1.6;
 }
 
-.leki-gallery {
+.feature-gallery {
+    flex: 1 1 45%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 25px;
-    margin-top: 20px;
+    gap: 20px;
 }
 
-.leki-gallery img {
-    width: 220px;
-    border-radius: 12px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.leki-gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
-}
-
-/* --- SEKCJA BADANIA --- */
-#tekst-badania {
-    max-width: 750px;
-    margin: 0 auto 30px;
-    color: #0d47a1;
-    text-align: center;
-}
-
-#tekst-badania h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-#tekst-badania p {
-    font-size: 17px;
-    line-height: 1.6;
-    color: #1565c0;
-}
-
-.badania-gallery {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    margin-top: 20px;
-}
-
-.badania-gallery img {
+.feature-gallery img {
     width: 220px;
     border-radius: 10px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.badania-gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
-}
-
-/* --- SEKCJA WIZYTY --- */
-#tekst-wizyty {
-    max-width: 750px;
-    margin: 0 auto 30px;
-    color: #0d47a1;
-    text-align: center;
-}
-
-#tekst-wizyty h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-#tekst-wizyty p {
-    font-size: 17px;
-    line-height: 1.6;
-    color: #1565c0;
-}
-
-.wizyty-gallery {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    margin-top: 20px;
-}
-
-.wizyty-gallery img {
-    width: 240px;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.wizyty-gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
-}
-
-/* --- SEKCJA INFORMACJE MEDYCZNE --- */
-#tekst-info {
-    max-width: 750px;
-    margin: 0 auto 30px;
-    color: #0d47a1;
-    text-align: center;
-}
-
-#tekst-info h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-#tekst-info p {
-    font-size: 17px;
-    line-height: 1.6;
-    color: #1565c0;
-}
-
-.info-gallery {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    margin-top: 20px;
-}
-
-.info-gallery img {
-    width: 220px;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.info-gallery img:hover {
+.feature-gallery img:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
@@ -315,18 +205,19 @@ section {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Kolory poszczególnych platform */
+/* --- Kolory platform społecznościowych --- */
 .social.facebook { background-color: #1877f2; }
 .social.instagram { background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4); }
 .social.youtube { background-color: #ff0000; }
 .social.tiktok { background: linear-gradient(45deg, #69c9d0, #ee1d52); }
 
-.policy-button-container {
+/* --- PRZYCISKI POLITYKI PRYWATNOŚCI --- */
+.policy-button-container, .privacy-button-container {
     text-align: center;
     margin-top: 20px;
 }
 
-.policy-button {
+.policy-button, .privacy-button {
     display: inline-block;
     background-color: #00897B;
     color: white;
@@ -338,11 +229,10 @@ section {
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-.policy-button:hover {
+.policy-button:hover, .privacy-button:hover {
     background-color: #00796B;
     transform: translateY(-2px);
 }
-
 
 /* --- STOPKA --- */
 .footer {
@@ -355,7 +245,7 @@ section {
 }
 
 /* --- RESPONSYWNOŚĆ --- */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .top-bar {
         flex-direction: column;
         gap: 10px;
@@ -374,71 +264,11 @@ section {
         font-size: 24px;
     }
 
-    .leki-gallery img,
-    .badania-gallery img {
-        width: 90%;
-        max-width: 300px;
-    }
-
     section {
         margin: 40px 10px;
         padding: 30px 15px;
     }
-}
-/* --- UKŁAD TEKST + OBRAZY (po lewej/prawej) --- */
-.feature-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
-    max-width: 1000px;
-    margin: 60px auto;
-    padding: 40px;
-    background-color: white;
-    border-radius: 14px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
 
-.feature-text {
-    flex: 1 1 45%;
-    text-align: left;
-}
-
-.feature-text h3 {
-    font-size: 26px;
-    margin-bottom: 10px;
-    color: #0d47a1;
-}
-
-.feature-text p {
-    font-size: 17px;
-    color: #1565c0;
-    line-height: 1.6;
-}
-
-.feature-gallery {
-    flex: 1 1 45%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.feature-gallery img {
-    width: 220px;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.feature-gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
-}
-
-/* --- WERSJA NAPRAWMIAJĄCA NA TELEFONY --- */
-@media (max-width: 800px) {
     .feature-section {
         flex-direction: column;
         text-align: center;
@@ -451,27 +281,10 @@ section {
     .feature-gallery {
         justify-content: center;
     }
-}
-/* 🔗 Przycisk polityki prywatności */
-.privacy-button-container {
-    text-align: center;
-    margin: 40px 0;
-}
 
-.privacy-button {
-    display: inline-block;
-    background-color: #00796b;
-    color: white;
-    padding: 12px 24px;
-    font-size: 1.1em;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    .feature-gallery img {
+        width: 90%;
+        max-width: 300px;
+    }
 }
-
-.privacy-button:hover {
-    background-color: #004d40;
-    transform: scale(1.05);
-}
-
 
