@@ -3,3 +3,11 @@ const tekstLeki = `
 <p>Aplikacja MedOpiekun pomaga w zarządzaniu Twoimi lekami — przypomina o porach dawkowania, dawkach oraz terminach recept.</p>
 <p>W prosty sposób możesz dodać, edytować lub usunąć lek, a także śledzić historię stosowania.</p>
 `;
+
+console.log("Witamy w aplikacji MedOpiekun!");
+
+// Wstawienie tekstu sekcji Leki
+const tekstContainer = document.getElementById("tekst-leki");
+if (tekstContainer) {
+    tekstContainer.innerHTML = tekstLeki;
+}
