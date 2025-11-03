@@ -34,10 +34,17 @@
         <!-- 🧩 Sekcja: Leki -->
         <section class="leki-section" id="leki-section">
             <div id="tekst-leki"></div>
-
             <div class="leki-gallery">
                 <img src="images/leki1.jpg" alt="Zrzut ekranu - Leki 1">
                 <img src="images/leki2.jpg" alt="Zrzut ekranu - Leki 2">
+            </div>
+        </section>
+
+        <!-- 🧩 Sekcja: Badania -->
+        <section class="badania-section" id="badania-section">
+            <div id="tekst-badania"></div>
+            <div class="badania-gallery">
+                <img src="images/badania.jpg" alt="Zrzut ekranu - Badania">
             </div>
         </section>
     </main>
@@ -46,23 +53,37 @@
         <p>© 2025 Gutek Developer. Wszelkie prawa zastrzeżone.</p>
     </footer>
 
-    <!-- ✅ Skrypt przeniesiony bezpośrednio do HTML -->
+    <!-- ✅ Skrypty -->
     <script>
+    // --- Sekcja: Leki ---
     const tekstLeki = `
-    <h3>Sekcja: Leki</h3>
-    <p>Aplikacja MedOpiekun pomaga w zarządzaniu Twoimi lekami — przypomina o porach dawkowania, dawkach oraz terminach recept.</p>
-    <p>W prosty sposób możesz dodać, edytować lub usunąć lek, a także śledzić historię stosowania.</p>
+        <h3>Sekcja: Leki</h3>
+        <p>Aplikacja MedOpiekun pomaga w zarządzaniu Twoimi lekami — przypomina o porach dawkowania, dawkach oraz terminach recept.</p>
+        <p>W prosty sposób możesz dodać, edytować lub usunąć lek, a także śledzić historię stosowania.</p>
     `;
 
-    console.log("Witamy w aplikacji MedOpiekun!");
-
-    const tekstContainer = document.getElementById("tekst-leki");
-    if (tekstContainer) {
-        tekstContainer.innerHTML = tekstLeki;
+    const tekstContainerLeki = document.getElementById("tekst-leki");
+    if (tekstContainerLeki) {
+        tekstContainerLeki.innerHTML = tekstLeki;
     }
+
+    // --- Sekcja: Badania ---
+    const tekstBadania = `
+        <h3>Sekcja: Badania</h3>
+        <p>Moduł badań w aplikacji MedOpiekun umożliwia zapisywanie wyników i dat badań lekarskich.</p>
+        <p>Możesz przechowywać historię pomiarów, analizować zmiany i mieć wszystkie dane zdrowotne zawsze przy sobie.</p>
+    `;
+
+    const tekstContainerBadania = document.getElementById("tekst-badania");
+    if (tekstContainerBadania) {
+        tekstContainerBadania.innerHTML = tekstBadania;
+    }
+
+    console.log("Witamy w aplikacji MedOpiekun!");
     </script>
 
     <script src="script.js"></script>
 </body>
 </html>
+
 
