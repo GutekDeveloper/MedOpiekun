@@ -4,7 +4,7 @@
 body {
     margin: 0;
     font-family: "Segoe UI", Roboto, Arial, sans-serif;
-    background: linear-gradient(135deg, #bbdefb, #f8bbd0);
+    background: radial-gradient(circle at top left, #bbdefb, #f8bbd0 80%);
     color: #0d47a1;
     line-height: 1.6;
     min-height: 100vh;
@@ -90,7 +90,7 @@ body {
 section, .feature-section {
     margin: 60px auto;
     max-width: 1000px;
-    background-color: white;
+    background: linear-gradient(120deg, #ffffff, #f1f8ff);
     border-radius: 14px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 40px 20px;
@@ -198,7 +198,7 @@ section, .feature-section {
 ================================= */
 .about-section {
     text-align: center;
-    background: linear-gradient(135deg, #1976d2, #5c6bc0);
+    background: linear-gradient(135deg, rgba(25, 118, 210, 0.9), rgba(92, 107, 192, 0.9));
     color: #fff;
     border-radius: 16px;
     padding: 40px 25px;
