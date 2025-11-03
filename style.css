@@ -73,6 +73,44 @@ body {
     padding: 15px;
     font-size: 14px;
 }
+/* --- Sekcja leki --- */
+.leki-section {
+    margin-top: 60px;
+    padding: 20px;
+    background-color: #e3f2fd;
+    border-top: 2px solid #90caf9;
+}
+
+#tekst-leki {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    text-align: center;
+    color: #0d47a1;
+}
+
+#tekst-leki h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.leki-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.leki-gallery img {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.leki-gallery img:hover {
+    transform: scale(1.03);
+}
+
 
 /* --- Dostosowanie do telefonów --- */
 @media (max-width: 600px) {
