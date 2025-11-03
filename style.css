@@ -291,8 +291,35 @@ section {
     text-decoration: underline;
 }
 
+/* --- LINKI SPOŁECZNOŚCIOWE --- */
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
 
+.social {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
 
+.social:hover {
+    transform: scale(1.07);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Kolory poszczególnych platform */
+.social.facebook { background-color: #1877f2; }
+.social.instagram { background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4); }
+.social.youtube { background-color: #ff0000; }
+.social.tiktok { background: linear-gradient(45deg, #69c9d0, #ee1d52); }
 
 /* --- STOPKA --- */
 .footer {
