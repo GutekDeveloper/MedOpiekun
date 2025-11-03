@@ -124,33 +124,33 @@
 
     <!-- ✅ Skrypty wypełniające treści sekcji -->
     <script>
-       // --- Sekcja: Leki ---
-const tekstLeki = `
-<h3>Sekcja: Leki</h3>
-<p>W zakładce <b>„Lista leków”</b> możesz:</p>
-<ul>
-    <li>• Dodawać nowe leki, podając ich nazwę, dzienną dawkę, ilość w opakowaniu i ilość aktualnie posiadanych tabletek.</li>
-    <li>• Edytować i usuwać leki, gdy zajdzie taka potrzeba.</li>
-    <li>• Ustawiać dni tygodnia oraz pory dnia, w których przyjmujesz lek — powiadomienia i automatyczne odejmowanie dawki odbywają się tylko w zaznaczonych dniach i godzinach.</li>
-    <li>• Korzystać z funkcji <b>automatycznego odejmowania tabletek</b> — aplikacja raz dziennie zmniejsza stan leku o zadaną dzienną dawkę, tylko w wybrane dni.</li>
-    <li>• Dodawać nowe opakowanie bez potrzeby ponownego wpisywania wszystkich danych — wystarczy jeden przycisk.</li>
-    <li>• Kliknąć ikonę 🌐 przy nazwie leku, aby szybko wyszukać jego ulotkę w Internecie.</li>
-</ul>
+        // --- Sekcja: Podstawowe informacje o aplikacji ---
+        const tekstAppInfo = `
+            <h3>Informacje o aplikacji „MedOpiekun”</h3>
+            <p>„MedOpiekun” to intuicyjna i praktyczna aplikacja mobilna stworzona z myślą o osobach, które chcą lepiej zarządzać swoim zdrowiem i lekami.</p>
+            
+            <p>Sprawdzi się idealnie dla:</p>
+            <ul>
+                <li>• osób przyjmujących leki regularnie (np. osoby starsze, chorujące przewlekle),</li>
+                <li>• osób opiekujących się bliskimi i potrzebujących kontroli nad ich leczeniem,</li>
+                <li>• każdego, kto chce śledzić swoje wyniki badań (np. ciśnienie, cukier, saturacja),</li>
+                <li>• osób dbających o profilaktykę zdrowotną.</li>
+            </ul>
 
-<p>Każdy lek na liście pokazuje nazwę, ilość tabletek, dzienną dawkę i status:</p>
-<ul>
-    <li>🟢 <b>OK</b> – zapas wystarczający</li>
-    <li>🟠 <b>Uzupełnij lek</b> – kończy się</li>
-    <li>🔴 <b>Brak</b> – należy uzupełnić natychmiast</li>
-</ul>
+            <p>Aplikacja pozwala:</p>
+            <ul>
+                <li>• zarządzać lekami — kontrolować zapasy i dawkowanie,</li>
+                <li>• dodawać i analizować wyniki pomiarów zdrowotnych,</li>
+                <li>• ustawiać przypomnienia o zażyciu leków,</li>
+                <li>• eksportować dane do pliku PDF lub JSON,</li>
+                <li>• zapisać dane osobiste i kontaktowe – na wypadek nagłych sytuacji.</li>
+            </ul>
 
-<p>Dodatkowo aplikacja wyświetla liczbę dni do wyczerpania zapasu — dzięki temu możesz z wyprzedzeniem zadbać o kolejne opakowanie.</p>
-<p><b>Zarządzanie lekami nigdy nie było prostsze!</b></p>
-`;
+            <p>„MedOpiekun” działa w pełni offline i nie wymaga zakładania konta — Twoje dane są bezpieczne i dostępne tylko na Twoim urządzeniu.</p>
 
-document.getElementById("tekst-leki").innerHTML = tekstLeki;
-
-
+            <p>Aplikacja została zaprojektowana z myślą o prostocie i wygodzie, aby każdy – niezależnie od wieku czy doświadczenia z technologią – mógł z niej korzystać bez problemu.</p>
+        `;
+        document.getElementById("tekst-appinfo").innerHTML = tekstAppInfo;
         // --- Sekcja: Leki ---
         const tekstLeki = `
             <h3>Sekcja: Leki</h3>
@@ -272,4 +272,3 @@ document.getElementById("tekst-leki").innerHTML = tekstLeki;
     <script src="script.js"></script>
 </body>
 </html>
-
