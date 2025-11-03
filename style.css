@@ -346,8 +346,9 @@ section, .feature-section {
     background: rgba(206, 147, 216, 0.4);
     margin: 10px;
 }
-
-
+.left-shapes, .right-shapes {
+    top: 80px; /* wysokość topbara + trochę marginesu */
+}
 
 /* ===============================
    RESPONSYWNOŚĆ
