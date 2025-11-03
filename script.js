@@ -8,18 +8,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Animacja kształtów po bokach przy scrollu z pętlą
+// Animacja kształtów po bokach przy scrollu
 window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
     const offsetTopBar = 80; // wysokość topbara + margines
 
+    // Left shapes
     document.querySelectorAll(".left-shapes .shape").forEach((el, i) => {
-        const y = offsetTopBar + ((scrollY * 0.3 + i * 10) % (window.innerHeight + 100));
+        const y = offsetTopBar + ((scrollY * 0.3 + i * 25) % (window.innerHeight + 50));
         el.style.transform = `translateY(${y}px) rotate(${scrollY * 0.05}deg)`;
     });
 
+    // Right shapes
     document.querySelectorAll(".right-shapes .shape").forEach((el, i) => {
-        const y = offsetTopBar + ((scrollY * 0.2 + i * 15) % (window.innerHeight + 100));
+        const y = offsetTopBar + ((scrollY * 0.2 + i * 35) % (window.innerHeight + 50));
         el.style.transform = `translateY(${y}px) rotate(${scrollY * 0.03}deg)`;
     });
 });
