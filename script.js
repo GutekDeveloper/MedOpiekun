@@ -8,7 +8,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Animacja kształtów po bokach przy scrollu
+// ===============================
+// Animacja kształtów + generowanie
+// ===============================
+
+// Definicja typów kształtów
+const shapes = ["circle", "triangle", "square"];
+
+// Funkcja do losowego wyboru kształtu
+function getRandomShape() {
+    return shapes[Math.floor(Math.random() * shapes.length)];
+}
+
+// Funkcja wypełniająca kontener kształtami
+function fillShapes(containerSelector, count = 30) {
+    const container = document.querySelector(containerSelector);
+    if (!container) return;
+    container.innerHTML = ""; // wyczyść zawartość
+    for (let i = 0; i < count; i++) {
+        const shapeType = getRandomShape();
+        const div = document.createElement("div");
+        div.classList.add("shape-" + shapeType);
+        div.classList.add("shape");
+        container.appendChild(div);
+    }
+}
+
+// Wypełnienie lewego i prawego kontenera po załadowaniu DOM
+document.addEventListener("DOMContentLoaded", () => {
+    fillShapes(".left-shapes", 40);  // 40 kształtów po lewej
+    fillShapes(".right-shapes", 35); // 35 kształtów po prawej
+});
+
+// Animacja kształtów przy scrollu
 window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
     const offsetTopBar = 80; // wysokość topbara + margines
