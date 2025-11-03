@@ -225,6 +225,47 @@ section, .feature-section {
 .about-card .contact a:hover {
     text-decoration: underline;
 }
+/* ===============================
+   SEKCJA: BEZPIECZEŃSTWO I PRYWATNOŚĆ
+================================= */
+#tekst-security {
+    max-width: 750px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+#tekst-security h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #0d47a1;
+}
+
+#tekst-security p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #1565c0;
+}
+
+.security-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.security-gallery img {
+    width: 220px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.security-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
 
 /* ===============================
    LINKI SPOŁECZNOŚCIOWE
