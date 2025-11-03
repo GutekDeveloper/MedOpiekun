@@ -55,6 +55,16 @@
                 <img src="images/wizyty.jpg" alt="Zrzut ekranu - Wizyty">
             </div>
         </section>
+
+        <!-- 🧩 Sekcja: Informacje medyczne -->
+<section class="info-section" id="info-section">
+    <div id="tekst-info"></div>
+    <div class="info-gallery">
+        <img src="images/info1.jpg" alt="Zrzut ekranu - Informacje medyczne 1">
+        <img src="images/info2.jpg" alt="Zrzut ekranu - Informacje medyczne 2">
+    </div>
+</section>
+
     </main>
 
     <footer class="footer">
@@ -86,6 +96,19 @@
         <p>Dodaj datę, nazwę lekarza, lokalizację oraz notatki — a aplikacja przypomni Ci o nadchodzących wizytach.</p>
     `;
     document.getElementById("tekst-wizyty").innerHTML = tekstWizyty;
+
+   // --- Sekcja: Informacje medyczne ---
+const tekstInfo = `
+    <h3>Sekcja: Informacje medyczne</h3>
+    <p>W aplikacji możesz zapisać wszystkie ważne informacje o sobie i osobie kontaktowej.</p>
+    <p>Dodaj swoje imię i nazwisko, datę urodzenia, adres zamieszkania, wagę i wzrost — a aplikacja automatycznie obliczy BMI wraz z komentarzem.</p>
+    <p>Zapisz swoje schorzenia, alergie, aktualne kuracje, grupę krwi oraz deklarację dawstwa (krew, organy, szpik).</p>
+    <p>Dodatkowo wskaż osobę kontaktową na wypadek nagłych sytuacji — imię, nazwisko i numer telefonu.</p>
+    <p>Dzięki temu Twoje dane będą łatwo dostępne podczas wizyty u lekarza, pobytu w szpitalu lub sytuacji awaryjnej.</p>
+    <p><b>Z MedOpiekunem masz wszystko pod kontrolą!</b></p>
+`;
+document.getElementById("tekst-info").innerHTML = tekstInfo;
+
 
     console.log("Witamy w aplikacji MedOpiekun!");
     </script>
