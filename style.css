@@ -314,34 +314,39 @@ section, .feature-section {
 /* ===============================
    ELEMENTY GEOMETRYCZNE PO BOKACH
 ================================= */
+/* Kontenery po bokach */
 .left-shapes, .right-shapes {
     position: fixed;
     top: 0;
     width: 60px;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     pointer-events: none;
     z-index: 0;
 }
 
+/* Kształty */
 .shape-circle {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    background: rgba(187, 222, 251, 0.4);
+    background: rgba(187, 222, 251, 0.6);
 }
 
 .shape-triangle {
-    width: 24;
-    height: 24;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 16px solid rgba(248, 187, 208, 0.4);
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 24px solid rgba(248, 187, 208, 0.6);
 }
 
 .shape-square {
-    width: 24px;
-    height: 24px;
-    background: rgba(206, 147, 216, 0.4);
+    width: 28px;
+    height: 28px;
+    background: rgba(206, 147, 216, 0.6);
 }
 
 /* Topbar zawsze nad kształtami */
