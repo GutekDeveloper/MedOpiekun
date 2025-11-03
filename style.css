@@ -13,8 +13,8 @@ body {
    PASEK GÓRNY
 ================================= */
 .header {
-    /* gradient czerwony → niebieski */
-    background: linear-gradient(90deg, #e53935, #1e88e5);
+    /* gradient czerwony → ciemniejszy niebieski */
+    background: linear-gradient(90deg, #e53935, #0d47a1);
     color: white;
     padding: 15px 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
