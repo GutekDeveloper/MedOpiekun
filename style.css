@@ -452,4 +452,26 @@ section {
         justify-content: center;
     }
 }
+/* 🔗 Przycisk polityki prywatności */
+.privacy-button-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.privacy-button {
+    display: inline-block;
+    background-color: #00796b;
+    color: white;
+    padding: 12px 24px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.privacy-button:hover {
+    background-color: #004d40;
+    transform: scale(1.05);
+}
+
 
