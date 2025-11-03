@@ -317,10 +317,14 @@ section, .feature-section {
 .shape {
     position: fixed;
     top: 0;
-    width: 40px;   /* mniejsze niż wcześniej */
-    height: 40px;  /* mniejsze niż wcześniej */
+    width: 40px;
+    height: 40px;
     pointer-events: none;
     z-index: 0;
+}
+
+.left-shapes, .right-shapes {
+    top: 80px; /* wysokość topbara + margines */
 }
 
 .shape-circle {
@@ -328,7 +332,7 @@ section, .feature-section {
     height: 30px;
     border-radius: 50%;
     background: rgba(187, 222, 251, 0.4);
-    margin: 10px;  /* mniejsze odstępy */
+    margin: 10px;
 }
 
 .shape-triangle {
@@ -346,9 +350,7 @@ section, .feature-section {
     background: rgba(206, 147, 216, 0.4);
     margin: 10px;
 }
-.left-shapes, .right-shapes {
-    top: 80px; /* wysokość topbara + trochę marginesu */
-}
+
 
 /* ===============================
    RESPONSYWNOŚĆ
