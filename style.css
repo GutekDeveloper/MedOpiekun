@@ -146,7 +146,7 @@ body {
 }
 
 .badania-gallery img {
-    width: 200px;                /* ✅ jeszcze mniejsze */
+    width: 220px;
     max-width: 100%;
     height: auto;
     border-radius: 10px;
