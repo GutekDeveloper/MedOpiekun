@@ -94,26 +94,27 @@ section, .feature-section {
 }
 
 /* ===============================
-   SEKCJE: LEKI / BADANIA / WIZYTY / INFO
+   SEKCJE: LEKI / BADANIA / WIZYTY / INFO / BEZPIECZEŃSTWO
 ================================= */
-#tekst-leki, #tekst-badania, #tekst-wizyty, #tekst-info {
+#tekst-leki, #tekst-badania, #tekst-wizyty, #tekst-info, #tekst-bezpieczenstwo {
     max-width: 750px;
     margin: 0 auto 30px;
     text-align: center;
 }
 
-#tekst-leki h3, #tekst-badania h3, #tekst-wizyty h3, #tekst-info h3 {
+#tekst-leki h3, #tekst-badania h3, #tekst-wizyty h3, #tekst-info h3, #tekst-bezpieczenstwo h3 {
     font-size: 24px;
     margin-bottom: 10px;
+    color: #0d47a1;
 }
 
-#tekst-leki p, #tekst-badania p, #tekst-wizyty p, #tekst-info p {
+#tekst-leki p, #tekst-badania p, #tekst-wizyty p, #tekst-info p, #tekst-bezpieczenstwo p {
     font-size: 17px;
     line-height: 1.6;
     color: #1565c0;
 }
 
-.leki-gallery, .badania-gallery, .wizyty-gallery, .info-gallery {
+.leki-gallery, .badania-gallery, .wizyty-gallery, .info-gallery, .bezpieczenstwo-gallery {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -121,16 +122,22 @@ section, .feature-section {
     margin-top: 20px;
 }
 
-.leki-gallery img, .badania-gallery img, .wizyty-gallery img, .info-gallery img {
+.leki-gallery img,
+.badania-gallery img,
+.wizyty-gallery img,
+.info-gallery img,
+.bezpieczenstwo-gallery img {
     width: 220px;
     border-radius: 10px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
 .leki-gallery img:hover,
 .badania-gallery img:hover,
 .wizyty-gallery img:hover,
-.info-gallery img:hover {
+.info-gallery img:hover,
+.bezpieczenstwo-gallery img:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
@@ -177,10 +184,12 @@ section, .feature-section {
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
 .feature-gallery img:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
+
 
 /* ===============================
    SEKCJA O MNIE
@@ -224,46 +233,6 @@ section, .feature-section {
 }
 .about-card .contact a:hover {
     text-decoration: underline;
-}
-/* ===============================
-   SEKCJA: BEZPIECZEŃSTWO I PRYWATNOŚĆ
-================================= */
-#tekst-bezpieczenstwo {
-    max-width: 750px;
-    margin: 0 auto 30px;
-    text-align: center;
-}
-
-#tekst-bezpieczenstwo h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #0d47a1;
-}
-
-#tekst-bezpieczenstwo p {
-    font-size: 17px;
-    line-height: 1.6;
-    color: #1565c0;
-}
-
-.bezpieczenstwo-gallery {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    margin-top: 20px;
-}
-
-.bezpieczenstwo-gallery img {
-    width: 220px;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.bezpieczenstwo-gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
 
 /* ===============================
