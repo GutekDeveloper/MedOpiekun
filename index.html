@@ -346,33 +346,45 @@
         `;
         document.getElementById("tekst-wizyty").innerHTML = tekstWizyty;
 
-        // --- Sekcja: Informacje medyczne ---
-        const tekstInfo = `
-            <h3>Sekcja: Informacje medyczne</h3>
-            <p>W aplikacji możesz zapisać podstawowe i najważniejsze dane o sobie, dzięki czemu w każdej chwili masz szybki dostęp do informacji medycznych.</p>
-            <p>W zakładce <b>„Informacje medyczne”</b> możesz zapisać:</p>
+       // --- Sekcja: Informacje medyczne ---
+const tekstInfo = `
+    <h3>Sekcja: Informacje medyczne</h3>
+    <p>W aplikacji możesz zapisać podstawowe i najważniejsze dane o sobie, dzięki czemu w każdej chwili masz szybki dostęp do informacji medycznych.</p>
+    <p>W zakładce <b>„Informacje medyczne”</b> możesz zapisać:</p>
 
-            <ul>
-                <li>• <b>Imię i nazwisko</b>,</li>
-                <li>• <b>Datę urodzenia</b>,</li>
-                <li>• <b>Adres zamieszkania</b>,</li>
-                <li>• <b>Wagę i wzrost</b> – na ich podstawie aplikacja automatycznie oblicza wartość BMI wraz z komentarzem (np. „Prawidłowa waga”),</li>
-                <li>• <b>Schorzenia, alergie i aktualne kuracje</b>,</li>
-                <li>• <b>Grupę krwi</b> oraz <b>deklarację dawstwa</b> (krew, organy, szpik).</li>
-            </ul>
+    <ul>
+        <li>• <b>Imię i nazwisko</b>,</li>
+        <li>• <b>Datę urodzenia</b>,</li>
+        <li>• <b>Adres zamieszkania</b>,</li>
+        <li>• <b>Wagę i wzrost</b> – na ich podstawie aplikacja automatycznie oblicza wartość BMI wraz z komentarzem (np. „Prawidłowa waga”),</li>
+        <li>• <b>Schorzenia, alergie i aktualne kuracje</b>,</li>
+        <li>• <b>Grupę krwi</b> oraz <b>deklarację dawstwa</b> (krew, organy, szpik).</li>
+    </ul>
 
-            <p>Dodatkowo możesz wskazać <b>osobę kontaktową</b> na wypadek nagłych sytuacji:</p>
+    <p>Dodatkowo możesz wskazać <b>osobę kontaktową</b> na wypadek nagłych sytuacji:</p>
 
-            <ul>
-                <li>• <b>Imię i nazwisko</b>,</li>
-                <li>• <b>Numer telefonu</b>.</li>
-            </ul>
+    <ul>
+        <li>• <b>Imię i nazwisko</b>,</li>
+        <li>• <b>Numer telefonu</b>.</li>
+    </ul>
 
-            <p>Dane te mogą być niezwykle przydatne podczas wizyty u lekarza, pobytu w szpitalu lub w sytuacjach awaryjnych, kiedy szybki dostęp do informacji może mieć znaczenie.</p>
+    <p>Dane te mogą być niezwykle przydatne podczas wizyty u lekarza, pobytu w szpitalu lub w sytuacjach awaryjnych, kiedy szybki dostęp do informacji może mieć znaczenie.</p>
 
-            <p><b>Z MedOpiekunem masz wszystko pod kontrolą!</b></p>
-        `;
-        document.getElementById("tekst-info").innerHTML = tekstInfo;
+    <p><b>Z MedOpiekunem masz wszystko pod kontrolą!</b></p>
+
+    <!-- 🎬 Przycisk do filmu YouTube -->
+    <div class="video-button-container" style="margin-top: 20px; text-align: center;">
+        <a href="https://www.youtube.com/watch?v=JXLyobwxpPU"
+           target="_blank"
+           rel="noopener"
+           class="video-button"
+           title="Zobacz film instruktażowy na YouTube">
+            ▶️ Obejrzyj film: Informacje medyczne
+        </a>
+    </div>
+`;
+document.getElementById("tekst-info").innerHTML = tekstInfo;
+
 
         // --- Sekcja: Bezpieczeństwo i prywatność ---
         const tekstBezpieczenstwo = `
