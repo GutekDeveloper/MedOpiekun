@@ -27,8 +27,10 @@ body {
    NAGŁÓWEK
 ================================= */
 .header {
-  position: sticky;
+  position: fixed; /* Zmieniamy na fixed, aby działało z JS */
   top: 0;
+  left: 0;
+  width: 100%;
   background: rgba(21, 101, 192, 0.65);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--glass-border);
@@ -36,7 +38,7 @@ body {
   padding: 15px 25px;
   box-shadow: 0 8px 32px rgba(31, 38, 135, 0.25);
   z-index: 10;
-  transition: all 0.3s ease;
+  transition: top 0.3s ease; /* Animacja tylko na top */
 }
 
 .header:hover {
