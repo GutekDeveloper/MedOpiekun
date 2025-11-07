@@ -367,13 +367,12 @@ section p {
    📱 Chowanie topbara na małych ekranach
 ========================================= */
 @media (max-width: 768px) {
-  .topbar { /* Zastąp `.topbar` klasą, którą masz w topbarze */
+  .top-bar { /* Zmieniamy na `.top-bar`, ponieważ to jest klasa, którą masz w HTML */
     display: none; /* Ukrywa topbar na telefonach */
   }
-  
-  /* Opcjonalnie: Możesz też dodać przestrzeń na górze strony, jeśli coś jest "zgniecione" */
+
+  /* Opcjonalnie, żeby nie było miejsca po topbarze */
   body {
-    padding-top: 60px; /* Możesz dostosować wartość w zależności od wysokości topbara */
+    margin-top: 0; /* Usuwa marginesy z góry */
   }
 }
-
