@@ -268,3 +268,29 @@ section p {
   .leki-gallery img, .badania-gallery img, .wizyty-gallery img,
   .info-gallery img, .bezpieczenstwo-gallery img { width: 90%; max-width: 300px; }
 }
+
+/* =======================================
+   🩺 POPRAWKA: skalowanie zdjęć w galeriach
+========================================= */
+.leki-gallery img,
+.badania-gallery img,
+.wizyty-gallery img,
+.info-gallery img,
+.bezpieczenstwo-gallery img {
+  width: auto;
+  max-width: 280px;
+  height: auto;
+  object-fit: cover;
+}
+
+/* 📱 Na telefonach i małych ekranach */
+@media (max-width: 800px) {
+  .leki-gallery img,
+  .badania-gallery img,
+  .wizyty-gallery img,
+  .info-gallery img,
+  .bezpieczenstwo-gallery img {
+    max-width: 90%;
+    height: auto;
+  }
+}
