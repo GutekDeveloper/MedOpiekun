@@ -345,3 +345,22 @@ section p {
   }
 }
 
+/* =========================================
+   🎬 Odstęp między przyciskiem a galerią
+========================================= */
+#info-section .feature-gallery {
+  margin-top: 40px; /* Odstęp od przycisku */
+}
+
+/* Dodatkowo poprawa wyśrodkowania przycisku */
+#info-section .video-button-container {
+  margin-bottom: 20px;
+}
+
+/* 📱 Na małych ekranach nieco mniejszy odstęp */
+@media (max-width: 768px) {
+  #info-section .feature-gallery {
+    margin-top: 25px;
+  }
+}
+
