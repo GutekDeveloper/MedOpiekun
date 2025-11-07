@@ -268,10 +268,3 @@ section p {
   .leki-gallery img, .badania-gallery img, .wizyty-gallery img,
   .info-gallery img, .bezpieczenstwo-gallery img { width: 90%; max-width: 300px; }
 }
-
-/* Awaryjna poprawka widoczności sekcji */
-section, .about-section {
-  opacity: 1 !important;
-  transform: none !important;
-}
-
