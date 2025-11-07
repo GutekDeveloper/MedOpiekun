@@ -294,3 +294,54 @@ section p {
     height: auto;
   }
 }
+
+/* ========================================
+   🧩 Poprawki rozmiarów obrazów w sekcjach
+========================================== */
+
+/* 🔹 Logo aplikacji – mniejsze i responsywne */
+.appinfo-gallery img {
+  width: auto;
+  max-width: 180px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* 🔹 Sekcja Leki, Badania, Wizyty, Informacje medyczne */
+#leki-section .feature-gallery img,
+#badania-section .feature-gallery img,
+#wizyty-section .feature-gallery img,
+#info-section .feature-gallery img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efekt hover – lekka animacja powiększenia */
+#leki-section .feature-gallery img:hover,
+#badania-section .feature-gallery img:hover,
+#wizyty-section .feature-gallery img:hover,
+#info-section .feature-gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* 📱 Na telefonach i mniejszych ekranach */
+@media (max-width: 768px) {
+  #leki-section .feature-gallery img,
+  #badania-section .feature-gallery img,
+  #wizyty-section .feature-gallery img,
+  #info-section .feature-gallery img {
+    max-width: 90%;
+  }
+
+  .appinfo-gallery img {
+    max-width: 140px;
+  }
+}
+
