@@ -73,12 +73,14 @@ body {
 .main-content {
   text-align: center;
   padding: 80px 20px 60px;
+  margin-top: 50px; /* Nowa przestrzeń nad główną sekcją */
 }
 
 .main-content h2 {
   font-size: 32px;
   color: var(--primary);
   margin-bottom: 15px;
+  font-weight: 600;
 }
 
 .description {
@@ -87,6 +89,7 @@ body {
   font-size: 18px;
   color: #0d1b2a;
   opacity: 0.85;
+  font-weight: 400;
 }
 
 /* ===============================
@@ -268,6 +271,7 @@ section p {
   .leki-gallery img, .badania-gallery img, .wizyty-gallery img,
   .info-gallery img, .bezpieczenstwo-gallery img { width: 90%; max-width: 300px; }
 }
+
 /* 📱 Zmniejszenie topbara na urządzeniach mobilnych */
 @media (max-width: 768px) {
   .header {
@@ -284,6 +288,7 @@ section p {
     height: 40px; /* Zmniejsz logo */
   }
 }
+
 /* 📱 Na małych ekranach dostosowanie paddingu głównej treści */
 @media (max-width: 768px) {
   .main-content {
@@ -385,6 +390,7 @@ section p {
     margin-top: 25px;
   }
 }
+
 /* =========================================
    📱 Chowanie topbara na małych ekranach
 ========================================= */
@@ -403,3 +409,4 @@ section p {
     padding-top: 30px; /* Dostosowanie przestrzeni nad treścią */
   }
 }
+
