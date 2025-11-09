@@ -1,610 +1,425 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedOpiekun - Twoja aplikacja do zarządzania zdrowiem</title>
-    <!-- Import Poppins Font zgodnie z CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-/* ===============================
-    GLOBAL SETTINGS
-================================= */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-:root {
-    --primary: #1565c0;
-    --secondary: #42a5f5;
-    --accent: #00bcd4;
-    
-    /* NEW VARIABLES FOR BACKGROUND AND CARDS */
-    --bg-main: #f0f4f8; /* Unified, light blue background */
-    --bg-card: #ffffff; /* Clean white for all cards */
-    --shadow-soft: 0 6px 24px rgba(31, 38, 135, 0.08); /* Soft, modern shadow */
-    
-    --text-dark: #0d1b2a;
-    --text-light: #f4f4f4;
-}
-
-body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    
-    /* CHANGED BACKGROUND: from gradient to solid, bright color */
-    background: var(--bg-main); 
-    
-    color: var(--text-dark);
-    line-height: 1.6;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-
-/* ===============================
-    HEADER (JS Ready)
-================================= */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    
-    /* CHANGE: from semi-transparent to solid white */
-    background: var(--bg-card);
-    /* REMOVED: backdrop-filter, border-bottom */
-    
-    /* CHANGE: text must now be dark on white background */
-    color: var(--text-dark); 
-    
-    padding: 15px 25px;
-    
-    /* CHANGE: Modern, subtle shadow separating from content */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); 
-    
-    z-index: 10;
-    
-    /* CHANGE: Transitioning from 'top' to 'transform' for smooth JS animation */
-    transition: transform 0.3s ease-out; 
-}
-
-/* NEW CLASS: Defines how the hidden header looks (for JS) */
-.header.header-hidden {
-    /* Moves the header up by 100% of its own height */
-    transform: translateY(-100%);
-}
-/* REMOVED: .header:hover (not needed with solid background) */
-
-
-.top-bar {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.app-logo, .dev-logo {
-    height: 55px;
-    border-radius: 12px;
-    object-fit: contain;
-    background: white;
-    padding: 5px;
-    
-    /* CHANGE: A subtle frame so the logo doesn't "blend" with the white header */
-    border: 1px solid #eee; 
-    
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Reduced shadow */
-}
-
-.app-info h1, .developer-info p {
-    margin: 0;
-    font-weight: 600;
-}
-
-
-/* ===============================
-    MAIN SECTION
-================================= */
-.main-content {
-    text-align: center;
-    
-    /* CHANGE: Set one, correct top margin 
-               to hide the fixed header */
-    padding: 120px 20px 60px; 
-    /* REMOVED: margin-top: 50px; */ 
-}
-
-.main-content h2 {
-    font-size: 32px;
-    color: var(--primary);
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-.description {
-    max-width: 700px;
-    margin: 0 auto 50px;
-    font-size: 18px;
-    color: #0d1b2a;
-    opacity: 0.85;
-    font-weight: 400;
-}
-
-/* ===============================
-    BUTTONS
-================================= */
-.download-button img {
-    width: 220px;
-    transition: transform 0.3s ease;
-    margin-bottom: 40px;
-}
-
-.download-button img:hover {
-    transform: scale(1.07);
-}
-
-.video-button {
-    display: inline-block;
-    background: linear-gradient(90deg, var(--secondary), var(--accent));
-    color: white;
-    padding: 14px 28px;
-    border-radius: 12px;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 17px;
-    box-shadow: 0 6px 20px rgba(0, 188, 212, 0.35);
-    transition: all 0.3s ease;
-}
-
-.video-button:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(0, 188, 212, 0.5);
-}
-
-/* ===============================
-    SECTIONS (NOW CARDS)
-================================= */
-section {
-    margin: 60px auto;
-    max-width: 1000px;
-    
-    /* CHANGE: Using solid card background */
-    background: var(--bg-card);
-    
-    border-radius: 18px;
-    
-    /* REMOVED: backdrop-filter, border */
-    
-    /* CHANGE: Using new, soft shadow */
-    box-shadow: var(--shadow-soft);
-    
-    padding: 50px 30px;
-    
-    /* Animations stay - they are great! */
-    transform: translateY(40px);
-    opacity: 0;
-    transition: all 0.8s ease;
-}
-
-section.visible {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-section h3 {
-    font-size: 26px;
-    color: var(--primary);
-    margin-bottom: 12px;
-}
-
-section p {
-    font-size: 17px;
-    color: #102a43;
-    opacity: 0.9;
-}
-
-/* ===============================
-    GALLERIES
-================================= */
-.leki-gallery, .badania-gallery, .wizyty-gallery, .info-gallery, .bezpieczenstwo-gallery {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    margin-top: 20px;
-}
-
-.leki-gallery img, .badania-gallery img, .wizyty-gallery img, .info-gallery img, .bezpieczenstwo-gallery img {
-    width: 220px;
-    border-radius: 14px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.leki-gallery img:hover, .badania-gallery img:hover,
-.wizyty-gallery img:hover, .info-gallery img:hover,
-.bezpieczenstwo-gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-}
-
-/* ===============================
-    ABOUT (NOW CARD)
-================================= */
-.about-section {
-    text-align: center;
-    
-    /* CHANGE: from semi-transparent to solid white */
-    background: var(--bg-card); 
-    
-    border-radius: 20px;
-    
-    /* REMOVED: backdrop-filter, border */
-    
-    color: var(--text-dark);
-    padding: 50px 25px;
-    margin: 70px auto;
-    max-width: 850px;
-    
-    /* CHANGE: Using new, soft shadow */
-    box-shadow: var(--shadow-soft);
-}
-
-.about-card h2 {
-    font-size: 28px;
-    margin-bottom: 15px;
-    color: var(--primary);
-}
-
-.about-card p {
-    font-size: 17px;
-    opacity: 0.9;
-}
-
-.about-card b {
-    color: var(--secondary);
-}
-
-.about-card .signature {
-    margin-top: 25px;
-    font-style: italic;
-    color: var(--accent);
-}
-
-/* ===============================
-    SOCIAL LINKS
-================================= */
-.social-links {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.social {
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-weight: 600;
-    text-decoration: none;
-    color: white;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.social:hover {
-    transform: scale(1.07);
-}
-
-.social.facebook { background: #1877f2; }
-.social.instagram { background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af); }
-.social.youtube { background: #ff0000; }
-.social.tiktok { background: linear-gradient(45deg, #69c9d0, #ee1d52); }
-
-/* ===============================
-    FOOTER
-================================= */
-.footer {
-    /* CHANGE: from semi-transparent to solid primary color */
-    background: var(--primary); 
-    
-    color: white;
-    text-align: center;
-    padding: 20px;
-    
-    /* REMOVED: border-top, box-shadow and backdrop-filter */
-}
-
-/* ===============================
-    RESPONSIVENESS
-================================= */
-@media (max-width: 800px) {
-    .top-bar { flex-direction: column; text-align: center; }
-    
-    /* CHANGE: Adjusting padding for fixed header */
-    .main-content { padding-top: 180px; } /* More space because .top-bar wraps */
-    
-    .feature-section { flex-direction: column; text-align: center; }
-    .leki-gallery img, .badania-gallery img, .wizyty-gallery img,
-    .info-gallery img, .bezpieczenstwo-gallery img { width: 90%; max-width: 300px; }
-}
-
-/* 📱 Narrowing topbar on mobile devices */
-@media (max-width: 768px) {
-    .header {
-        padding: 10px 20px; /* Reduce padding to make the topbar smaller */
-    }
-
-    .top-bar {
-        flex-direction: column;
-        text-align: center;
-        font-size: 14px; /* Reduce font size */
-    }
-
-    .app-logo {
-        height: 40px; /* Reduce logo size */
-    }
-}
-
-/* =======================================
-    🩺 FIX: scaling images in galleries
-========================================= */
-.leki-gallery img,
-.badania-gallery img,
-.wizyty-gallery img,
-.info-gallery img,
-.bezpieczenstwo-gallery img {
-    width: auto;
-    max-width: 280px;
-    height: auto;
-    object-fit: cover;
-}
-
-/* 📱 On phones and small screens */
-@media (max-width: 800px) {
-    .leki-gallery img,
-    .badania-gallery img,
-    .wizyty-gallery img,
-    .info-gallery img,
-    .bezpieczenstwo-gallery img {
-        max-width: 90%;
-        height: auto;
-    }
-}
-
-/* ========================================
-    Fixes for image sizes in sections
-========================================== */
-.appinfo-gallery img {
-    width: auto;
-    max-width: 180px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-#leki-section .feature-gallery img,
-#badania-section .feature-gallery img,
-#wizyty-section .feature-gallery img,
-#info-section .feature-gallery img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-#leki-section .feature-gallery img:hover,
-#badania-section .feature-gallery img:hover,
-#wizyty-section .feature-gallery img:hover,
-#info-section .feature-gallery img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-}
-@media (max-width: 768px) {
-    #leki-section .feature-gallery img,
-    #badania-section .feature-gallery img,
-    #wizyty-section .feature-gallery img,
-    #info-section .feature-gallery img {
-        max-width: 90%;
-    }
-
-    .appinfo-gallery img {
-        max-width: 140px;
-    }
-}
-
-/* =========================================
-    Spacing between button and gallery
-========================================= */
-#info-section .feature-gallery {
-    margin-top: 40px; 
-}
-#info-section .video-button-container {
-    margin-bottom: 20px;
-}
-@media (max-width: 768px) {
-    #info-section .feature-gallery {
-        margin-top: 25px;
-    }
-}
-
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedOpiekun - Aplikacja zdrowotna</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-    <!-- =============================== NAGŁÓWEK ================================= -->
+    <!-- nagłówek i reszta strony -->
     <header class="header">
         <div class="top-bar">
             <div class="app-info">
-                <img src="https://placehold.co/65x65/1565c0/ffffff?text=MedO" alt="Logo MedOpiekun" class="app-logo">
+                <img src="images/moikon.png" alt="Logo aplikacji MedOpiekun" class="app-logo" />
                 <h1>MedOpiekun</h1>
             </div>
             <div class="developer-info">
-                <p>Twój Mobilny Asystent Zdrowia</p>
-                <img src="https://placehold.co/65x65/42a5f5/ffffff?text=DEV" alt="Logo Dewelopera" class="dev-logo">
+                <img src="images/gutekikon.png" alt="Logo Gutek Developer" class="dev-logo" />
+                <p>Gutek Developer</p>
             </div>
         </div>
     </header>
 
-    <!-- =============================== GŁÓWNA SEKCJA (HERO) ================================= -->
     <main class="main-content">
-        <h2>Zadbaj o swoje zdrowie z łatwością.</h2>
+
+        <!-- 🧍 Sekcja: O mnie -->
+        <section class="about-section" id="about-section">
+            <div class="about-card">
+                <h2>Cześć! Nazywam się Gutek!</h2>
+                <p>
+                    Na początku była to aplikacja, która miała pomóc mi w opiece nad babcią.
+                    Z biegiem czasu, zaczynając ją ulepszać, stwierdziłem, że warto podzielić się nią z innymi.
+                    I oto ona — <b>MedOpiekun!</b>
+                </p>
+                <p>
+                    Mam nadzieję, że nigdy nie będziecie musieli jej używać,
+                    ale jeśli już potrzebujecie takiego organizera, to aplikacja dla Was.
+                    U mnie się sprawdza i jestem pewien, że sprawdzi się również u Was.
+                </p>
+                <p>Poniżej znajdziesz linki, gdzie możesz mnie znaleźć i się ze mną skontaktować.</p>
+
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61581176047073" target="_blank" rel="noopener" class="social facebook" title="Facebook">Facebook</a>
+                    <a href="https://www.instagram.com/medopiekun" target="_blank" rel="noopener" class="social instagram" title="Instagram">Instagram</a>
+                    <a href="https://www.youtube.com/@yGutek" target="_blank" rel="noopener" class="social youtube" title="YouTube">YouTube</a>
+                    <a href="https://www.tiktok.com/@gutowianin?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" class="social tiktok" title="TikTok">TikTok</a>
+                </div>
+
+                <p class="signature">Pozdrawiam ❤️<br /><b>Gutek Developer</b></p>
+                <p class="contact">📧 Kontakt e-mail: <a href="mailto:medopiekun.gutek@gmail.com">medopiekun.gutek@gmail.com</a></p>
+            </div>
+        </section>
+
+        <h2>Twoje zdrowie pod pełną kontrolą</h2>
         <p class="description">
-            MedOpiekun to kompleksowa aplikacja mobilna, która pomoże Ci zarządzać lekami, wynikami badań, wizytami lekarskimi i informacjami zdrowotnymi w jednym miejscu. Pożegnaj chaos, przywitaj spokój!
+            MedOpiekun to nowoczesna aplikacja pomagająca w zarządzaniu lekami, wizytami i badaniami.
+            Wszystko w jednym miejscu — zawsze pod ręką.
         </p>
 
-        <div class="download-button">
-            <!-- Placeholder dla przycisków pobierania -->
-            <a href="#download-link-ios" aria-label="Pobierz z App Store">
-                <img src="https://placehold.co/220x65/007AFF/ffffff?text=App+Store" alt="Pobierz z App Store">
-            </a>
-            <a href="#download-link-android" aria-label="Pobierz z Google Play">
-                <img src="https://placehold.co/220x65/34A853/ffffff?text=Google+Play" alt="Pobierz z Google Play">
+        <a href="https://play.google.com/store/apps/details?id=com.gutowianin.mojezdrowie" class="download-button" target="_blank" rel="noopener">
+            <img src="images/google_play.png" alt="Pobierz z Google Play" />
+        </a>
+        <!-- 📝 Sekcja: Podstawowe informacje o aplikacji -->
+        <section class="feature-section" id="appinfo-section">
+            <div class="feature-text" id="tekst-appinfo"></div>
+            <div class="feature-gallery appinfo-gallery">
+                <img src="images/moikon.png" alt="Logo aplikacji MedOpiekun" />
+            </div>
+        </section>
+
+        <!-- 🧩 Sekcje funkcjonalności -->
+        <section class="feature-section" id="leki-section">
+            <div class="feature-text" id="tekst-leki"></div>
+            <div class="feature-gallery">
+                <img src="images/leki1.jpg" alt="Zrzut ekranu - Leki 1" />
+                <img src="images/leki2.jpg" alt="Zrzut ekranu - Leki 2" />
+            </div>
+        </section>
+
+        <!-- 🧩 Sekcja: Jak dodać lek -->
+<!-- 🧩 Sekcja: Jak dodać lek -->
+<section class="feature-section" id="dodaj-lek-section">
+    <div class="feature-text" id="tekst-dodaj-lek">
+        <h3>Jak dodać lek</h3>
+        <p>Na ekranie <strong>Lista leków</strong> naciśnij przycisk <strong>+Lek</strong>. Zostaniesz przeniesiony do formularza dodawania leku.</p>
+        <p>W formularzu:</p>
+        <ul>
+            <li>Wpisz nazwę leku i wybierz jego typ: <em>Tabletka, Maść, Krople lub Syrop</em>.</li>
+            <li>Wpisz łączną dzienną dawkę leku (np. 2 tabletki dziennie).</li>
+            <li>Opcjonalnie dodaj informację o sposobie dawkowania.</li>
+            <li>Wpisz obecną ilość leku oraz ilość w opakowaniu. Po zakupie nowego opakowania kliknij <strong>+opak.</strong>, aby zaktualizować stan leku.</li>
+            <li>Zaznacz dni przyjmowania leku. Aplikacja odejmuje dzienną dawkę tylko w zaznaczonych dniach.</li>
+            <li>Wybierz pory dnia, w których bierzesz lek. Standardowe: <em>Rano, Popołudniu, Wieczorem, Na noc</em>. Można dodać 4 dodatkowe pory.</li>
+            <li>Godziny i nazwy pór można zmieniać w sekcji <strong>"Godziny powiadomień o lekach"</strong>. Pamiętaj, aby po zmianie kliknąć <strong>Zapisz</strong>.</li>
+        </ul>
+
+        <!-- 🎬 Przycisk do filmu YouTube -->
+        <div class="video-button-container" style="margin-top: 20px; text-align: center;">
+            <a href="https://www.youtube.com/watch?v=oW0XK44XFGk" 
+               target="_blank" 
+               rel="noopener" 
+               class="video-button" 
+               title="Zobacz film instruktażowy na YouTube">
+                ▶️ Obejrzyj film: Jak dodać lek
             </a>
         </div>
-        
-        <a href="#video-demo" class="video-button">Zobacz, jak działa MedOpiekun</a>
+    </div>
+
+    <div class="feature-gallery leki-gallery">
+        <img src="images/form1.jpg" alt="Formularz dodawania leku 1" />
+        <img src="images/form2.jpg" alt="Formularz dodawania leku 2" />
+        <img src="images/form3.jpg" alt="Formularz dodawania leku 3" />
+        <img src="images/powiadgodzin.jpg" alt="Ustawienia godzin powiadomień" />
+    </div>
+</section>
+
+        <section class="feature-section" id="badania-section">
+            <div class="feature-text" id="tekst-badania"></div>
+            <div class="feature-gallery">
+                <img src="images/badania.jpg" alt="Zrzut ekranu - Badania" />
+            </div>
+        </section>
+        <!-- 🧩 Sekcja: Jak dodać badanie -->
+<section class="feature-section" id="dodaj-badanie-section">
+    <div class="feature-text" id="tekst-dodaj-badanie">
+        <h3>Jak dodać badanie</h3>
+        <p>Na ekranie <strong>Lista Badań</strong> kliknij przycisk w prawym dolnym rogu <strong>+Badanie</strong>. Zostaniesz przeniesiony do formularza dodawania badania.</p>
+        <p>Do wyboru są następujące typy badań:</p>
+        <ul>
+            <li>Ciśnienie krwi</li>
+            <li>Poziom cukru</li>
+            <li>Saturacja</li>
+            <li>Temperatura</li>
+        </ul>
+        <p>Po wpisaniu danych kliknij przycisk <strong>Zapisz</strong>, a dane zostaną dodane do bazy i pojawią się na ekranie z listą badań.</p>
+
+        <!-- 🎬 Przycisk do filmu YouTube -->
+        <div class="video-button-container" style="margin-top: 20px; text-align: center;">
+            <a href="https://www.youtube.com/watch?v=UyM8A0PURAg"
+               target="_blank"
+               rel="noopener"
+               class="video-button"
+               title="Zobacz film instruktażowy na YouTube">
+                ▶️ Obejrzyj film: Jak dodać badanie
+            </a>
+        </div>
+    </div>
+
+    <div class="feature-gallery badania-gallery">
+        <img src="images/cisnienie.jpg" alt="Badanie ciśnienia krwi" />
+        <img src="images/cukier.jpg" alt="Badanie poziomu cukru" />
+        <img src="images/saturacja.jpg" alt="Badanie saturacji" />
+        <img src="images/temperatura.jpg" alt="Badanie temperatury" />
+    </div>
+</section>
+
+        <section class="feature-section" id="wizyty-section">
+            <div class="feature-text" id="tekst-wizyty"></div>
+            <div class="feature-gallery">
+                <img src="images/wizyty.jpg" alt="Zrzut ekranu - Wizyty" />
+            </div>
+        </section>
+
+        <!-- 🧩 Sekcja: Jak dodać wizytę -->
+<section class="feature-section" id="dodaj-wizyte-section">
+    <div class="feature-text" id="tekst-dodaj-wizyte">
+        <h3>Jak dodać wizytę</h3>
+        <p>Na ekranie <strong>Lista wizyt</strong> kliknij przycisk w prawym dolnym rogu <strong>+Wizytę</strong>. Zostaniesz przeniesiony do formularza dodawania wizyty.</p>
+        <p>W formularzu należy:</p>
+        <ul>
+            <li>Wpisać do jakiego lekarza, specjalisty lub rehabilitanta jest wizyta.</li>
+            <li>Wpisać rodzaj wizyty.</li>
+            <li>Ustawić godzinę i datę wizyty.</li>
+            <li>Opcjonalnie dodać miejsce wizyty i dodatkowe informacje.</li>
+        </ul>
+        <p>Po kliknięciu <strong>Zapisz</strong> wizyta zostanie zapisana do bazy i pojawi się na ekranie <strong>Lista wizyt</strong>.</p>
+
+        <!-- 🎬 Przycisk do filmu YouTube -->
+        <div class="video-button-container" style="margin-top: 20px; text-align: center;">
+            <a href="https://www.youtube.com/watch?v=KVDeGTfF54k"
+               target="_blank"
+               rel="noopener"
+               class="video-button"
+               title="Zobacz film instruktażowy na YouTube">
+                ▶️ Obejrzyj film: Jak dodać wizytę
+            </a>
+        </div>
+    </div>
+
+    <div class="feature-gallery wizyty-gallery">
+        <img src="images/dodajwizyte.jpg" alt="Dodawanie wizyty" />
+    </div>
+</section>
+        <!-- 🧩 Sekcja: Informacje medyczne -->
+<section class="feature-section" id="info-section">
+    <div class="feature-text" id="tekst-info">
+        <!-- Tutaj wstawiasz tekst tłumaczony dynamicznie -->
+
+        <!-- 🎬 Przycisk do filmu YouTube -->
+        <div class="video-button-container" style="margin-top: 20px; text-align: center;">
+            <a href="https://www.youtube.com/watch?v=JXLyobwxpPU"
+               target="_blank"
+               rel="noopener"
+               class="video-button"
+               title="Zobacz film instruktażowy na YouTube">
+                ▶️ Obejrzyj film: Informacje medyczne
+            </a>
+        </div>
+    </div>
+
+    <div class="feature-gallery">
+        <img src="images/info1.jpg" alt="Zrzut ekranu - Informacje medyczne 1" />
+        <img src="images/info2.jpg" alt="Zrzut ekranu - Informacje medyczne 2" />
+    </div>
+</section>
+
+        <section class="feature-section" id="bezpieczenstwo-section">
+            <div class="feature-text" id="tekst-bezpieczenstwo"></div>
+            <div class="feature-gallery bezpieczenstwo-gallery">
+                <img src="images/pin.png" alt="Ustawienie PIN">
+                <img src="images/bezpieczenstwo.png" alt="Bezpieczeństwo danych">
+            </div>
+        </section>
+
+        <!-- 🧩 Sekcja: Dowiedz się więcej -->
+<section class="feature-section" id="dowiedz-sie-wiecej-section">
+    <div class="feature-text" id="tekst-dowiedz-sie-wiecej" style="text-align: center;">
+        <h3>Dowiedz się więcej o ustawieniach i funkcjach aplikacji</h3>
+        <p>Jeśli chcesz dowiedzieć się więcej o ustawieniach i innych możliwościach aplikacji, zapraszam do obejrzenia tego filmu:</p>
+
+        <!-- 🎬 Przycisk do filmu YouTube -->
+        <div class="video-button-container" style="margin-top: 20px;">
+            <a href="https://www.youtube.com/watch?v=o55eoQBjsbw"
+               target="_blank"
+               rel="noopener"
+               class="video-button"
+               title="Zobacz film instruktażowy na YouTube">
+                ▶️ Obejrzyj film: Ustawienia i inne funkcje
+            </a>
+        </div>
+    </div>
+</section>
+
+         <h2>Twoje zdrowie pod pełną kontrolą</h2>
+        <p class="description">
+            MedOpiekun to nowoczesna aplikacja pomagająca w zarządzaniu lekami, wizytami i badaniami.
+            Wszystko w jednym miejscu — zawsze pod ręką.
+        </p>
+
+        <a href="https://play.google.com/store/apps/details?id=com.gutowianin.mojezdrowie" class="download-button" target="_blank" rel="noopener">
+            <img src="images/google_play.png" alt="Pobierz z Google Play" />
+        </a>
+
+
     </main>
 
-    <!-- =============================== SEKCJE Z FUNKCJAMI ================================= -->
-
-    <!-- 1. Sekcja Leki -->
-    <section id="leki-section" class="feature-section">
-        <h3>Zarządzanie lekami bez stresu</h3>
-        <p>Aplikacja przypomni Ci o każdej dawce, poinformuje o interakcjach i pomoże utrzymać porządek w domowej apteczce. Nigdy więcej nie zapomnisz o tabletce!</p>
-        <div class="leki-gallery feature-gallery">
-            <img src="https://placehold.co/300x600/1565c0/ffffff?text=Leki+-+Przypomnienia" alt="Ekran zarządzania lekami 1">
-            <img src="https://placehold.co/300x600/42a5f5/ffffff?text=Leki+-+Harmonogram" alt="Ekran zarządzania lekami 2">
-            <img src="https://placehold.co/300x600/00bcd4/ffffff?text=Leki+-+Etykiety" alt="Ekran zarządzania lekami 3">
-        </div>
-    </section>
-
-    <!-- 2. Sekcja Badania -->
-    <section id="badania-section" class="feature-section">
-        <h3>Wyniki badań zawsze pod ręką</h3>
-        <p>Skanuj, zapisuj i kategoryzuj swoje wyniki. Porównuj je w czasie, aby łatwo śledzić postępy i konsultować się z lekarzem.</p>
-        <div class="badania-gallery feature-gallery">
-            <img src="https://placehold.co/300x600/1565c0/ffffff?text=Badania+-+Archiwum" alt="Ekran zarządzania badaniami 1">
-            <img src="https://placehold.co/300x600/42a5f5/ffffff?text=Badania+-+Wykresy" alt="Ekran zarządzania badaniami 2">
-        </div>
-    </section>
-    
-    <!-- 3. Sekcja Wizyty -->
-    <section id="wizyty-section" class="feature-section">
-        <h3>Organizator wizyt lekarskich</h3>
-        <p>Zaplanuj swoje wizyty, dodaj notatki i pytania do lekarza, a my zadbamy o to, byś nie przegapił żadnego terminu.</p>
-        <div class="wizyty-gallery feature-gallery">
-            <img src="https://placehold.co/300x600/00bcd4/ffffff?text=Wizyty+-+Kalendarz" alt="Ekran zarządzania wizytami 1">
-            <img src="https://placehold.co/300x600/1565c0/ffffff?text=Wizyty+-+Notatki" alt="Ekran zarządzania wizytami 2">
-            <img src="https://placehold.co/300x600/42a5f5/ffffff?text=Wizyty+-+Potwierdzenia" alt="Ekran zarządzania wizytami 3">
-        </div>
-    </section>
-
-    <!-- 4. Sekcja Informacje i Video -->
-    <section id="info-section" class="feature-section">
-        <h3>Wiedza i wsparcie 24/7</h3>
-        <p>Dostęp do rzetelnych artykułów o zdrowiu i szybkich poradników. Sprawdź naszą bazę wiedzy, aby żyć świadomie.</p>
-        <div class="info-gallery feature-gallery">
-             <div class="video-button-container">
-                <a href="#video-demo" class="video-button">Obejrzyj tutorial</a>
-            </div>
-            <img src="https://placehold.co/300x600/42a5f5/ffffff?text=Info+-+Porady" alt="Ekran porad zdrowotnych 1">
-            <img src="https://placehold.co/300x600/00bcd4/ffffff?text=Info+-+Artykuły" alt="Ekran porad zdrowotnych 2">
-        </div>
-    </section>
-
-    <!-- 5. Sekcja Bezpieczeństwo -->
-    <section id="bezpieczenstwo-section" class="feature-section">
-        <h3>Twoje dane są bezpieczne</h3>
-        <p>Stawiamy na prywatność i bezpieczeństwo. Wszystkie Twoje dane medyczne są szyfrowane i chronione zgodnie z najwyższymi standardami RODO.</p>
-        <div class="bezpieczenstwo-gallery feature-gallery">
-            <img src="https://placehold.co/300x600/1565c0/ffffff?text=Bezpieczeństwo+-+Szyfrowanie" alt="Ekran bezpieczeństwa 1">
-        </div>
-    </section>
-    
-    <!-- =============================== ABOUT ================================= -->
-    <section class="about-section">
-        <div class="about-card">
-            <h2>Nasza misja</h2>
-            <p>
-                Wierzymy, że zarządzanie zdrowiem powinno być <b>proste, intuicyjne i dostępne dla każdego</b>. Stworzyliśmy MedOpiekun, abyś mógł skupić się na tym, co najważniejsze - na zdrowiu i życiu, wiedząc, że Twoje dane są w najlepszych rękach. Rozwijamy aplikację w oparciu o sugestie naszych użytkowników.
-            </p>
-            <div class="social-links">
-                <a href="#" class="social facebook">Facebook</a>
-                <a href="#" class="social instagram">Instagram</a>
-                <a href="#" class="social youtube">YouTube</a>
-                <a href="#" class="social tiktok">TikTok</a>
-            </div>
-            <p class="signature">
-                ~ Zespół MedOpiekun
-            </p>
-        </div>
-    </section>
-
-    <!-- =============================== STOPKA ================================= -->
     <footer class="footer">
-        <p>&copy; 2025 MedOpiekun. Wszelkie prawa zastrzeżone.</p>
-        <p>Polityka Prywatności | Regulamin</p>
+        <div class="footer-inner">
+            <p>© 2025 Gutek Developer. Wszelkie prawa zastrzeżone.</p>
+            <p><a class="footer-privacy" href="https://sites.google.com/view/mojezdrowie-polityka-home" target="_blank" rel="noopener">📜 Polityka prywatności</a></p>
+        </div>
     </footer>
 
-    <!-- =============================== SKRYPTY JAVASCRIPT ================================= -->
+    <!-- ✅ Skrypty wypełniające treści sekcji -->
     <script>
-console.log("Witamy w aplikacji MedOpiekun!");
+        // --- Sekcja: Podstawowe informacje o aplikacji ---
+        const tekstAppInfo = `
+            <h3>Informacje o aplikacji „MedOpiekun”</h3>
+            <p>„MedOpiekun” to intuicyjna i praktyczna aplikacja mobilna stworzona z myślą o osobach, które chcą lepiej zarządzać swoim zdrowiem i lekami.</p>
+            
+            <p>Sprawdzi się idealnie dla:</p>
+            <ul>
+                <li>• osób przyjmujących leki regularnie (np. osoby starsze, chorujące przewlekle),</li>
+                <li>• osób opiekujących się bliskimi i potrzebujących kontroli nad ich leczeniem,</li>
+                <li>• każdego, kto chce śledzić swoje wyniki badań (np. ciśnienie, cukier, saturacja),</li>
+                <li>• osób dbających o profilaktykę zdrowotną.</li>
+            </ul>
 
-// ===================================================================
-// CHANGE: Script for hiding/showing the header (CSS class version)
-// This replaces the old script which manipulated 'header.style.top'
-// ===================================================================
-let lastScrollY = window.scrollY;
-const header = document.querySelector('.header');
-const hideThreshold = 100; // Use the same 100px threshold as in the old script
+            <p>Aplikacja pozwala:</p>
+            <ul>
+                <li>• zarządzać lekami — kontrolować zapasy i dawkowanie,</li>
+                <li>• dodawać i analizować wyniki pomiarów zdrowotnych,</li>
+                <li>• ustawiać przypomnienia o zażyciu leków,</li>
+                <li>• eksportować dane do pliku PDF lub JSON,</li>
+                <li>• zapisać dane osobiste i kontaktowe – na wypadek nagłych sytuacji.</li>
+            </ul>
 
-if (header) {
-    window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
+            <p>„MedOpiekun” działa w pełni offline i nie wymaga zakładania konta — Twoje dane są bezpieczne i dostępne tylko na Twoim urządzeniu.</p>
 
-        // If we are near the top (below the threshold), always show the header
-        if (currentScrollY < hideThreshold) {
-            header.classList.remove('header-hidden');
-        } 
-        // If we are scrolling down (and are outside the threshold)
-        else if (currentScrollY > lastScrollY) {
-            header.classList.add('header-hidden');
-        } 
-        // If we are scrolling up (show the header)
-        else if (currentScrollY < lastScrollY) {
-            header.classList.remove('header-hidden');
-        }
-        
-        // Update the last scroll position
-        // (safeguard against negative values in some browsers)
-        lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
-    });
-}
+            <p>Aplikacja została zaprojektowana z myślą o prostocie i wygodzie, aby każdy – niezależnie od wieku czy doświadczenia z technologią – mógł z niej korzystać bez problemu.</p>
+        `;
+        document.getElementById("tekst-appinfo").innerHTML = tekstAppInfo;
+        // --- Sekcja: Leki ---
+        const tekstLeki = `
+            <h3>Sekcja: Leki</h3>
+            <p>W zakładce <b>„Lista leków”</b> możesz:</p>
+            <ul>
+                <li>• Dodawać nowe leki, podając ich nazwę, dzienną dawkę, ilość w opakowaniu i ilość aktualnie posiadanych tabletek.</li>
+                <li>• Edytować i usuwać leki, gdy zajdzie taka potrzeba.</li>
+                <li>• Ustawiać dni tygodnia oraz pory dnia, w których przyjmujesz lek — powiadomienia i automatyczne odejmowanie dawki odbywają się tylko w zaznaczonych dniach i godzinach.</li>
+                <li>• Korzystać z funkcji <b>automatycznego odejmowania tabletek</b> — aplikacja raz dziennie zmniejsza stan leku o zadaną dzienną dawkę, tylko w wybrane dni.</li>
+                <li>• Dodawać nowe opakowanie bez potrzeby ponownego wpisywania wszystkich danych — wystarczy jeden przycisk.</li>
+                <li>• Kliknąć ikonę 🌐 przy nazwie leku, aby szybko wyszukać jego ulotkę w Internecie.</li>
+            </ul>
 
-// Skrypt do animowania sekcji podczas przewijania (Fade-in on scroll)
-const sections = document.querySelectorAll('section');
+            <p>Każdy lek na liście pokazuje nazwę, ilość tabletek, dzienną dawkę i status:</p>
+            <ul>
+                <li>🟢 <b>OK</b> – zapas wystarczający</li>
+                <li>🟠 <b>Uzupełnij lek</b> – kończy się</li>
+                <li>🔴 <b>Brak</b> – należy uzupełnić natychmiast</li>
+            </ul>
 
-const options = {
-    root: null, // viewport
-    rootMargin: '0px',
-    threshold: 0.2 // Ujawnij, gdy 20% sekcji jest widoczne
-};
+            <p>Dodatkowo aplikacja wyświetla liczbę dni do wyczerpania zapasu — dzięki temu możesz z wyprzedzeniem zadbać o kolejne opakowanie.</p>
+            <p><b>Zarządzanie lekami nigdy nie było prostsze!</b></p>
+        `;
+        document.getElementById("tekst-leki").innerHTML = tekstLeki;
 
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            // Przestań obserwować po animacji
-            observer.unobserve(entry.target); 
-        }
-    });
-}, options);
+        // --- Sekcja: Badania ---
+        const tekstBadania = `
+            <h3>Sekcja: Badania</h3>
+            <p>W zakładce <b>„Lista badań”</b> możesz dodawać i przeglądać wyniki takich badań jak:</p>
+            <ul>
+                <li>• Ciśnienie tętnicze (skurczowe i rozkurczowe),</li>
+                <li>• Poziom cukru we krwi,</li>
+                <li>• Temperatura ciała,</li>
+                <li>• Saturacja (poziom natlenienia krwi).</li>
+            </ul>
 
-sections.forEach(section => {
-    observer.observe(section);
-});
+            <p>Po wpisaniu danych, aplikacja automatycznie analizuje wynik, dodaje odpowiedni komentarz i zapisuje dane wraz z datą, co pozwala tworzyć historię pomiarów.</p>
+
+            <p><b>To idealne narzędzie do śledzenia swojego stanu zdrowia i dzielenia się wynikami z lekarzem.</b></p>
+        `;
+        document.getElementById("tekst-badania").innerHTML = tekstBadania;
+
+        // --- Sekcja: Wizyty ---
+        const tekstWizyty = `
+            <h3>Sekcja: Wizyty</h3>
+            <p>W zakładce <b>„Lista wizyt”</b> możesz wygodnie zarządzać swoimi wizytami u lekarza i specjalistów.  
+            Aplikacja umożliwia:</p>
+
+            <ul>
+                <li>• <b>Dodawanie wizyt</b> – wprowadź szczegóły dotyczące daty, godziny, miejsca wizyty oraz specjalizacji.  
+                Dodatkowo możesz zapisać własne notatki.</li>
+
+                <li>• <b>Edycję wizyt</b> – w każdej chwili zmień dane dotyczące zaplanowanej wizyty, np. lekarza, specjalizację lub godzinę.</li>
+
+                <li>• <b>Powiadomienia</b> – aplikacja przypomina o nadchodzących wizytach, wysyłając powiadomienia na 7 dni i 1 dzień przed terminem.</li>
+
+                <li>• <b>Zarządzanie alarmami</b> – automatyczne ustawianie alarmów przypominających o wizytach oraz możliwość ich edycji lub usuwania.</li>
+            </ul>
+
+            <p><b>Dzięki tej funkcjonalności masz pełną kontrolę nad swoimi wizytami i nigdy nie zapomnisz o żadnej z nich!</b></p>
+
+            <p>Dla zachowania porządku i aktualności danych, każda wizyta jest automatycznie usuwana z aplikacji dzień po jej planowanej dacie.</p>
+        `;
+        document.getElementById("tekst-wizyty").innerHTML = tekstWizyty;
+
+       // --- Sekcja: Informacje medyczne ---
+const tekstInfo = `
+    <h3>Sekcja: Informacje medyczne</h3>
+    <p>W aplikacji możesz zapisać podstawowe i najważniejsze dane o sobie, dzięki czemu w każdej chwili masz szybki dostęp do informacji medycznych.</p>
+    <p>W zakładce <b>„Informacje medyczne”</b> możesz zapisać:</p>
+
+    <ul>
+        <li>• <b>Imię i nazwisko</b>,</li>
+        <li>• <b>Datę urodzenia</b>,</li>
+        <li>• <b>Adres zamieszkania</b>,</li>
+        <li>• <b>Wagę i wzrost</b> – na ich podstawie aplikacja automatycznie oblicza wartość BMI wraz z komentarzem (np. „Prawidłowa waga”),</li>
+        <li>• <b>Schorzenia, alergie i aktualne kuracje</b>,</li>
+        <li>• <b>Grupę krwi</b> oraz <b>deklarację dawstwa</b> (krew, organy, szpik).</li>
+    </ul>
+
+    <p>Dodatkowo możesz wskazać <b>osobę kontaktową</b> na wypadek nagłych sytuacji:</p>
+
+    <ul>
+        <li>• <b>Imię i nazwisko</b>,</li>
+        <li>• <b>Numer telefonu</b>.</li>
+    </ul>
+
+    <p>Dane te mogą być niezwykle przydatne podczas wizyty u lekarza, pobytu w szpitalu lub w sytuacjach awaryjnych, kiedy szybki dostęp do informacji może mieć znaczenie.</p>
+
+    <p><b>Z MedOpiekunem masz wszystko pod kontrolą!</b></p>
+
+    <!-- 🎬 Przycisk do filmu YouTube -->
+    <div class="video-button-container" style="margin-top: 20px; text-align: center;">
+        <a href="https://www.youtube.com/watch?v=JXLyobwxpPU"
+           target="_blank"
+           rel="noopener"
+           class="video-button"
+           title="Zobacz film instruktażowy na YouTube">
+            ▶️ Obejrzyj film: Informacje medyczne
+        </a>
+    </div>
+`;
+document.getElementById("tekst-info").innerHTML = tekstInfo;
+
+
+        // --- Sekcja: Bezpieczeństwo i prywatność ---
+        const tekstBezpieczenstwo = `
+            <h3>Sekcja: Bezpieczeństwo i Prywatność</h3>
+            <p>W sekcji <b>„Bezpieczeństwo i Prywatność”</b> znajdziesz szereg funkcji, które chronią Twoje dane i zapewniają pełną kontrolę nad prywatnością.</p>
+            <p>Możesz:</p>
+            <ul>
+                <li>• ustawić własny kod PIN, który zabezpiecza dostęp do aplikacji,</li>
+                <li>• włączyć logowanie biometryczne (odcisk palca lub rozpoznawanie twarzy),</li>
+                <li>• odzyskać dostęp, jeśli zapomnisz PIN-u — po potwierdzeniu tożsamości biometrią lub blokadą ekranu telefonu,</li>
+                <li>• mieć pewność, że PIN i dane logowania są szyfrowane i przechowywane wyłącznie lokalnie na urządzeniu,</li>
+                <li>• korzystać z dodatkowych warstw ochrony, aby tylko Ty miał(a) dostęp do aplikacji,</li>
+                <li>• zarządzać zgodami na spersonalizowane reklamy dzięki przyciskowi „Zarządzaj ustawieniami prywatności”.</li>
+            </ul>
+            <p>Bezpieczeństwo Twoich danych to dla mnie priorytet.</p>
+
+            <div class="policy-button-container" style="margin-top:18px;">
+                <a href="https://sites.google.com/view/mojezdrowie-polityka-home" target="_blank" rel="noopener" class="policy-button">📜 Zobacz Politykę Prywatności</a>
+            </div>
+        `;
+        document.getElementById("tekst-bezpieczenstwo").innerHTML = tekstBezpieczenstwo;
+
+        console.log("Zawartość sekcji załadowana poprawnie.");
     </script>
+
+    <!-- jeśli masz script.js, zostaw go; jeśli nie, można usunąć tę linijkę -->
+    <script src="script.js"></script>
 </body>
 </html>
