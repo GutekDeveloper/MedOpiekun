@@ -291,26 +291,39 @@ section p {
   .info-gallery img, .bezpieczenstwo-gallery img { width: 90%; max-width: 300px; }
 }
 
-/* 📱 Zmniejszenie topbara na urządzeniach mobilnych */
-@media (max-width: 768px) {
+/* ===============================
+   RESPONSYWNOŚĆ (UJEDNOLICONA)
+================================= */
+
+/* 1. STYLES DLA WSZYSTKICH URZĄDZEŃ POŚREDNICH I MAŁYCH (MAX 1000PX) */
+/* Dotyczy: mniejszych laptopów, tabletów (pion i poziom), dużych smartfonów */
+@media (max-width: 1000px) {
+  /* Kluczowa zmiana: na tym zakresie szerokości elementy muszą być mniejsze
+     niż na pełnym desktopie, aby się nie rozjeżdżały, ale wciąż są obok siebie. */
+  
+  .app-logo, .dev-logo {
+    height: 45px; /* Lekko zmniejszone loga */
+  }
+
+  /* Zmniejszamy czcionki w nagłówku */
+  .app-info h1 {
+    font-size: 18px; 
+  }
+
+  .developer-info p {
+    font-size: 14px; 
+  }
+}
+
+
+/* 2. STYLES DLA SMARTFONÓW I MAŁYCH TABLETÓW (MAX 600PX) */
+/* Dotyczy: telefonów w orientacji pionowej i poziomej oraz bardzo małych tabletów */
+@media (max-width: 600px) {
   .header {
-    /* Utrzymujemy minimalny padding na samym nagłówku */
     padding: 8px 0; 
   }
 
-  /* 💡 OSTATECZNA ZMIANA: Dodajemy padding POZIOMY do wewnętrznego kontenera */
-  .top-bar {
-    padding: 0 15px; /* Dodaje 15px odstępu od lewej i prawej krawędzi */
-    gap: 15px;
-  }
-
-  /* 💡 WAŻNE: Na małym ekranie zmuszamy przeglądarkę do wyśrodkowania elementów
-     nawet jeśli nie ma między nimi miejsca, np. na bardzo małych telefonach. */
-  .top-bar {
-    justify-content: space-around; 
-  }
-
-  /* Układ pionowy wewnątrz każdej grupy */
+  /* Loga i tekst wewnątrz topbara ZAWSZE w kolumnie, by oszczędzać szerokość. */
   .app-info, .developer-info {
     display: flex; 
     flex-direction: column; 
@@ -318,28 +331,47 @@ section p {
     gap: 3px;               
   }
 
-  /* Zmniejszamy OBA loga */
+  /* Rodzic obu grup: dodaje padding (odstęp od krawędzi) */
+  .top-bar {
+    padding: 0 15px; 
+    gap: 15px;
+    justify-content: space-around; /* Gwarantuje wyśrodkowanie */
+  }
+
+  /* Bardziej agresywne zmniejszenie logotypów */
   .app-logo, .dev-logo {
-    height: 40px; 
+    height: 35px; /* Mniejsze niż 45px, ale większe niż 30px */
     padding: 3px;
     border-radius: 6px;
   }
 
-  /* Zmniejszamy teksty */
+  /* Bardziej agresywne zmniejszenie tekstów */
   .app-info h1 {
-    font-size: 14px; 
+    font-size: 13px; 
     margin: 0; 
   }
 
   .developer-info p {
-    font-size: 10px; 
+    font-size: 9px; 
     text-align: center;
     margin: 0; 
   }
-
-  /* Poprawka dla głównej treści */
+  
+  /* Poprawka dla głównej treści, by była pod nowym, niższym topbarem */
   .main-content {
-    padding-top: 80px;
+    padding-top: 70px; 
+  }
+
+  /* Inne elementy na małych ekranach */
+  section { 
+    margin: 40px auto; 
+    padding: 30px 15px; 
+  }
+
+  .leki-gallery img, .badania-gallery img, .wizyty-gallery img,
+  .info-gallery img, .bezpieczenstwo-gallery img {
+      max-width: 90%;
+      height: auto;
   }
 }
 
