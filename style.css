@@ -76,6 +76,12 @@ body {
   font-weight: 600;
 }
 
+/* Dodane: Ustawia logo i tekst w jednej linii */
+.app-info, .developer-info {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Odstęp między logo a tekstem */
+}
 
 /* ===============================
    GŁÓWNA SEKCJA
@@ -279,7 +285,6 @@ section p {
    RESPONSYWNOŚĆ
 ================================= */
 @media (max-width: 800px) {
-  .top-bar { flex-direction: column; text-align: center; }
   .main-content { padding: 50px 15px; }
   .feature-section { flex-direction: column; text-align: center; }
   .leki-gallery img, .badania-gallery img, .wizyty-gallery img,
@@ -289,25 +294,43 @@ section p {
 /* 📱 Zmniejszenie topbara na urządzeniach mobilnych */
 @media (max-width: 768px) {
   .header {
-    padding: 10px 20px; /* Zmniejsz padding, by topbar był mniejszy */
+    /* Mniejszy padding = niższy topbar */
+    padding: 8px 15px; 
   }
 
   .top-bar {
-    /* Ta reguła jest dziedziczona z (max-width: 800px) i jest poprawna */
-    /* flex-direction: column; */ 
-    /* text-align: center; */
-    font-size: 14px; /* Zmniejsz czcionkę */
+    /* Upewniamy się, że jest w rzędzie i się nie zawija */
+    flex-direction: row; 
+    flex-wrap: nowrap; 
+    font-size: 12px; /* Mniejsza domyślna czcionka */
   }
 
-  .app-logo {
-    height: 40px; /* Zmniejsz logo */
+  /* Zmniejszamy OBA loga */
+  .app-logo, .dev-logo {
+    height: 30px; /* Znacznie mniejsze logo */
+    padding: 3px;     /* Mniejszy padding loga */
+    border-radius: 6px;
   }
-}
 
-/* 📱 Na małych ekranach dostosowanie paddingu głównej treści */
-@media (max-width: 768px) {
+  /* Zmniejszamy odstęp między logo a tekstem */
+  .app-info, .developer-info {
+    gap: 8px; 
+  }
+  
+  /* Zmniejszamy teksty */
+  .app-info h1 {
+    font-size: 15px; /* Mniejszy tytuł aplikacji */
+  }
+
+  .developer-info p {
+    font-size: 11px; /* Mniejszy tekst dewelopera */
+    /* Ukryj tekst dewelopera, jeśli nadal jest za ciasno */
+    /* display: none; */ 
+  }
+
+  /* Poprawka dla głównej treści, by nie chowała się pod niższym topbarem */
   .main-content {
-    padding-top: 50px; /* Większa przestrzeń na topbarze */
+    padding-top: 70px; 
   }
 }
 
