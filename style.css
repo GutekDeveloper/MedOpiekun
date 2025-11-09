@@ -1,14 +1,15 @@
 /* ===============================
    GLOBALNE USTAWIENIA
 ================================= */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
 
 :root {
-  --primary: #1565c0;
-  --secondary: #42a5f5;
+  --primary: #1565c0; /* Ciemniejszy Niebieski */
+  --secondary: #42a5f5; /* Jaśniejszy Niebieski */
   --accent: #00bcd4;
-  --bg-light: rgba(255, 255, 255, 0.25);
-  --glass-border: rgba(255, 255, 255, 0.4);
+  /* ✨ ULEPSZONY GLASSMORHPISM: Większa przezroczystość */
+  --bg-light: rgba(255, 255, 255, 0.45); 
+  --glass-border: rgba(255, 255, 255, 0.6);
   --text-dark: #0d1b2a;
   --text-light: #f4f4f4;
 }
@@ -16,16 +17,13 @@
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  /* NOWE TŁO: 
-    Subtelny, czysty gradient. Zaczyna się od jasnego błękitu 
-    w lewym górnym rogu i przechodzi w niemal biel.
-    Jest zunifikowany i będzie świetnie działać z efektem "glass".
-  */
   background: radial-gradient(circle at 0% 0%, #e3f2fd 0%, #f4f8fb 60%);
-  background-attachment: fixed; /* Tło stoi w miejscu podczas scrollowania */
+  background-attachment: fixed; 
   color: var(--text-dark);
   line-height: 1.6;
   min-height: 100vh;
+  /* Dodajemy padding na lewej, aby zrobić miejsce dla stałego TOC */
+  padding-left: 0; 
   overflow-x: hidden;
 }
 
@@ -37,23 +35,23 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(21, 101, 192, 0.65);
-  backdrop-filter: blur(10px);
+  background: rgba(21, 101, 192, 0.8); /* Lekko większa przezroczystość */
+  backdrop-filter: blur(12px); /* Większe rozmycie */
   border-bottom: 1px solid var(--glass-border);
   color: white;
-  padding: 15px 25px;
-  /* NOWY CIEŃ: Lżejszy i bardziej nowoczesny */
-  box-shadow: 0 4px 20px rgba(0, 50, 100, 0.1);
-  z-index: 10;
+  /* ✅ POPRAWKA: ZMNIEJSZENIE PIONOWEGO PADDINGU */
+  padding: 10px 25px; 
+  box-shadow: 0 4px 20px rgba(0, 50, 100, 0.15); /* Cień nieco intensywniejszy */
+  z-index: 1000; /* Najwyższa warstwa */
   transition: top 0.3s ease;
 }
 
 .header:hover {
-  backdrop-filter: blur(12px) saturate(1.3);
+  backdrop-filter: blur(14px) saturate(1.3);
 }
 
 .top-bar {
-  max-width: 1100px;
+  max-width: 1300px; /* Większy max-width dla desktopu */
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -62,50 +60,163 @@ body {
   gap: 10px;
 }
 
-.app-logo, .dev-logo {
-  height: 55px;
-  border-radius: 12px;
-  object-fit: contain;
-  background: white;
-  padding: 5px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.app-info h1, .developer-info p {
-  margin: 0;
-  font-weight: 600;
-}
-
-/* Dodane: Ustawia logo i tekst w jednej linii */
+/* FIX 1: POPRAWKA ROZMIARU LOGO W TOP-BAR */
 .app-info, .developer-info {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Odstęp między logo a tekstem */
+    display: flex;
+    align-items: center; /* Wyśrodkowanie tekstu i logo w pionie */
+}
+
+.app-logo, .dev-logo {
+    height: 50px; /* Zmniejszenie wysokości logo do 50px */
+    width: auto; /* Zachowanie proporcji */
+    margin-right: 10px;
+}
+
+.app-info h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: 700;
+}
+.developer-info p {
+    font-size: 14px;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Styl dla przycisku menu na mobile (widoczny tylko na małych ekranach) */
+#mobile-menu-toggle {
+    display: none; 
+    font-size: 16px;
+    padding: 8px 15px;
 }
 
 /* ===============================
-   GŁÓWNA SEKCJA
+   SEKCJA HERO (NOWA GŁÓWNA SEKCJA)
+================================= */
+.hero-section {
+    /* ✅ POPRAWKA: ZMNIEJSZENIE PADDINGU GÓRNEGO, ABY SEKCJA ZACZYNAŁA SIĘ WYŻEJ */
+    padding: 100px 50px 80px; 
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 400px;
+}
+
+.hero-section h2 {
+    font-size: 56px;
+    font-weight: 800; /* Odważniejsza czcionka */
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+/* ✨ EFEKT GRADIENTU NA TYTULE */
+.gradient-text {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    text-shadow: 0 3px 10px rgba(21, 101, 192, 0.2); /* Lekki cień pod gradientem */
+}
+
+.hero-section .description {
+    font-size: 20px;
+    max-width: 600px;
+    color: var(--text-dark);
+    opacity: 0.9;
+    margin-bottom: 40px;
+}
+
+.hero-media {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-mockup {
+    max-width: 350px;
+    height: auto;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0, 50, 100, 0.25);
+    transform: rotateZ(2deg); /* Lekki obrót, by dodać dynamiki */
+    transition: transform 0.5s ease;
+}
+
+.app-mockup:hover {
+    transform: rotateZ(0deg) scale(1.03);
+}
+
+/* ===============================
+   SPIS TREŚCI (TOC) - SIDEBAR
+================================= */
+#toc-sidebar {
+    position: fixed;
+    top: 50%; /* Center vertically */
+    left: 20px;
+    transform: translateY(-50%);
+    z-index: 999;
+    padding: 15px;
+    width: 200px;
+    background: rgba(255, 255, 255, 0.35); /* Glassmorphism */
+    backdrop-filter: blur(18px); /* Większe rozmycie */
+    border-radius: 15px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 40px rgba(0, 80, 160, 0.08);
+}
+
+#toc-sidebar h4 {
+    margin: 0 0 10px 0;
+    color: var(--primary);
+    font-size: 16px;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 5px;
+}
+
+#toc-sidebar a {
+    display: block;
+    color: var(--text-dark);
+    text-decoration: none;
+    padding: 8px 10px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-weight: 600;
+}
+
+#toc-sidebar a:hover {
+    background-color: rgba(21, 101, 192, 0.1);
+    color: var(--primary);
+}
+
+/* Podświetlenie aktywnego linku */
+#toc-sidebar a.active {
+    background: var(--primary);
+    color: var(--text-light) !important;
+    box-shadow: 0 2px 8px rgba(21, 101, 192, 0.4);
+}
+
+/* ===============================
+   GŁÓWNA SEKCJA 
 ================================= */
 .main-content {
   text-align: center;
-  padding: 80px 20px 60px;
-  margin-top: 50px; 
-}
-
-.main-content h2 {
-  font-size: 32px;
-  color: var(--primary);
-  margin-bottom: 15px;
-  font-weight: 600;
-}
-
-.description {
-  max-width: 700px;
-  margin: 0 auto 50px;
-  font-size: 18px;
-  color: #0d1b2a;
-  opacity: 0.85;
-  font-weight: 400;
+  /* Usuwamy górny padding, bo Hero Section ma już duży własny padding */
+  padding: 0 20px 60px; 
+  margin-top: 0; 
+  /* Dodajemy margines po lewej, by strona nie zaczynała się pod TOC */
+  margin-left: 240px; 
+  max-width: 100%;
 }
 
 /* ===============================
@@ -114,7 +225,7 @@ body {
 .download-button img {
   width: 220px;
   transition: transform 0.3s ease;
-  margin-bottom: 40px;
+  margin-bottom: 0; /* Usunięto margines, jest w hero-section */
 }
 
 .download-button img:hover {
@@ -147,17 +258,18 @@ body {
 ================================= */
 section {
   margin: 60px auto;
-  max-width: 1000px;
+  max-width: 1100px; /* Zwiększamy, by pomieścić alternujący układ */
   background: var(--bg-light);
   border-radius: 18px;
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(25px); /* ✨ ULEPSZENIE: Większe rozmycie */
   border: 1px solid var(--glass-border);
-  /* NOWY CIEŃ: Lżejszy i bardziej nowoczesny */
-  box-shadow: 0 10px 40px rgba(0, 80, 160, 0.08);
-  padding: 50px 30px;
+  /* ✨ ULEPSZENIE: Bardziej subtelny cień */
+  box-shadow: 0 10px 60px rgba(0, 0, 0, 0.12);
+  padding: 50px 40px;
   transform: translateY(40px);
   opacity: 0;
   transition: all 0.8s ease;
+  text-align: left; /* Wyrównanie dla nowego układu */
 }
 
 section.visible {
@@ -183,13 +295,15 @@ section p {
 .leki-gallery, .badania-gallery, .wizyty-gallery, .info-gallery, .bezpieczenstwo-gallery {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* MUSI BYĆ, żeby zawijać! */
   gap: 25px;
   margin-top: 20px;
 }
 
 .leki-gallery img, .badania-gallery img, .wizyty-gallery img, .info-gallery img, .bezpieczenstwo-gallery img {
-  width: 220px;
+  /* Kluczowa reguła: Zapewnia, że mieszczą się 2 elementy obok siebie */
+  max-width: calc(50% - 12.5px); 
+  width: 100%; /* Umożliwia skalowanie na mniejszych ekranach */
   border-radius: 14px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -203,42 +317,155 @@ section p {
 }
 
 /* ===============================
-   ABOUT (GLASS)
+   ABOUT (GLASS) (NOWY)
 ================================= */
 .about-section {
-  text-align: center;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 20px;
-  backdrop-filter: blur(20px);
-  color: var(--text-dark);
-  padding: 50px 25px;
-  margin: 70px auto;
-  max-width: 850px;
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    /* Ustawienia sekcji Flexbox, aby stworzyć dwie kolumny */
+    display: flex;
+    flex-direction: row; /* Domyślnie: Tekst Lewo / Media Prawo */
+    align-items: center;
+    gap: 40px;
+    
+    /* Ustawienia Glassmorphismu */
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    color: var(--text-dark);
+    padding: 50px 25px;
+    margin: 70px auto;
+    max-width: 1100px; /* Zwiększamy, by pasowało do .feature-section */
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    text-align: left; /* Zmieniamy wyrównanie */
+}
+
+/* 🖼️ Kontener na zdjęcie i linki */
+.about-media {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    text-align: center; /* Wyśrodkowanie zdjęcia i social-links */
+}
+
+/* 👤 Styl dla zdjęcia twarzy */
+.about-media img.gutek-photo {
+    width: 100%;
+    max-width: 300px; /* Maksymalna szerokość dla zdjęcia */
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%; /* Zdjęcie w kółku */
+    margin-bottom: 25px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* 💬 Kontener na tekst */
+.about-text {
+    flex: 2; /* Dajemy więcej miejsca na tekst */
+    min-width: 300px;
 }
 
 .about-card h2 {
-  font-size: 28px;
-  margin-bottom: 15px;
-  color: var(--primary);
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: var(--primary);
 }
 
 .about-card p {
-  font-size: 17px;
-  opacity: 0.9;
+    font-size: 17px;
+    opacity: 0.9;
 }
 
 .about-card b {
-  color: var(--secondary);
+    color: var(--secondary);
 }
 
 .about-card .signature {
-  margin-top: 25px;
-  font-style: italic;
-  color: var(--accent);
+    margin-top: 25px;
+    font-style: italic;
+    color: var(--accent);
+    font-size: 1.1em;
+}
+.about-card .contact a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
 }
 
+/* ===============================
+   SEKCJE FUNKCJONALNOŚCI (ALTERNATYWA)
+================================= */
+.feature-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.feature-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.feature-media {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap; /* WŁĄCZA ZAWYZANIE: Kluczowe dla 2x/3x */
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Odstęp między zdjęciami w tej galerii */
+}
+/* ZMIANA KOLEJNOŚCI (OBRAZ LEWO / TEKST PRAWO) */
+.feature-section.reverse {
+    flex-direction: row-reverse;
+}
+
+.feature-section h3 {
+    font-size: 28px;
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.feature-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.feature-section li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 1.5em;
+}
+
+.feature-section li::before {
+    content: "✔️"; /* Zastąpienie kropki ikoną */
+    position: absolute;
+    left: 0;
+    color: var(--secondary);
+    font-size: 0.9em;
+}
+
+.feature-media img.mockup {
+    /* Wymuszenie 2x w rzędzie: 50% minus połowa odstępu (gap 20px -> 10px) */
+    max-width: calc(50% - 10px); 
+    width: 100%;    
+    height: auto;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-media img.mockup:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+/* Upewnienie się, że również dla galerii 2-up i 3-up jest ta sama reguła */
+.gallery-2-up img.mockup, 
+.gallery-3-up img.mockup {
+    max-width: calc(50% - 10px);
+}
 /* ===============================
    LINKI SPOŁECZNOŚCIOWE
 ================================= */
@@ -284,126 +511,151 @@ section p {
 /* ===============================
    RESPONSYWNOŚĆ
 ================================= */
-@media (max-width: 800px) {
-  .main-content { padding: 50px 15px; }
-  .feature-section { flex-direction: column; text-align: center; }
-  .leki-gallery img, .badania-gallery img, .wizyty-gallery img,
-  .info-gallery img, .bezpieczenstwo-gallery img { width: 90%; max-width: 300px; }
+/* 1. STYLES DLA DESKTOPU Z TOC */
+@media (min-width: 1001px) {
+    /* Nadaje odpowiedni margines dla głównej treści */
+    .main-content {
+        margin-left: 240px; 
+    }
+}
+
+/* 2. STYLES DLA TABLETÓW I MAŁYCH LAPTOPÓW (MAX 1000PX) */
+@media (max-width: 1000px) {
+    /* Ukryj stały TOC na mniejszych ekranach */
+    #toc-sidebar {
+        display: none;
+    }
+    
+    /* Usuń margines, bo nie ma TOC */
+    body {
+        padding-left: 0;
+    }
+
+    .main-content {
+        margin-left: 0; 
+    }
+    
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        /* ✅ POPRAWKA DLA MOBILE: Upewnienie się, że padding też jest mniejszy */
+        padding-top: 100px;
+    }
+
+    .hero-section h2 {
+        font-size: 44px;
+    }
+    
+    /* Sekcje funkcjonalności wracają do kolumn */
+    .feature-section, .feature-section.reverse {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 25px;
+    }
+    
+    .feature-text, .feature-media {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .feature-text {
+        margin-bottom: 30px;
+    }
+}
+
+/* 3. STYLES DLA SMARTFONÓW (MAX 768PX) */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 100px 20px 40px; /* Zmniejszony padding-top dla mobile */
+    }
+    
+    .hero-section h2 {
+        font-size: 36px;
+    }
+    
+    .hero-media img.mockup {
+        max-width: 250px;
+    }
+
+    /* Pokaż przycisk menu na mobile */
+    #mobile-menu-toggle {
+        display: inline-block;
+    }
+
+    /* Zmniejszanie elementów galerii na mobile */
+    .gallery-2-up img.mockup, 
+    .gallery-3-up img.mockup {
+        max-width: 90%;
+        height: auto;
+    }
 }
 
 /* ===============================
-   RESPONSYWNOŚĆ (UJEDNOLICONA)
+   MOBILNE MENU OVERLAY
 ================================= */
-
-/* 1. STYLES DLA WSZYSTKICH URZĄDZEŃ POŚREDNICH I MAŁYCH (MAX 1000PX) */
-/* Dotyczy: mniejszych laptopów, tabletów (pion i poziom), dużych smartfonów */
-@media (max-width: 1000px) {
-  /* Kluczowa zmiana: na tym zakresie szerokości elementy muszą być mniejsze
-     niż na pełnym desktopie, aby się nie rozjeżdżały, ale wciąż są obok siebie. */
-  
-  .app-logo, .dev-logo {
-    height: 45px; /* Lekko zmniejszone loga */
-  }
-
-  /* Zmniejszamy czcionki w nagłówku */
-  .app-info h1 {
-    font-size: 18px; 
-  }
-
-  .developer-info p {
-    font-size: 14px; 
-  }
+#mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 27, 42, 0.95); /* Ciemne, nieprzezroczyste tło */
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    color: white;
+    padding: 20px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
 }
 
+#mobile-menu-overlay.open {
+    transform: translateX(0);
+}
 
-/* 2. STYLES DLA SMARTFONÓW I MAŁYCH TABLETÓW (MAX 600PX) */
-/* Dotyczy: telefonów w orientacji pionowej i poziomej oraz bardzo małych tabletów */
-@media (max-width: 600px) {
-  .header {
-    padding: 8px 0; 
-  }
+#mobile-menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: 2px solid white;
+    color: white;
+    font-size: 24px;
+    padding: 5px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
 
-  /* Loga i tekst wewnątrz topbara ZAWSZE w kolumnie, by oszczędzać szerokość. */
-  .app-info, .developer-info {
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;    
-    gap: 3px;               
-  }
+#mobile-menu-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
 
-  /* Rodzic obu grup: dodaje padding (odstęp od krawędzi) */
-  .top-bar {
-    padding: 0 15px; 
-    gap: 15px;
-    justify-content: space-around; /* Gwarantuje wyśrodkowanie */
-  }
-
-  /* Bardziej agresywne zmniejszenie logotypów */
-  .app-logo, .dev-logo {
-    height: 35px; /* Mniejsze niż 45px, ale większe niż 30px */
-    padding: 3px;
-    border-radius: 6px;
-  }
-
-  /* Bardziej agresywne zmniejszenie tekstów */
-  .app-info h1 {
-    font-size: 13px; 
-    margin: 0; 
-  }
-
-  .developer-info p {
-    font-size: 9px; 
+#mobile-toc {
+    margin-top: 80px;
     text-align: center;
-    margin: 0; 
-  }
-  
-  /* Poprawka dla głównej treści, by była pod nowym, niższym topbarem */
-  .main-content {
-    padding-top: 70px; 
-  }
-
-  /* Inne elementy na małych ekranach */
-  section { 
-    margin: 40px auto; 
-    padding: 30px 15px; 
-  }
-
-  .leki-gallery img, .badania-gallery img, .wizyty-gallery img,
-  .info-gallery img, .bezpieczenstwo-gallery img {
-      max-width: 90%;
-      height: auto;
-  }
 }
 
-/* =======================================
-   🩺 POPRAWKA: skalowanie zdjęć w galeriach
-========================================= */
-.leki-gallery img,
-.badania-gallery img,
-.wizyty-gallery img,
-.info-gallery img,
-.bezpieczenstwo-gallery img {
-  width: auto;
-  max-width: 280px;
-  height: auto;
-  object-fit: cover;
+#mobile-toc h4 {
+    font-size: 24px;
+    color: var(--secondary);
+    margin-bottom: 25px;
 }
 
-/* 📱 Na telefonach i małych ekranach */
-@media (max-width: 800px) {
-  .leki-gallery img,
-  .badania-gallery img,
-  .wizyty-gallery img,
-  .info-gallery img,
-  .bezpieczenstwo-gallery img {
-    max-width: 90%;
-    height: auto;
-  }
+#mobile-toc a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    margin: 10px auto;
+    border-radius: 8px;
+    font-size: 20px;
+    max-width: 300px;
+    transition: background-color 0.2s;
 }
 
-/* ========================================
-   🧩 Poprawki rozmiarów obrazów w sekcjach
-========================================== */
+#mobile-toc a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
 
 /* 🔹 Logo aplikacji – mniejsze i responsywne */
 .appinfo-gallery img {
@@ -413,64 +665,82 @@ section p {
   display: block;
   margin: 0 auto;
 }
-
-/* 🔹 Sekcja Leki, Badania, Wizyty, Informacje medyczne */
-#leki-section .feature-gallery img,
-#badania-section .feature-gallery img,
-#wizyty-section .feature-gallery img,
-#info-section .feature-gallery img {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Efekt hover – lekka animacja powiększenia */
-#leki-section .feature-gallery img:hover,
-#badania-section .feature-gallery img:hover,
-#wizyty-section .feature-gallery img:hover,
-#info-section .feature-gallery img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-}
-
 /* 📱 Na telefonach i mniejszych ekranach */
+/* 3. STYLES DLA SMARTFONÓW (MAX 768PX) */
 @media (max-width: 768px) {
-  #leki-section .feature-gallery img,
-  #badania-section .feature-gallery img,
-  #wizyty-section .feature-gallery img,
-  #info-section .feature-gallery img {
-    max-width: 90%;
-  }
+    /* ... (inne style dla hero-section, h2, media-mockup) ... */
 
-  .appinfo-gallery img {
-    max-width: 140px;
-  }
+    /* Pokaż przycisk menu na mobile */
+    #mobile-menu-toggle {
+        display: inline-block;
+        /* Upewnienie się, że padding jest odpowiedni, już jest */
+    }
+    
+    /* 1️⃣ Poprawa Paddingu i Ułożenia w Headerze */
+    .header {
+        /* Przywrócenie stałego paddingu na bokach, jeśli był usunięty */
+        padding: 10px 20px; /* Zapewni odstęp 20px od lewej i prawej krawędzi */
+    }
+
+    .top-bar {
+        /* W tym zakresie szerokości nie chcemy, aby elementy się rozpychały. */
+        justify-content: space-between;
+        /* Usuwamy wewnętrzny gap, aby nie tworzyć zbyt dużych odstępów */
+        gap: 0;
+    }
+    
+    /* 2️⃣ Ukrycie Logo Dewelopera */
+    .developer-info {
+        display: none; /* Ukrywamy logo dewelopera, aby zaoszczędzić miejsce dla przycisku */
+    }
+
+    /* 3️⃣ Zmniejszenie Logo Aplikacji */
+    .app-logo {
+        height: 40px; /* Nieco mniejsze logo aplikacji */
+        margin-right: 8px;
+    }
+
+    .app-info h1 {
+        font-size: 20px; /* Mniejszy rozmiar tytułu, by zmieścił się obok logo */
+    }
+    
+    /* Sekcje funkcjonalności... */
 }
-
-/* =========================================
-   🎬 Odstęp między przyciskiem a galerią
-========================================= */
-#info-section .feature-gallery {
+/* 🎬 Odstęp między przyciskiem a galerią */
+#info-section .feature-media {
   margin-top: 40px; /* Odstęp od przycisku */
 }
+/* 2. STYLES DLA TABLETÓW I MAŁYCH LAPTOPÓW (MAX 1000PX) */
+@media (max-width: 1000px) {
+    /* ... inne style ... */
+    
+    .hero-section h2 {
+        font-size: 44px;
+    }
+    
+    /* Sekcje funkcjonalności: Wymuszamy układ kolumnowy i stałą kolejność */
+    .feature-section, .feature-section.reverse {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 25px;
+    }
+    
+    .feature-text, .feature-media {
+        min-width: auto;
+        width: 100%;
+    }
 
-/* Dodatkowo poprawa wyśrodkowania przycisku */
-#info-section .video-button-container {
-  margin-bottom: 20px;
+    /* 🔥 NOWA REGUŁA: Tekst zawsze na górze (order: 1) */
+    .feature-section .feature-text {
+        order: 1; 
+        margin-bottom: 30px;
+    }
+
+    /* 🔥 NOWA REGUŁA: Media (zdjęcia) zawsze na dole (order: 2) */
+    .feature-section .feature-media {
+        order: 2; 
+        margin-bottom: 0; /* Usuwamy potencjalne podwójne marginesy */
+    }
+    
+    /* ... reszta stylów ... */
 }
-
-/* 📱 Na małych ekranach nieco mniejszy odstęp */
-@media (max-width: 768px) {
-  #info-section .feature-gallery {
-    margin-top: 25px;
-  }
-}
-
-/* USUNIĘTA BŁĘDNA REGUŁA: 
-  Usunąłem stąd media query, który robił "display: none" 
-  na ".top-bar". Był on błędny i konfliktowy.
-*/
