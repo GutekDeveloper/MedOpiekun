@@ -1,33 +1,25 @@
 console.log("Witamy w aplikacji MedOpiekun!");
 
-// ===================================================================
-// ZMIANA: Skrypt do ukrywania/pokazywania nagłówka (wersja z klasą CSS)
-// Zastępuje on stary skrypt, który manipulował 'header.style.top'
-// ===================================================================
-let lastScrollY = window.scrollY;
+// Skrypt do ukrywania/pokazywania nagłówka przy przewijaniu
+let lastScrollTop = 0;
 const header = document.querySelector('.header');
-const hideThreshold = 100; // Używamy tego samego progu 100px co w starym skrypcie
 
-if (header) {
-    window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
+window.addEventListener('scroll', function () {
+  let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-        // Jeśli jesteśmy blisko góry (poniżej progu), zawsze pokazuj nagłówek
-        if (currentScrollY < hideThreshold) {
-            header.classList.remove('header-hidden');
-        } 
-        // Jeśli przewijamy w dół (i jesteśmy poza progiem)
-        else if (currentScrollY > lastScrollY) {
-            header.classList.add('header-hidden');
-        } 
-        // Jeśli przewijamy w górę (pokaż nagłówek)
-        else if (currentScrollY < lastScrollY) {
-            header.classList.remove('header-hidden');
-        }
-        
-        // Zaktualizuj ostatnią pozycję scrolla
-        // (zabezpieczenie przed wartościami ujemnymi na niektórych przeglądarkach)
-        lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
-    });
-}
-// KONIEC ZMIAN
+  
+  if (currentScroll > lastScrollTop && currentScroll > 100) {
+    // Jeśli przewijamy w dół i przekroczymy 100px, ukryj nagłówek
+    header.style.top = '-100px';
+  } else if (currentScroll < lastScrollTop) {
+    // Jeśli przewijamy w dół, ukryj nagłówek
+    header.style.top = '-100px'; 
+  } else {
+    // Jeśli przewijamy w górę, pokaż nagłówek
+    header.style.top = '0';
+    header.style.top = '0'; 
+  }
+
+  // Zapewnia, że scrollTop nie jest mniejszy niż 0
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+}, false);
