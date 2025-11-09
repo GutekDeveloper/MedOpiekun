@@ -16,7 +16,13 @@
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+  /* NOWE TŁO: 
+    Subtelny, czysty gradient. Zaczyna się od jasnego błękitu 
+    w lewym górnym rogu i przechodzi w niemal biel.
+    Jest zunifikowany i będzie świetnie działać z efektem "glass".
+  */
+  background: radial-gradient(circle at 0% 0%, #e3f2fd 0%, #f4f8fb 60%);
+  background-attachment: fixed; /* Tło stoi w miejscu podczas scrollowania */
   color: var(--text-dark);
   line-height: 1.6;
   min-height: 100vh;
@@ -27,7 +33,7 @@ body {
    NAGŁÓWEK
 ================================= */
 .header {
-  position: fixed; /* Zmieniamy na fixed, aby działało z JS */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -36,9 +42,10 @@ body {
   border-bottom: 1px solid var(--glass-border);
   color: white;
   padding: 15px 25px;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.25);
+  /* NOWY CIEŃ: Lżejszy i bardziej nowoczesny */
+  box-shadow: 0 4px 20px rgba(0, 50, 100, 0.1);
   z-index: 10;
-  transition: top 0.3s ease; /* Animacja tylko na top */
+  transition: top 0.3s ease;
 }
 
 .header:hover {
@@ -76,7 +83,7 @@ body {
 .main-content {
   text-align: center;
   padding: 80px 20px 60px;
-  margin-top: 50px; /* Nowa przestrzeń nad główną sekcją */
+  margin-top: 50px; 
 }
 
 .main-content h2 {
@@ -136,7 +143,8 @@ section {
   border-radius: 18px;
   backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  /* NOWY CIEŃ: Lżejszy i bardziej nowoczesny */
+  box-shadow: 0 10px 40px rgba(0, 80, 160, 0.08);
   padding: 50px 30px;
   transform: translateY(40px);
   opacity: 0;
@@ -282,8 +290,9 @@ section p {
   }
 
   .top-bar {
-    flex-direction: column;
-    text-align: center;
+    /* Ta reguła jest dziedziczona z (max-width: 800px) i jest poprawna */
+    /* flex-direction: column; */ 
+    /* text-align: center; */
     font-size: 14px; /* Zmniejsz czcionkę */
   }
 
@@ -394,21 +403,7 @@ section p {
   }
 }
 
-/* =========================================
-   📱 Chowanie topbara na małych ekranach
-========================================= */
-@media (max-width: 768px) {
-  .top-bar {
-    display: none; /* Ukrywa topbar na telefonach */
-  }
-
-  /* Usuwamy marginesy na body */
-  body {
-    margin-top: 0; /* Usuwa przestrzeń nad topbarem */
-  }
-
-  /* Dodatkowo możemy zmniejszyć padding na main-content */
-  .main-content {
-    padding-top: 30px; /* Dostosowanie przestrzeni nad treścią */
-  }
-}
+/* USUNIĘTA BŁĘDNA REGUŁA: 
+  Usunąłem stąd media query, który robił "display: none" 
+  na ".top-bar". Był on błędny i konfliktowy.
+*/
