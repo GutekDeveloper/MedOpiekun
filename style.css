@@ -1,292 +1,249 @@
 /* ===============================
-   GLOBALNE USTAWIENIA
+   GLOBALNE USTAWIENIA
 ================================= */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 :root {
-  --primary: #1565c0;
-  --secondary: #42a5f5;
-  --accent: #00bcd4;
-  
-  /* NOWE ZMIENNE DLA TŁA I KART */
-  --bg-main: #f0f4f8; /* Ujednolicone, jasnoniebieskie tło */
-  --bg-card: #ffffff; /* Czysta biel dla wszystkich kart */
-  --shadow-soft: 0 6px 24px rgba(31, 38, 135, 0.08); /* Miękki, nowoczesny cień */
-  
+  --primary: #1565c0;
+  --secondary: #42a5f5;
+  --accent: #00bcd4;
+  --bg-light: rgba(255, 255, 255, 0.25);
+  --glass-border: rgba(255, 255, 255, 0.4);
   --text-dark: #0d1b2a;
-  --text-light: #f4f4f4;
+  --text-light: #f4f4f4;
 }
 
 body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  
-  /* ZMIENIONE TŁO: z gradientu na solidny, jasny kolor */
-  background: var(--bg-main); 
-  
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #e3f2fd, #fce4ec);
   color: var(--text-dark);
-  line-height: 1.6;
-  min-height: 100vh;
-  overflow-x: hidden;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* ===============================
-   NAGŁÓWEK (Gotowy na JS)
+   NAGŁÓWEK
 ================================= */
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  
-  /* ZMIANA: z półprzezroczystego na solidny biały */
-  background: var(--bg-card);
-  /* USUNIĘTE: backdrop-filter, border-bottom */
-  
-  /* ZMIANA: tekst musi być teraz ciemny na białym tle */
-  color: var(--text-dark); 
-  
+  position: fixed; /* Zmieniamy na fixed, aby działało z JS */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(21, 101, 192, 0.65);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--glass-border);
+  color: white;
   padding: 15px 25px;
-  
-  /* ZMIANA: Nowoczesny, subtelny cień oddzielający od treści */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); 
-  
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.25);
   z-index: 10;
-  
-  /* ZMIANA: Przechodzimy z 'top' na 'transform' dla płynnej animacji JS */
-  transition: transform 0.3s ease-out; 
+  transition: top 0.3s ease; /* Animacja tylko na top */
 }
 
-/* NOWA KLASA: Definiuje, jak wygląda schowany nagłówek (dla JS) */
-.header.header-hidden {
-  /* Przesuwa nagłówek w górę o 100% jego własnej wysokości */
-  transform: translateY(-100%);
+.header:hover {
+  backdrop-filter: blur(12px) saturate(1.3);
 }
-/* USUNIĘTE: .header:hover (niepotrzebne przy solidnym tle) */
-
 
 .top-bar {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .app-logo, .dev-logo {
-  height: 55px;
-  border-radius: 12px;
-  object-fit: contain;
-  background: white;
-  padding: 5px;
-  
-  /* ZMIANA: Drobna ramka, aby logo nie "zlało się" z białym nagłówkiem */
-  border: 1px solid #eee; 
-  
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Zmniejszony cień */
+  height: 55px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: white;
+  padding: 5px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .app-info h1, .developer-info p {
-  margin: 0;
-  font-weight: 600;
+  margin: 0;
+  font-weight: 600;
 }
 
 
 /* ===============================
-   GŁÓWNA SEKCJA
+   GŁÓWNA SEKCJA
 ================================= */
 .main-content {
-  text-align: center;
-  
-  /* ZMIANA: Ustawiony jeden, prawidłowy odstęp od góry 
-             na schowanie stałego nagłówka */
-  padding: 120px 20px 60px; 
-  /* USUNIĘTE: margin-top: 50px; */ 
+  text-align: center;
+  padding: 80px 20px 60px;
+  margin-top: 50px; /* Nowa przestrzeń nad główną sekcją */
 }
 
 .main-content h2 {
-  font-size: 32px;
-  color: var(--primary);
-  margin-bottom: 15px;
-  font-weight: 600;
+  font-size: 32px;
+  color: var(--primary);
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 
 .description {
-  max-width: 700px;
-  margin: 0 auto 50px;
-  font-size: 18px;
-  color: #0d1b2a;
-  opacity: 0.85;
-  font-weight: 400;
+  max-width: 700px;
+  margin: 0 auto 50px;
+  font-size: 18px;
+  color: #0d1b2a;
+  opacity: 0.85;
+  font-weight: 400;
 }
 
 /* ===============================
-   PRZYCISKI
+   PRZYCISKI
 ================================= */
 .download-button img {
-  width: 220px;
-  transition: transform 0.3s ease;
-  margin-bottom: 40px;
+  width: 220px;
+  transition: transform 0.3s ease;
+  margin-bottom: 40px;
 }
 
 .download-button img:hover {
-  transform: scale(1.07);
+  transform: scale(1.07);
 }
 
 .video-button {
-  display: inline-block;
-  background: linear-gradient(90deg, var(--secondary), var(--accent));
-  color: white;
-  padding: 14px 28px;
-  border-radius: 12px;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 17px;
-  box-shadow: 0 6px 20px rgba(0, 188, 212, 0.35);
-  transition: all 0.3s ease;
+  display: inline-block;
+  background: linear-gradient(90deg, var(--secondary), var(--accent));
+  color: white;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 17px;
+  box-shadow: 0 6px 20px rgba(0, 188, 212, 0.35);
+  transition: all 0.3s ease;
 }
 
 .video-button:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 188, 212, 0.5);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 188, 212, 0.5);
 }
 
 /* ===============================
-   SEKCJE (TERAZ KARTY)
+   SEKCJE (GLASS)
 ================================= */
 section {
-  margin: 60px auto;
-  max-width: 1000px;
-  
-  /* ZMIANA: Używamy solidnego tła karty */
-  background: var(--bg-card);
-  
+  margin: 60px auto;
+  max-width: 1000px;
+  background: var(--bg-light);
   border-radius: 18px;
-  
-  /* USUNIĘTE: backdrop-filter, border */
-  
-  /* ZMIANA: Używamy nowego, miękkiego cienia */
-  box-shadow: var(--shadow-soft);
-  
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
   padding: 50px 30px;
-  
-  /* Animacje zostają - są świetne! */
-  transform: translateY(40px);
-  opacity: 0;
-  transition: all 0.8s ease;
+  transform: translateY(40px);
+  opacity: 0;
+  transition: all 0.8s ease;
 }
 
 section.visible {
-  transform: translateY(0);
-  opacity: 1;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 section h3 {
-  font-size: 26px;
-  color: var(--primary);
-  margin-bottom: 12px;
+  font-size: 26px;
+  color: var(--primary);
+  margin-bottom: 12px;
 }
 
 section p {
-  font-size: 17px;
-  color: #102a43;
-  opacity: 0.9;
+  font-size: 17px;
+  color: #102a43;
+  opacity: 0.9;
 }
 
 /* ===============================
-   GALERIE
+   GALERIE
 ================================= */
-/* ... (Bez zmian, style galerii są w porządku) ... */
 .leki-gallery, .badania-gallery, .wizyty-gallery, .info-gallery, .bezpieczenstwo-gallery {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 25px;
-  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 20px;
 }
 
 .leki-gallery img, .badania-gallery img, .wizyty-gallery img, .info-gallery img, .bezpieczenstwo-gallery img {
-  width: 220px;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 220px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .leki-gallery img:hover, .badania-gallery img:hover,
 .wizyty-gallery img:hover, .info-gallery img:hover,
 .bezpieczenstwo-gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
 }
 
 /* ===============================
-   ABOUT (TERAZ KARTA)
+   ABOUT (GLASS)
 ================================= */
 .about-section {
-  text-align: center;
-  
-  /* ZMIANA: z półprzezroczystego na solidną biel */
-  background: var(--bg-card); 
-  
+  text-align: center;
+  background: rgba(255, 255, 255, 0.3);
   border-radius: 20px;
-  
-  /* USUNIĘTE: backdrop-filter, border */
-  
+  backdrop-filter: blur(20px);
   color: var(--text-dark);
-  padding: 50px 25px;
-  margin: 70px auto;
-  max-width: 850px;
-  
-  /* ZMIANA: Używamy nowego, miękkiego cienia */
-  box-shadow: var(--shadow-soft);
+  padding: 50px 25px;
+  margin: 70px auto;
+  max-width: 850px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .about-card h2 {
-  font-size: 28px;
-  margin-bottom: 15px;
-  color: var(--primary);
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: var(--primary);
 }
 
 .about-card p {
-  font-size: 17px;
-  opacity: 0.9;
+  font-size: 17px;
+  opacity: 0.9;
 }
 
 .about-card b {
-  color: var(--secondary);
+  color: var(--secondary);
 }
 
 .about-card .signature {
-  margin-top: 25px;
-  font-style: italic;
-  color: var(--accent);
+  margin-top: 25px;
+  font-style: italic;
+  color: var(--accent);
 }
 
 /* ===============================
-   LINKI SPOŁECZNOŚCIOWE
+   LINKI SPOŁECZNOŚCIOWE
 ================================= */
-/* ... (Bez zmian) ... */
 .social-links {
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .social {
-  padding: 10px 20px;
-  border-radius: 30px;
-  font-weight: 600;
-  text-decoration: none;
-  color: white;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .social:hover {
-  transform: scale(1.07);
+  transform: scale(1.07);
 }
 
 .social.facebook { background: #1877f2; }
@@ -295,144 +252,163 @@ section p {
 .social.tiktok { background: linear-gradient(45deg, #69c9d0, #ee1d52); }
 
 /* ===============================
-   STOPKA
+   STOPKA
 ================================= */
 .footer {
-  /* ZMIANA: z półprzezroczystego na solidny kolor główny */
-  background: var(--primary); 
-  
+  background: rgba(21, 101, 192, 0.85);
   color: white;
-  text-align: center;
-  padding: 20px;
-  
-  /* USUNIĘTE: border-top, box-shadow i backdrop-filter */
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid var(--glass-border);
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
 }
 
 /* ===============================
-   RESPONSYWNOŚĆ
+   RESPONSYWNOŚĆ
 ================================= */
 @media (max-width: 800px) {
-  .top-bar { flex-direction: column; text-align: center; }
-  
-  /* ZMIANA: Dostosowanie paddingu dla stałego nagłówka */
-  .main-content { padding-top: 180px; } /* Więcej miejsca, bo .top-bar się łamie */
-  
+  .top-bar { flex-direction: column; text-align: center; }
+  .main-content { padding: 50px 15px; }
   .feature-section { flex-direction: column; text-align: center; }
-  .leki-gallery img, .badania-gallery img, .wizyty-gallery img,
-  .info-gallery img, .bezpieczenstwo-gallery img { width: 90%; max-width: 300px; }
+  .leki-gallery img, .badania-gallery img, .wizyty-gallery img,
+  .info-gallery img, .bezpieczenstwo-gallery img { width: 90%; max-width: 300px; }
 }
 
 /* 📱 Zmniejszenie topbara na urządzeniach mobilnych */
 @media (max-width: 768px) {
-  .header {
-    padding: 10px 20px; /* Zmniejsz padding, by topbar był mniejszy */
-  }
+  .header {
+    padding: 10px 20px; /* Zmniejsz padding, by topbar był mniejszy */
+  }
 
-  .top-bar {
-    flex-direction: column;
-    text-align: center;
-    font-size: 14px; /* Zmniejsz czcionkę */
-  }
+  .top-bar {
+    flex-direction: column;
+    text-align: center;
+    font-size: 14px; /* Zmniejsz czcionkę */
+  }
 
-  .app-logo {
-    height: 40px; /* Zmniejsz logo */
-  }
+  .app-logo {
+    height: 40px; /* Zmniejsz logo */
+  }
 }
 
-/* USUNIĘTE: zbędna reguła @media dla .main-content (padding-top) */
-
+/* 📱 Na małych ekranach dostosowanie paddingu głównej treści */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 50px; /* Większa przestrzeń na topbarze */
+  }
+}
 
 /* =======================================
-   🩺 POPRAWKA: skalowanie zdjęć w galeriach
+   🩺 POPRAWKA: skalowanie zdjęć w galeriach
 ========================================= */
-/* ... (Bez zmian) ... */
 .leki-gallery img,
 .badania-gallery img,
 .wizyty-gallery img,
 .info-gallery img,
 .bezpieczenstwo-gallery img {
-  width: auto;
-  max-width: 280px;
-  height: auto;
-  object-fit: cover;
+  width: auto;
+  max-width: 280px;
+  height: auto;
+  object-fit: cover;
 }
 
 /* 📱 Na telefonach i małych ekranach */
 @media (max-width: 800px) {
-  .leki-gallery img,
-  .badania-gallery img,
-  .wizyty-gallery img,
-  .info-gallery img,
-  .bezpieczenstwo-gallery img {
-    max-width: 90%;
-    height: auto;
-  }
+  .leki-gallery img,
+  .badania-gallery img,
+  .wizyty-gallery img,
+  .info-gallery img,
+  .bezpieczenstwo-gallery img {
+    max-width: 90%;
+    height: auto;
+  }
 }
 
 /* ========================================
-   🧩 Poprawki rozmiarów obrazów w sekcjach
+   🧩 Poprawki rozmiarów obrazów w sekcjach
 ========================================== */
-/* ... (Bez zmian) ... */
+
+/* 🔹 Logo aplikacji – mniejsze i responsywne */
 .appinfo-gallery img {
-  width: auto;
-  max-width: 180px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+  width: auto;
+  max-width: 180px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
+
+/* 🔹 Sekcja Leki, Badania, Wizyty, Informacje medyczne */
 #leki-section .feature-gallery img,
 #badania-section .feature-gallery img,
 #wizyty-section .feature-gallery img,
 #info-section .feature-gallery img {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* Efekt hover – lekka animacja powiększenia */
 #leki-section .feature-gallery img:hover,
 #badania-section .feature-gallery img:hover,
 #wizyty-section .feature-gallery img:hover,
 #info-section .feature-gallery img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
-@media (max-width: 768px) {
-  #leki-section .feature-gallery img,
-  #badania-section .feature-gallery img,
-  #wizyty-section .feature-gallery img,
-  #info-section .feature-gallery img {
-    max-width: 90%;
-  }
 
-  .appinfo-gallery img {
-    max-width: 140px;
-  }
+/* 📱 Na telefonach i mniejszych ekranach */
+@media (max-width: 768px) {
+  #leki-section .feature-gallery img,
+  #badania-section .feature-gallery img,
+  #wizyty-section .feature-gallery img,
+  #info-section .feature-gallery img {
+    max-width: 90%;
+  }
+
+  .appinfo-gallery img {
+    max-width: 140px;
+  }
 }
 
 /* =========================================
-   🎬 Odstęp między przyciskiem a galerią
+   🎬 Odstęp między przyciskiem a galerią
 ========================================= */
-/* ... (Bez zmian) ... */
 #info-section .feature-gallery {
-  margin-top: 40px; 
+  margin-top: 40px; /* Odstęp od przycisku */
 }
+
+/* Dodatkowo poprawa wyśrodkowania przycisku */
 #info-section .video-button-container {
-  margin-bottom: 20px;
+  margin-bottom: 20px;
 }
+
+/* 📱 Na małych ekranach nieco mniejszy odstęp */
 @media (max-width: 768px) {
-  #info-section .feature-gallery {
-    margin-top: 25px;
-  }
+  #info-section .feature-gallery {
+    margin-top: 25px;
+  }
 }
 
 /* =========================================
-   📱 Chowanie topbara na małych ekranach
+   📱 Chowanie topbara na małych ekranach
 ========================================= */
-/* USUNIĘTE: Ten blok został celowo usunięty.
-  Nowy skrypt JS i klasa .header-hidden zastępują 
-  to statyczne ukrywanie, dając płynny efekt
-  chowania/pokazywania na wszystkich urządzeniach.
-*/
+@media (max-width: 768px) {
+  .top-bar {
+    display: none; /* Ukrywa topbar na telefonach */
+  }
+
+  /* Usuwamy marginesy na body */
+  body {
+    margin-top: 0; /* Usuwa przestrzeń nad topbarem */
+  }
+
+  /* Dodatkowo możemy zmniejszyć padding na main-content */
+  .main-content {
+    padding-top: 30px; /* Dostosowanie przestrzeni nad treścią */
+  }
+}
