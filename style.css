@@ -295,42 +295,48 @@ section p {
 @media (max-width: 768px) {
   .header {
     /* Mniejszy padding = niższy topbar */
-    padding: 8px 15px; 
+    padding: 8px 10px; 
   }
 
+  /* .top-bar (rodzic obu grup) zachowuje domyślne ustawienie "row",
+    aby grupy były obok siebie (LOGO APLIKACJI - LOGO DEVELOPERA)
+  */
+
   .top-bar {
-    /* Upewniamy się, że jest w rzędzie i się nie zawija */
-    flex-direction: row; 
-    flex-wrap: nowrap; 
-    font-size: 12px; /* Mniejsza domyślna czcionka */
+    /* Zwiększamy odstęp między grupami, żeby były lekko rozdzielone */
+    gap: 15px; 
+  }
+
+  /* 💡 KLUCZOWA ZMIANA: Ustawiamy układ pionowy dla mobile wewnątrz każdej grupy */
+  .app-info, .developer-info {
+    display: flex; 
+    flex-direction: column; /* Ustawia logo NAD tekstem */
+    align-items: center;    /* Wyśrodkowuje logo i tekst */
+    gap: 3px;               /* Mniejszy odstęp między logo a tekstem pod nim */
   }
 
   /* Zmniejszamy OBA loga */
   .app-logo, .dev-logo {
-    height: 30px; /* Znacznie mniejsze logo */
-    padding: 3px;     /* Mniejszy padding loga */
+    height: 40px; /* Rozmiar loga */
+    padding: 3px;
     border-radius: 6px;
   }
 
-  /* Zmniejszamy odstęp między logo a tekstem */
-  .app-info, .developer-info {
-    gap: 8px; 
-  }
-  
   /* Zmniejszamy teksty */
   .app-info h1 {
-    font-size: 15px; /* Mniejszy tytuł aplikacji */
+    font-size: 14px; /* Mniejszy tytuł aplikacji */
+    margin: 0; /* Usuwamy marginesy, które mogą go powiększać */
   }
 
   .developer-info p {
-    font-size: 11px; /* Mniejszy tekst dewelopera */
-    /* Ukryj tekst dewelopera, jeśli nadal jest za ciasno */
-    /* display: none; */ 
+    font-size: 10px; /* Mniejszy tekst dewelopera */
+    text-align: center;
+    margin: 0; /* Usuwamy marginesy */
   }
 
-  /* Poprawka dla głównej treści, by nie chowała się pod niższym topbarem */
+  /* Poprawka dla głównej treści */
   .main-content {
-    padding-top: 70px; 
+    padding-top: 80px; /* Zapas na wysokość topbara */
   }
 }
 
