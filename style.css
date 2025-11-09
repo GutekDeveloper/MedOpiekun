@@ -1,6 +1,10 @@
 /* ===============================
    GLOBALNE USTAWIENIA
 ================================= */
+*, *::before, *::after {
+    /* 🔥 NOWA REGUŁA: Gwarantuje, że padding i border nie zwiększą szerokości elementu */
+    box-sizing: border-box; 
+}
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
 
 :root {
@@ -668,43 +672,96 @@ section p {
 /* 📱 Na telefonach i mniejszych ekranach */
 /* 3. STYLES DLA SMARTFONÓW (MAX 768PX) */
 @media (max-width: 768px) {
-    /* ... (inne style dla hero-section, h2, media-mockup) ... */
-
-    /* Pokaż przycisk menu na mobile */
+    
+    /* Wprowadzamy minimalne zmiany w Headerze, aby zachować odstęp 10px po prawej 
+       (usuwam też zbędne komentarze, bo były z poprzednich kroków) */
     #mobile-menu-toggle {
         display: inline-block;
-        /* Upewnienie się, że padding jest odpowiedni, już jest */
+        /* Zapewnia wizualny odstęp od prawej krawędzi, jeśli ustawiliśmy padding na 20px */
+        margin-left: 10px; 
     }
     
-    /* 1️⃣ Poprawa Paddingu i Ułożenia w Headerze */
     .header {
-        /* Przywrócenie stałego paddingu na bokach, jeśli był usunięty */
-        padding: 10px 20px; /* Zapewni odstęp 20px od lewej i prawej krawędzi */
+        padding: 10px 20px; 
     }
 
     .top-bar {
-        /* W tym zakresie szerokości nie chcemy, aby elementy się rozpychały. */
         justify-content: space-between;
-        /* Usuwamy wewnętrzny gap, aby nie tworzyć zbyt dużych odstępów */
         gap: 0;
     }
     
-    /* 2️⃣ Ukrycie Logo Dewelopera */
     .developer-info {
-        display: none; /* Ukrywamy logo dewelopera, aby zaoszczędzić miejsce dla przycisku */
+        display: none; 
     }
 
-    /* 3️⃣ Zmniejszenie Logo Aplikacji */
     .app-logo {
-        height: 40px; /* Nieco mniejsze logo aplikacji */
+        height: 40px; 
         margin-right: 8px;
     }
 
     .app-info h1 {
-        font-size: 20px; /* Mniejszy rozmiar tytułu, by zmieścił się obok logo */
+        font-size: 20px; 
     }
     
-    /* Sekcje funkcjonalności... */
+    /* =================================
+       🔥 FIX 1: NAPRAWA SEKCJI HERO (telefon i przycisk)
+       ================================= */
+    .hero-section {
+        flex-direction: column; /* Ustawienie elementów pionowo */
+        text-align: center;
+        padding: 60px 20px 40px;
+    }
+
+    .hero-text, .hero-media {
+        width: 100%; /* Pełna szerokość dla obu kontenerów */
+        min-width: auto;
+    }
+
+    .hero-media {
+        margin-top: 30px; /* Odstęp między tekstem a telefonem */
+    }
+    
+    .media-mockup {
+        /* KLUCZOWA POPRAWKA: Resetowanie transformacji, która wystawiała element poza ekran */
+        transform: none !important; 
+        max-width: 100%; 
+        height: auto;
+    }
+    
+    .download-buttons a {
+        /* Upewnij się, że przyciski są elastyczne i nie wystają (jeśli są bardzo szerokie) */
+        display: inline-block;
+        margin: 5px;
+    }
+    
+    /* =================================
+       🔥 FIX 2: NAPRAWA SEKCJI O DEVELOPERZE (zdjęcie i przyciski)
+       ================================= */
+    .about-card {
+        flex-direction: column; /* Stosujemy układ pionowy */
+        align-items: center; /* Wyśrodkowanie elementów w pionowym stosie */
+    }
+    
+    /* Usuwamy problematyczne min-width */
+    .about-text {
+        min-width: 100%;
+        order: 2; /* Tekst pod zdjęciem */
+        padding: 0 10px; /* Opcjonalnie mały padding, by tekst nie dotykał krawędzi */
+    }
+
+    .gutek-photo {
+        order: 1; /* Zdjęcie na górze */
+        margin-bottom: 25px; 
+    }
+    
+    .social-links {
+        width: 100%; 
+        justify-content: center; /* Wyśrodkowanie przycisków społecznościowych */
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+
+    /* ... (reszta Twojego kodu dla 768px) ... */
 }
 /* 🎬 Odstęp między przyciskiem a galerią */
 #info-section .feature-media {
