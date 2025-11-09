@@ -4,10 +4,10 @@ console.log("Witamy w aplikacji MedOpiekun!");
 // Wstawienie tekstu sekcji "Leki" po załadowaniu DOM
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
-    const tekstContainer = document.getElementById("tekst-leki");
-    if (tekstContainer && typeof tekstLeki !== "undefined") {
-        tekstContainer.innerHTML = tekstLeki;
-    }
+    const tekstContainer = document.getElementById("tekst-leki");
+    if (tekstContainer && typeof tekstLeki !== "undefined") {
+        tekstContainer.innerHTML = tekstLeki;
+    }
 });
 
 // ===============================
@@ -17,58 +17,58 @@ const shapes = ["circle", "triangle", "square"];
 
 // Losowy wybór kształtu
 function getRandomShape() {
-    return shapes[Math.floor(Math.random() * shapes.length)];
+    return shapes[Math.floor(Math.random() * shapes.length)];
 }
 
 // Losowy kolor (pastelowe odcienie)
 function getRandomColor() {
-    const colors = [
-        "rgba(187, 222, 251, 0.5)",
-        "rgba(248, 187, 208, 0.5)",
-        "rgba(206, 147, 216, 0.5)",
-        "rgba(129, 212, 250, 0.5)",
-        "rgba(179, 229, 252, 0.4)"
-    ];
-    return colors[Math.floor(Math.random() * colors.length)];
+    const colors = [
+        "rgba(187, 222, 251, 0.5)",
+        "rgba(248, 187, 208, 0.5)",
+        "rgba(206, 147, 216, 0.5)",
+        "rgba(129, 212, 250, 0.5)",
+        "rgba(179, 229, 252, 0.4)"
+    ];
+    return colors[Math.floor(Math.random() * colors.length)];
 }
 
 // Wypełnienie kontenera kształtami
 function fillShapes(containerSelector, count = 30) {
-    const container = document.querySelector(containerSelector);
-    if (!container) return;
+    const container = document.querySelector(containerSelector);
+    if (!container) return;
 
-    container.innerHTML = ""; // wyczyść poprzednie
-    for (let i = 0; i < count; i++) {
-        const shapeType = getRandomShape();
-        const div = document.createElement("div");
-        div.classList.add("shape-" + shapeType, "shape");
-        div.style.background = getRandomColor();
-        div.style.opacity = (Math.random() * 0.5 + 0.3).toFixed(2);
-        div.style.transform = `translateY(${Math.random() * window.innerHeight}px)`;
-        container.appendChild(div);
-    }
+    container.innerHTML = ""; // wyczyść poprzednie
+    for (let i = 0; i < count; i++) {
+        const shapeType = getRandomShape();
+        const div = document.createElement("div");
+        div.classList.add("shape-" + shapeType, "shape");
+        div.style.background = getRandomColor();
+        div.style.opacity = (Math.random() * 0.5 + 0.3).toFixed(2);
+        div.style.transform = `translateY(${Math.random() * window.innerHeight}px)`;
+        container.appendChild(div);
+    }
 }
 
 // Inicjalizacja kształtów po załadowaniu DOM
 document.addEventListener("DOMContentLoaded", () => {
-    fillShapes(".left-shapes", 40);
-    fillShapes(".right-shapes", 35);
+    fillShapes(".left-shapes", 40);
+    fillShapes(".right-shapes", 35);
 });
 
 // Ruch kształtów przy scrollowaniu (lekki efekt parallax)
 window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-    const offsetTopBar = 80;
+    const scrollY = window.scrollY;
+    const offsetTopBar = 80;
 
-    document.querySelectorAll(".left-shapes .shape").forEach((el, i) => {
-        const y = offsetTopBar + ((scrollY * 0.3 + i * 25) % (window.innerHeight + 100));
-        el.style.transform = `translateY(${y}px) rotate(${scrollY * 0.05}deg)`;
-    });
+    document.querySelectorAll(".left-shapes .shape").forEach((el, i) => {
+        const y = offsetTopBar + ((scrollY * 0.3 + i * 25) % (window.innerHeight + 100));
+        el.style.transform = `translateY(${y}px) rotate(${scrollY * 0.05}deg)`;
+    });
 
-    document.querySelectorAll(".right-shapes .shape").forEach((el, i) => {
-        const y = offsetTopBar + ((scrollY * 0.2 + i * 35) % (window.innerHeight + 100));
-        el.style.transform = `translateY(${y}px) rotate(${scrollY * 0.03}deg)`;
-    });
+    document.querySelectorAll(".right-shapes .shape").forEach((el, i) => {
+        const y = offsetTopBar + ((scrollY * 0.2 + i * 35) % (window.innerHeight + 100));
+        el.style.transform = `translateY(${y}px) rotate(${scrollY * 0.03}deg)`;
+    });
 });
 
 // ===============================
@@ -77,32 +77,48 @@ window.addEventListener("scroll", () => {
 const sections = document.querySelectorAll("section, .about-section");
 
 function revealSectionsOnScroll() {
-    const triggerBottom = window.innerHeight * 0.85;
+    const triggerBottom = window.innerHeight * 0.85;
 
-    sections.forEach((sec) => {
-        const top = sec.getBoundingClientRect().top;
-        if (top < triggerBottom) {
-            sec.classList.add("visible");
-        }
-    });
+    sections.forEach((sec) => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < triggerBottom) {
+            sec.classList.add("visible");
+        }
+    });
 }
 
 window.addEventListener("scroll", revealSectionsOnScroll);
 window.addEventListener("DOMContentLoaded", revealSectionsOnScroll);
 
-// Skrypt do ukrywania/pokazywania nagłówka przy przewijaniu
-let lastScrollTop = 0;
-const header = document.querySelector('.header');
 
-window.addEventListener('scroll', function () {
-  let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-  
-  if (currentScroll > lastScrollTop && currentScroll > 100) {
-    // Jeśli przewijamy w dół, ukryj nagłówek
-    header.style.top = '-100px'; 
-  } else {
-    // Jeśli przewijamy w górę, pokaż nagłówek
-    header.style.top = '0'; 
-  }
-  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-}, false);
+// ===================================================================
+// ZMIANA: Skrypt do ukrywania/pokazywania nagłówka (wersja z klasą CSS)
+// Zastępuje on stary skrypt, który manipulował 'header.style.top'
+// ===================================================================
+let lastScrollY = window.scrollY;
+const header = document.querySelector('.header');
+const hideThreshold = 100; // Używamy tego samego progu 100px co w starym skrypcie
+
+if (header) {
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+
+        // Jeśli jesteśmy blisko góry (poniżej progu), zawsze pokazuj nagłówek
+        if (currentScrollY < hideThreshold) {
+            header.classList.remove('header-hidden');
+        } 
+        // Jeśli przewijamy w dół (i jesteśmy poza progiem)
+        else if (currentScrollY > lastScrollY) {
+            header.classList.add('header-hidden');
+        } 
+        // Jeśli przewijamy w górę (pokaż nagłówek)
+        else if (currentScrollY < lastScrollY) {
+            header.classList.remove('header-hidden');
+        }
+        
+        // Zaktualizuj ostatnią pozycję scrolla
+        // (zabezpieczenie przed wartościami ujemnymi na niektórych przeglądarkach)
+        lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+    });
+}
+// KONIEC ZMIAN
