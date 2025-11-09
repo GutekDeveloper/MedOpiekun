@@ -1,5 +1,5 @@
 /* ===============================
-   GLOBALNE USTAWIENIA
+   GLOBALNE USTAWIENIA
 ================================= */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
@@ -15,7 +15,6 @@
   
   --text-dark: #0d1b2a;
   --text-light: #f4f4f4;
-  /* Usunięte zmienne --bg-light i --glass-border */
 }
 
 body {
@@ -32,7 +31,7 @@ body {
 }
 
 /* ===============================
-   NAGŁÓWEK
+   NAGŁÓWEK (Gotowy na JS)
 ================================= */
 .header {
   position: fixed;
@@ -42,8 +41,7 @@ body {
   
   /* ZMIANA: z półprzezroczystego na solidny biały */
   background: var(--bg-card);
-  /* USUNIĘTE: backdrop-filter: blur(10px); */
-  /* USUNIĘTE: border-bottom: 1px solid var(--glass-border); */
+  /* USUNIĘTE: backdrop-filter, border-bottom */
   
   /* ZMIANA: tekst musi być teraz ciemny na białym tle */
   color: var(--text-dark); 
@@ -54,21 +52,27 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); 
   
   z-index: 10;
-  transition: top 0.3s ease;
+  
+  /* ZMIANA: Przechodzimy z 'top' na 'transform' dla płynnej animacji JS */
+  transition: transform 0.3s ease-out; 
 }
 
-.header:hover {
-  backdrop-filter: blur(12px) saturate(1.3);
+/* NOWA KLASA: Definiuje, jak wygląda schowany nagłówek (dla JS) */
+.header.header-hidden {
+  /* Przesuwa nagłówek w górę o 100% jego własnej wysokości */
+  transform: translateY(-100%);
 }
+/* USUNIĘTE: .header:hover (niepotrzebne przy solidnym tle) */
+
 
 .top-bar {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .app-logo, .dev-logo {
@@ -85,72 +89,72 @@ body {
 }
 
 .app-info h1, .developer-info p {
-  margin: 0;
-  font-weight: 600;
+  margin: 0;
+  font-weight: 600;
 }
 
 
 /* ===============================
-   GŁÓWNA SEKCJA
+   GŁÓWNA SEKCJA
 ================================= */
 .main-content {
   text-align: center;
   
-  /* ZMIANA: Usunięty zbędny margines i ustawiony jeden, 
-             prawidłowy odstęp od góry na schowanie nagłówka */
-  padding: 120px 20px 60px; /* 120px = ~85px nagłówka + 35px oddechu */
+  /* ZMIANA: Ustawiony jeden, prawidłowy odstęp od góry 
+             na schowanie stałego nagłówka */
+  padding: 120px 20px 60px; 
   /* USUNIĘTE: margin-top: 50px; */ 
 }
 
 .main-content h2 {
-  font-size: 32px;
-  color: var(--primary);
-  margin-bottom: 15px;
-  font-weight: 600;
+  font-size: 32px;
+  color: var(--primary);
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 
 .description {
-  max-width: 700px;
-  margin: 0 auto 50px;
-  font-size: 18px;
-  color: #0d1b2a;
-  opacity: 0.85;
-  font-weight: 400;
+  max-width: 700px;
+  margin: 0 auto 50px;
+  font-size: 18px;
+  color: #0d1b2a;
+  opacity: 0.85;
+  font-weight: 400;
 }
 
 /* ===============================
-   PRZYCISKI
+   PRZYCISKI
 ================================= */
 .download-button img {
-  width: 220px;
-  transition: transform 0.3s ease;
-  margin-bottom: 40px;
+  width: 220px;
+  transition: transform 0.3s ease;
+  margin-bottom: 40px;
 }
 
 .download-button img:hover {
-  transform: scale(1.07);
+  transform: scale(1.07);
 }
 
 .video-button {
-  display: inline-block;
-  background: linear-gradient(90deg, var(--secondary), var(--accent));
-  color: white;
-  padding: 14px 28px;
-  border-radius: 12px;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 17px;
-  box-shadow: 0 6px 20px rgba(0, 188, 212, 0.35);
-  transition: all 0.3s ease;
+  display: inline-block;
+  background: linear-gradient(90deg, var(--secondary), var(--accent));
+  color: white;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 17px;
+  box-shadow: 0 6px 20px rgba(0, 188, 212, 0.35);
+  transition: all 0.3s ease;
 }
 
 .video-button:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 188, 212, 0.5);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 188, 212, 0.5);
 }
 
 /* ===============================
-   SEKCJE (GLASS)
+   SEKCJE (TERAZ KARTY)
 ================================= */
 section {
   margin: 60px auto;
@@ -161,64 +165,64 @@ section {
   
   border-radius: 18px;
   
-  /* USUNIĘTE: backdrop-filter: blur(16px); */
-  /* USUNIĘTE: border: 1px solid var(--glass-border); */
+  /* USUNIĘTE: backdrop-filter, border */
   
   /* ZMIANA: Używamy nowego, miękkiego cienia */
   box-shadow: var(--shadow-soft);
   
   padding: 50px 30px;
   
-  /* Animacje zostają - są super! */
+  /* Animacje zostają - są świetne! */
   transform: translateY(40px);
   opacity: 0;
   transition: all 0.8s ease;
 }
 
 section.visible {
-  transform: translateY(0);
-  opacity: 1;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 section h3 {
-  font-size: 26px;
-  color: var(--primary);
-  margin-bottom: 12px;
+  font-size: 26px;
+  color: var(--primary);
+  margin-bottom: 12px;
 }
 
 section p {
-  font-size: 17px;
-  color: #102a43;
-  opacity: 0.9;
+  font-size: 17px;
+  color: #102a43;
+  opacity: 0.9;
 }
 
 /* ===============================
-   GALERIE
+   GALERIE
 ================================= */
+/* ... (Bez zmian, style galerii są w porządku) ... */
 .leki-gallery, .badania-gallery, .wizyty-gallery, .info-gallery, .bezpieczenstwo-gallery {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 25px;
-  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 20px;
 }
 
 .leki-gallery img, .badania-gallery img, .wizyty-gallery img, .info-gallery img, .bezpieczenstwo-gallery img {
-  width: 220px;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 220px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .leki-gallery img:hover, .badania-gallery img:hover,
 .wizyty-gallery img:hover, .info-gallery img:hover,
 .bezpieczenstwo-gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
 }
 
 /* ===============================
-   ABOUT (GLASS)
+   ABOUT (TERAZ KARTA)
 ================================= */
 .about-section {
   text-align: center;
@@ -228,62 +232,61 @@ section p {
   
   border-radius: 20px;
   
-  /* USUNIĘTE: backdrop-filter: blur(20px); */
+  /* USUNIĘTE: backdrop-filter, border */
   
   color: var(--text-dark);
   padding: 50px 25px;
   margin: 70px auto;
   max-width: 850px;
   
-  /* USUNIĘTE: border: 1px solid var(--glass-border); */
-  
   /* ZMIANA: Używamy nowego, miękkiego cienia */
   box-shadow: var(--shadow-soft);
 }
 
 .about-card h2 {
-  font-size: 28px;
-  margin-bottom: 15px;
-  color: var(--primary);
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: var(--primary);
 }
 
 .about-card p {
-  font-size: 17px;
-  opacity: 0.9;
+  font-size: 17px;
+  opacity: 0.9;
 }
 
 .about-card b {
-  color: var(--secondary);
+  color: var(--secondary);
 }
 
 .about-card .signature {
-  margin-top: 25px;
-  font-style: italic;
-  color: var(--accent);
+  margin-top: 25px;
+  font-style: italic;
+  color: var(--accent);
 }
 
 /* ===============================
-   LINKI SPOŁECZNOŚCIOWE
+   LINKI SPOŁECZNOŚCIOWE
 ================================= */
+/* ... (Bez zmian) ... */
 .social-links {
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .social {
-  padding: 10px 20px;
-  border-radius: 30px;
-  font-weight: 600;
-  text-decoration: none;
-  color: white;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .social:hover {
-  transform: scale(1.07);
+  transform: scale(1.07);
 }
 
 .social.facebook { background: #1877f2; }
@@ -292,10 +295,10 @@ section p {
 .social.tiktok { background: linear-gradient(45deg, #69c9d0, #ee1d52); }
 
 /* ===============================
-   STOPKA
+   STOPKA
 ================================= */
 .footer {
-  /* ZMIANA: z półprzezroczystego na solidny kolor */
+  /* ZMIANA: z półprzezroczystego na solidny kolor główny */
   background: var(--primary); 
   
   color: white;
@@ -306,151 +309,130 @@ section p {
 }
 
 /* ===============================
-   RESPONSYWNOŚĆ
+   RESPONSYWNOŚĆ
 ================================= */
 @media (max-width: 800px) {
-  .top-bar { flex-direction: column; text-align: center; }
-  .main-content { padding: 50px 15px; }
+  .top-bar { flex-direction: column; text-align: center; }
+  
+  /* ZMIANA: Dostosowanie paddingu dla stałego nagłówka */
+  .main-content { padding-top: 180px; } /* Więcej miejsca, bo .top-bar się łamie */
+  
   .feature-section { flex-direction: column; text-align: center; }
-  .leki-gallery img, .badania-gallery img, .wizyty-gallery img,
-  .info-gallery img, .bezpieczenstwo-gallery img { width: 90%; max-width: 300px; }
+  .leki-gallery img, .badania-gallery img, .wizyty-gallery img,
+  .info-gallery img, .bezpieczenstwo-gallery img { width: 90%; max-width: 300px; }
 }
 
 /* 📱 Zmniejszenie topbara na urządzeniach mobilnych */
 @media (max-width: 768px) {
-  .header {
-    padding: 10px 20px; /* Zmniejsz padding, by topbar był mniejszy */
-  }
+  .header {
+    padding: 10px 20px; /* Zmniejsz padding, by topbar był mniejszy */
+  }
 
-  .top-bar {
-    flex-direction: column;
-    text-align: center;
-    font-size: 14px; /* Zmniejsz czcionkę */
-  }
+  .top-bar {
+    flex-direction: column;
+    text-align: center;
+    font-size: 14px; /* Zmniejsz czcionkę */
+  }
 
-  .app-logo {
-    height: 40px; /* Zmniejsz logo */
-  }
+  .app-logo {
+    height: 40px; /* Zmniejsz logo */
+  }
 }
 
-/* 📱 Na małych ekranach dostosowanie paddingu głównej treści */
-@media (max-width: 768px) {
-  .main-content {
-    padding-top: 50px; /* Większa przestrzeń na topbarze */
-  }
-}
+/* USUNIĘTE: zbędna reguła @media dla .main-content (padding-top) */
+
 
 /* =======================================
-   🩺 POPRAWKA: skalowanie zdjęć w galeriach
+   🩺 POPRAWKA: skalowanie zdjęć w galeriach
 ========================================= */
+/* ... (Bez zmian) ... */
 .leki-gallery img,
 .badania-gallery img,
 .wizyty-gallery img,
 .info-gallery img,
 .bezpieczenstwo-gallery img {
-  width: auto;
-  max-width: 280px;
-  height: auto;
-  object-fit: cover;
+  width: auto;
+  max-width: 280px;
+  height: auto;
+  object-fit: cover;
 }
 
 /* 📱 Na telefonach i małych ekranach */
 @media (max-width: 800px) {
-  .leki-gallery img,
-  .badania-gallery img,
-  .wizyty-gallery img,
-  .info-gallery img,
-  .bezpieczenstwo-gallery img {
-    max-width: 90%;
-    height: auto;
-  }
+  .leki-gallery img,
+  .badania-gallery img,
+  .wizyty-gallery img,
+  .info-gallery img,
+  .bezpieczenstwo-gallery img {
+    max-width: 90%;
+    height: auto;
+  }
 }
 
 /* ========================================
-   🧩 Poprawki rozmiarów obrazów w sekcjach
+   🧩 Poprawki rozmiarów obrazów w sekcjach
 ========================================== */
-
-/* 🔹 Logo aplikacji – mniejsze i responsywne */
+/* ... (Bez zmian) ... */
 .appinfo-gallery img {
-  width: auto;
-  max-width: 180px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+  width: auto;
+  max-width: 180px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
-
-/* 🔹 Sekcja Leki, Badania, Wizyty, Informacje medyczne */
 #leki-section .feature-gallery img,
 #badania-section .feature-gallery img,
 #wizyty-section .feature-gallery img,
 #info-section .feature-gallery img {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-/* Efekt hover – lekka animacja powiększenia */
 #leki-section .feature-gallery img:hover,
 #badania-section .feature-gallery img:hover,
 #wizyty-section .feature-gallery img:hover,
 #info-section .feature-gallery img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
-
-/* 📱 Na telefonach i mniejszych ekranach */
 @media (max-width: 768px) {
-  #leki-section .feature-gallery img,
-  #badania-section .feature-gallery img,
-  #wizyty-section .feature-gallery img,
-  #info-section .feature-gallery img {
-    max-width: 90%;
-  }
+  #leki-section .feature-gallery img,
+  #badania-section .feature-gallery img,
+  #wizyty-section .feature-gallery img,
+  #info-section .feature-gallery img {
+    max-width: 90%;
+  }
 
-  .appinfo-gallery img {
-    max-width: 140px;
-  }
+  .appinfo-gallery img {
+    max-width: 140px;
+  }
 }
 
 /* =========================================
-   🎬 Odstęp między przyciskiem a galerią
+   🎬 Odstęp między przyciskiem a galerią
 ========================================= */
+/* ... (Bez zmian) ... */
 #info-section .feature-gallery {
-  margin-top: 40px; /* Odstęp od przycisku */
+  margin-top: 40px; 
 }
-
-/* Dodatkowo poprawa wyśrodkowania przycisku */
 #info-section .video-button-container {
-  margin-bottom: 20px;
+  margin-bottom: 20px;
 }
-
-/* 📱 Na małych ekranach nieco mniejszy odstęp */
 @media (max-width: 768px) {
-  #info-section .feature-gallery {
-    margin-top: 25px;
-  }
+  #info-section .feature-gallery {
+    margin-top: 25px;
+  }
 }
 
 /* =========================================
-   📱 Chowanie topbara na małych ekranach
+   📱 Chowanie topbara na małych ekranach
 ========================================= */
-@media (max-width: 768px) {
-  .top-bar {
-    display: none; /* Ukrywa topbar na telefonach */
-  }
-
-  /* Usuwamy marginesy na body */
-  body {
-    margin-top: 0; /* Usuwa przestrzeń nad topbarem */
-  }
-
-  /* Dodatkowo możemy zmniejszyć padding na main-content */
-  .main-content {
-    padding-top: 30px; /* Dostosowanie przestrzeni nad treścią */
-  }
-}
-
+/* USUNIĘTE: Ten blok został celowo usunięty.
+  Nowy skrypt JS i klasa .header-hidden zastępują 
+  to statyczne ukrywanie, dając płynny efekt
+  chowania/pokazywania na wszystkich urządzeniach.
+*/
