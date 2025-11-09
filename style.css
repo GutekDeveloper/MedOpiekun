@@ -117,20 +117,23 @@ body {
 
 .video-button {
   display: inline-block;
-  background: linear-gradient(90deg, var(--secondary), var(--accent));
-  color: white;
+  /* NOWE TŁO DLA PRZYCISKU: ciemniejszy, bardziej kontrastowy gradient */
+  background: linear-gradient(90deg, #0d47a1, #1976d2); /* Od ciemnoniebieskiego do niebieskiego */
+  color: white; /* Biały tekst będzie teraz widoczny na ciemniejszym tle */
   padding: 14px 28px;
   border-radius: 12px;
   font-weight: 600;
   text-decoration: none;
   font-size: 17px;
-  box-shadow: 0 6px 20px rgba(0, 188, 212, 0.35);
+  /* NOWY CIEŃ: bardziej niebieski, lepiej pasujący do koloru przycisku */
+  box-shadow: 0 6px 20px rgba(13, 71, 161, 0.45); 
   transition: all 0.3s ease;
 }
 
 .video-button:hover {
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 188, 212, 0.5);
+  /* CIEŃ HOVER: nieco większy i intensywniejszy */
+  box-shadow: 0 8px 25px rgba(13, 71, 161, 0.6);
 }
 
 /* ===============================
