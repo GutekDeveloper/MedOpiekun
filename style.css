@@ -4,41 +4,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 :root {
-  --primary: #1565c0;
-  --secondary: #42a5f5;
-  --accent: #00bcd4;
-  --bg-light: rgba(255, 255, 255, 0.25);
-  --glass-border: rgba(255, 255, 255, 0.4);
+  --primary: #1565c0;
+  --secondary: #42a5f5;
+  --accent: #00bcd4;
+  
+  /* NOWE ZMIENNE DLA TŁA I KART */
+  --bg-main: #f0f4f8; /* Ujednolicone, jasnoniebieskie tło */
+  --bg-card: #ffffff; /* Czysta biel dla wszystkich kart */
+  --shadow-soft: 0 6px 24px rgba(31, 38, 135, 0.08); /* Miękki, nowoczesny cień */
+  
   --text-dark: #0d1b2a;
-  --text-light: #f4f4f4;
+  --text-light: #f4f4f4;
+  /* Usunięte zmienne --bg-light i --glass-border */
 }
 
 body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  
+  /* ZMIENIONE TŁO: z gradientu na solidny, jasny kolor */
+  background: var(--bg-main); 
+  
   color: var(--text-dark);
-  line-height: 1.6;
-  min-height: 100vh;
-  overflow-x: hidden;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* ===============================
    NAGŁÓWEK
 ================================= */
 .header {
-  position: fixed; /* Zmieniamy na fixed, aby działało z JS */
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(21, 101, 192, 0.65);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--glass-border);
-  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  
+  /* ZMIANA: z półprzezroczystego na solidny biały */
+  background: var(--bg-card);
+  /* USUNIĘTE: backdrop-filter: blur(10px); */
+  /* USUNIĘTE: border-bottom: 1px solid var(--glass-border); */
+  
+  /* ZMIANA: tekst musi być teraz ciemny na białym tle */
+  color: var(--text-dark); 
+  
   padding: 15px 25px;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.25);
+  
+  /* ZMIANA: Nowoczesny, subtelny cień oddzielający od treści */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); 
+  
   z-index: 10;
-  transition: top 0.3s ease; /* Animacja tylko na top */
+  transition: top 0.3s ease;
 }
 
 .header:hover {
@@ -56,12 +72,16 @@ body {
 }
 
 .app-logo, .dev-logo {
-  height: 55px;
-  border-radius: 12px;
-  object-fit: contain;
-  background: white;
-  padding: 5px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  height: 55px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: white;
+  padding: 5px;
+  
+  /* ZMIANA: Drobna ramka, aby logo nie "zlało się" z białym nagłówkiem */
+  border: 1px solid #eee; 
+  
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Zmniejszony cień */
 }
 
 .app-info h1, .developer-info p {
@@ -74,9 +94,12 @@ body {
    GŁÓWNA SEKCJA
 ================================= */
 .main-content {
-  text-align: center;
-  padding: 80px 20px 60px;
-  margin-top: 50px; /* Nowa przestrzeń nad główną sekcją */
+  text-align: center;
+  
+  /* ZMIANA: Usunięty zbędny margines i ustawiony jeden, 
+             prawidłowy odstęp od góry na schowanie nagłówka */
+  padding: 120px 20px 60px; /* 120px = ~85px nagłówka + 35px oddechu */
+  /* USUNIĘTE: margin-top: 50px; */ 
 }
 
 .main-content h2 {
@@ -130,17 +153,26 @@ body {
    SEKCJE (GLASS)
 ================================= */
 section {
-  margin: 60px auto;
-  max-width: 1000px;
-  background: var(--bg-light);
+  margin: 60px auto;
+  max-width: 1000px;
+  
+  /* ZMIANA: Używamy solidnego tła karty */
+  background: var(--bg-card);
+  
   border-radius: 18px;
-  backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  
+  /* USUNIĘTE: backdrop-filter: blur(16px); */
+  /* USUNIĘTE: border: 1px solid var(--glass-border); */
+  
+  /* ZMIANA: Używamy nowego, miękkiego cienia */
+  box-shadow: var(--shadow-soft);
+  
   padding: 50px 30px;
-  transform: translateY(40px);
-  opacity: 0;
-  transition: all 0.8s ease;
+  
+  /* Animacje zostają - są super! */
+  transform: translateY(40px);
+  opacity: 0;
+  transition: all 0.8s ease;
 }
 
 section.visible {
@@ -189,16 +221,24 @@ section p {
    ABOUT (GLASS)
 ================================= */
 .about-section {
-  text-align: center;
-  background: rgba(255, 255, 255, 0.3);
+  text-align: center;
+  
+  /* ZMIANA: z półprzezroczystego na solidną biel */
+  background: var(--bg-card); 
+  
   border-radius: 20px;
-  backdrop-filter: blur(20px);
+  
+  /* USUNIĘTE: backdrop-filter: blur(20px); */
+  
   color: var(--text-dark);
-  padding: 50px 25px;
-  margin: 70px auto;
-  max-width: 850px;
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  padding: 50px 25px;
+  margin: 70px auto;
+  max-width: 850px;
+  
+  /* USUNIĘTE: border: 1px solid var(--glass-border); */
+  
+  /* ZMIANA: Używamy nowego, miękkiego cienia */
+  box-shadow: var(--shadow-soft);
 }
 
 .about-card h2 {
@@ -255,13 +295,14 @@ section p {
    STOPKA
 ================================= */
 .footer {
-  background: rgba(21, 101, 192, 0.85);
+  /* ZMIANA: z półprzezroczystego na solidny kolor */
+  background: var(--primary); 
+  
   color: white;
-  text-align: center;
-  padding: 20px;
-  border-top: 1px solid var(--glass-border);
-  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(10px);
+  text-align: center;
+  padding: 20px;
+  
+  /* USUNIĘTE: border-top, box-shadow i backdrop-filter */
 }
 
 /* ===============================
