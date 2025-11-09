@@ -294,49 +294,52 @@ section p {
 /* 📱 Zmniejszenie topbara na urządzeniach mobilnych */
 @media (max-width: 768px) {
   .header {
-    /* Mniejszy padding = niższy topbar */
-    padding: 8px 10px; 
+    /* Utrzymujemy minimalny padding na samym nagłówku */
+    padding: 8px 0; 
   }
 
-  /* .top-bar (rodzic obu grup) zachowuje domyślne ustawienie "row",
-    aby grupy były obok siebie (LOGO APLIKACJI - LOGO DEVELOPERA)
-  */
-
+  /* 💡 OSTATECZNA ZMIANA: Dodajemy padding POZIOMY do wewnętrznego kontenera */
   .top-bar {
-    /* Zwiększamy odstęp między grupami, żeby były lekko rozdzielone */
-    gap: 15px; 
+    padding: 0 15px; /* Dodaje 15px odstępu od lewej i prawej krawędzi */
+    gap: 15px;
   }
 
-  /* 💡 KLUCZOWA ZMIANA: Ustawiamy układ pionowy dla mobile wewnątrz każdej grupy */
+  /* 💡 WAŻNE: Na małym ekranie zmuszamy przeglądarkę do wyśrodkowania elementów
+     nawet jeśli nie ma między nimi miejsca, np. na bardzo małych telefonach. */
+  .top-bar {
+    justify-content: space-around; 
+  }
+
+  /* Układ pionowy wewnątrz każdej grupy */
   .app-info, .developer-info {
     display: flex; 
-    flex-direction: column; /* Ustawia logo NAD tekstem */
-    align-items: center;    /* Wyśrodkowuje logo i tekst */
-    gap: 3px;               /* Mniejszy odstęp między logo a tekstem pod nim */
+    flex-direction: column; 
+    align-items: center;    
+    gap: 3px;               
   }
 
   /* Zmniejszamy OBA loga */
   .app-logo, .dev-logo {
-    height: 40px; /* Rozmiar loga */
+    height: 40px; 
     padding: 3px;
     border-radius: 6px;
   }
 
   /* Zmniejszamy teksty */
   .app-info h1 {
-    font-size: 14px; /* Mniejszy tytuł aplikacji */
-    margin: 0; /* Usuwamy marginesy, które mogą go powiększać */
+    font-size: 14px; 
+    margin: 0; 
   }
 
   .developer-info p {
-    font-size: 10px; /* Mniejszy tekst dewelopera */
+    font-size: 10px; 
     text-align: center;
-    margin: 0; /* Usuwamy marginesy */
+    margin: 0; 
   }
 
   /* Poprawka dla głównej treści */
   .main-content {
-    padding-top: 80px; /* Zapas na wysokość topbara */
+    padding-top: 80px;
   }
 }
 
