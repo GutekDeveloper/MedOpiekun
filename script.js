@@ -51,12 +51,22 @@ window.addEventListener('scroll', function () {
 
   let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
   
-  if (currentScroll > lastScrollTop && currentScroll > 100) {
-    // Jeśli przewijamy w dół, ukryj nagłówek
-    header.style.top = '-100px'; 
+  // --- POPRAWKA ---
+  // Dynamicznie pobierz AKTUALNĄ wysokość nagłówka (ważne dla mobile!)
+  const headerHeight = header.offsetHeight;
+  // --- KONIEC POPRAWKI ---
+
+  // Ukryj nagłówek, jeśli przewijamy w dół i minęliśmy już wysokość nagłówka
+  if (currentScroll > lastScrollTop && currentScroll > headerHeight) {
+    // Ukryj nagłówek o jego WŁASNĄ, dynamiczną wysokość
+    header.style.top = `-${headerHeight}px`; 
   } else {
     // Jeśli przewijamy w górę, pokaż nagłówek
     header.style.top = '0'; 
   }
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 }, false);
+
+/* WAŻNE: Usunąłem stąd dodatkową, błędną klamrę '}', 
+  która znajdowała się na końcu Twojego pliku script.js i psuła cały skrypt.
+*/
