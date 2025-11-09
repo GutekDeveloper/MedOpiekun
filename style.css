@@ -673,13 +673,9 @@ section p {
 /* 3. STYLES DLA SMARTFONÓW (MAX 768PX) */
 @media (max-width: 768px) {
     
-    /* Wprowadzamy minimalne zmiany w Headerze, aby zachować odstęp 10px po prawej 
-       (usuwam też zbędne komentarze, bo były z poprzednich kroków) */
-    #mobile-menu-toggle {
-        display: inline-block;
-        /* Zapewnia wizualny odstęp od prawej krawędzi, jeśli ustawiliśmy padding na 20px */
-        margin-left: 10px; 
-    }
+    /* =================================
+       NAGŁÓWEK (HEADER / TOP-BAR)
+       ================================= */
     
     .header {
         padding: 10px 20px; 
@@ -703,9 +699,15 @@ section p {
         font-size: 20px; 
     }
     
+    #mobile-menu-toggle {
+        display: inline-block;
+        /* margin jest już zbędny, ponieważ padding z .header załatwia odstęp */
+    }
+
     /* =================================
-       🔥 FIX 1: NAPRAWA SEKCJI HERO (telefon i przycisk)
+       SEKCJA HERO (telefon i przycisk)
        ================================= */
+    
     .hero-section {
         flex-direction: column; /* Ustawienie elementów pionowo */
         text-align: center;
@@ -728,40 +730,93 @@ section p {
         height: auto;
     }
     
+    .download-buttons {
+        /* Przyciski pobierania wyśrodkowane i układ kolumnowy dla małych ekranów */
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
     .download-buttons a {
-        /* Upewnij się, że przyciski są elastyczne i nie wystają (jeśli są bardzo szerokie) */
         display: inline-block;
-        margin: 5px;
-    }
-    
-    /* =================================
-       🔥 FIX 2: NAPRAWA SEKCJI O DEVELOPERZE (zdjęcie i przyciski)
-       ================================= */
-    .about-card {
-        flex-direction: column; /* Stosujemy układ pionowy */
-        align-items: center; /* Wyśrodkowanie elementów w pionowym stosie */
-    }
-    
-    /* Usuwamy problematyczne min-width */
-    .about-text {
-        min-width: 100%;
-        order: 2; /* Tekst pod zdjęciem */
-        padding: 0 10px; /* Opcjonalnie mały padding, by tekst nie dotykał krawędzi */
+        margin: 0;
     }
 
-    .gutek-photo {
-        order: 1; /* Zdjęcie na górze */
-        margin-bottom: 25px; 
+    /* =================================
+       🔥 FIX: SEKCJA O DEVELOPERZE (Tekst Góra / Media Dół)
+       ================================= */
+    
+    .about-section {
+        flex-direction: column; /* Ustawienie elementów w kolumnie */
+        text-align: center;
+        padding: 40px 20px; /* Mniejszy padding dla lepszego wykorzystania miejsca */
+        max-width: 95%; /* Gwarancja, że karta nie dotyka krawędzi */
+        margin: 40px auto; /* Mniejszy margines góra/dół */
+    }
+    
+    .about-text, .about-media {
+        width: 100%; 
+        min-width: auto;
+    }
+
+    /* Wymuszamy kolejność: TEKST na górze (order: 1), MEDIA na dole (order: 2) */
+    .about-text {
+        order: 1; 
+        margin-bottom: 25px;
+        padding: 0; 
+    }
+
+    .about-media {
+        order: 2; 
+        margin-top: 0;
+        max-width: 100%;
+    }
+    
+    .about-media img.gutek-photo {
+        max-width: 180px; /* Zmniejszamy rozmiar zdjęcia */
+        margin-bottom: 20px;
     }
     
     .social-links {
-        width: 100%; 
-        justify-content: center; /* Wyśrodkowanie przycisków społecznościowych */
+        justify-content: center; /* Wyśrodkowanie przycisków */
         flex-wrap: wrap;
-        margin-top: 10px;
     }
 
-    /* ... (reszta Twojego kodu dla 768px) ... */
+    /* =================================
+       SEKCJE FUNKCJONALNOŚCI (.feature-section)
+       ================================= */
+    
+    .feature-section, .feature-section.reverse {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .feature-text, .feature-media {
+        width: 100%; 
+        min-width: auto;
+        margin: 0;
+    }
+    
+    /* Wymuszamy kolejność dla obu wariantów, by tekst zawsze był na górze */
+    .feature-section .feature-text {
+        order: 1; 
+    }
+
+    .feature-section .feature-media {
+        order: 2; 
+        margin-top: 30px;
+    }
+
+    .feature-gallery {
+        grid-template-columns: 1fr; /* Zawsze jedna kolumna */
+        padding: 0;
+        gap: 25px;
+    }
+
+    .appinfo-gallery img {
+        max-width: 120px; /* Zmniejszamy rozmiar ikon */
+    }
 }
 /* 🎬 Odstęp między przyciskiem a galerią */
 #info-section .feature-media {
