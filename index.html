@@ -20,6 +20,7 @@
         <a href="#wizyty-section" class="toc-link">📅 Wizyty (Przegląd)</a>
         <a href="#dodaj-wizyte-section" class="toc-link">📅 Wizyty (Dodawanie)</a>
         <a href="#info-section" class="toc-link">🧑‍⚕️ Informacje Medyczne</a>
+        <a href="#pdf-export-section" class="toc-link">📄 Eksport do PDF</a>
         <a href="#bezpieczenstwo-section" class="toc-link">🔐 Bezpieczeństwo</a>
         <a href="#dowiedz-sie-wiecej-section" class="toc-link">💡 Więcej Funkcji</a>
     </nav>
@@ -52,6 +53,7 @@
             <a href="#wizyty-section" class="toc-link">📅 Wizyty (Przegląd)</a>
             <a href="#dodaj-wizyte-section" class="toc-link">📅 Wizyty (Dodawanie)</a>
             <a href="#info-section" class="toc-link">🧑‍⚕️ Informacje Medyczne</a>
+            <a href="#pdf-export-section" class="toc-link">📄 Eksport do PDF</a>
             <a href="#bezpieczenstwo-section" class="toc-link">🔐 Bezpieczeństwo</a>
             <a href="#dowiedz-sie-wiecej-section" class="toc-link">💡 Więcej Funkcji</a>
         </nav>
@@ -143,10 +145,10 @@
 
                 <div class="video-button-container">
                     <a href="https://www.youtube.com/watch?v=oW0XK44XFGk" 
-                       target="_blank" 
-                       rel="noopener" 
-                       class="video-button" 
-                       title="Zobacz film instruktażowy na YouTube">
+                        target="_blank" 
+                        rel="noopener" 
+                        class="video-button" 
+                        title="Zobacz film instruktażowy na YouTube">
                         ▶️ Obejrzyj film: Jak dodać lek
                     </a>
                 </div>
@@ -182,10 +184,10 @@
 
                 <div class="video-button-container">
                     <a href="https://www.youtube.com/watch?v=UyM8A0PURAg"
-                       target="_blank"
-                       rel="noopener"
-                       class="video-button"
-                       title="Zobacz film instruktażowy na YouTube">
+                        target="_blank"
+                        rel="noopener"
+                        class="video-button"
+                        title="Zobacz film instruktażowy na YouTube">
                         ▶️ Obejrzyj film: Jak dodać badanie
                     </a>
                 </div>
@@ -221,10 +223,10 @@
 
                 <div class="video-button-container">
                     <a href="https://www.youtube.com/watch?v=KVDeGTfF54k"
-                       target="_blank"
-                       rel="noopener"
-                       class="video-button"
-                       title="Zobacz film instruktażowy na YouTube">
+                        target="_blank"
+                        rel="noopener"
+                        class="video-button"
+                        title="Zobacz film instruktażowy na YouTube">
                         ▶️ Obejrzyj film: Jak dodać wizytę
                     </a>
                 </div>
@@ -243,8 +245,16 @@
             <div class="feature-text" id="tekst-info">
                  </div>
         </section>
-
-        <section class="feature-section reverse" id="bezpieczenstwo-section">
+        
+        <section class="feature-section" id="pdf-export-section">
+            <div class="feature-media gallery-3-up pdf-export-gallery">
+                <img src="images/leki_pdf.png" alt="Eksport do PDF listy leków" class="mockup" />
+                <img src="images/badanie_pdf.png" alt="Eksport do PDF wyników badań" class="mockup" />
+                <img src="images/info_pdf.png" alt="Eksport do PDF informacji medycznych" class="mockup" />
+            </div>
+            <div class="feature-text" id="tekst-pdf-export"></div>
+        </section>
+        <section class="feature-section" id="bezpieczenstwo-section">
             <div class="feature-text" id="tekst-bezpieczenstwo"></div>
             <div class="feature-media gallery-2-up bezpieczenstwo-gallery">
                 <img src="images/pin.png" alt="Ustawienie PIN" class="mockup">
@@ -259,10 +269,10 @@
 
                 <div class="video-button-container">
                     <a href="https://www.youtube.com/watch?v=o55eoQBjsbw"
-                       target="_blank"
-                       rel="noopener"
-                       class="video-button"
-                       title="Zobacz film instruktażowy na YouTube">
+                        target="_blank"
+                        rel="noopener"
+                        class="video-button"
+                        title="Zobacz film instruktażowy na YouTube">
                         ▶️ Obejrzyj film: Ustawienia i inne funkcje
                     </a>
                 </div>
@@ -279,7 +289,7 @@
     </footer>
 
     <script>
-       // --- Sekcja: Podstawowe informacje o aplikacji ---
+        // --- Sekcja: Podstawowe informacje o aplikacji ---
         const tekstAppInfo = `
             <h3>Informacje o aplikacji „MedOpiekun”</h3>
             <p>„MedOpiekun” to intuicyjna i praktyczna aplikacja mobilna stworzona z myślą o osobach, które chcą lepiej zarządzać swoim zdrowiem i lekami.</p>
@@ -289,7 +299,7 @@
                 <li>• osób przyjmujących leki regularnie (np. osoby starsze, chorujące przewlekle),</li>
                 <li>• osób opiekujących się bliskimi i potrzebujących kontroli nad ich leczeniem,</li>
                 <li>• każdego, kto chce śledzić swoje wyniki badań (np. ciśnienie, cukier, saturacja),</li>
-                <li>• osób dbających o profilaktykę zdrowotną.</li>
+                <li>• • osób dbających o profilaktykę zdrowotną.</li>
             </ul>
 
             <p>Aplikacja pozwala:</p>
@@ -307,16 +317,15 @@
             
             <div class="video-button-container" style="margin-top: 20px; text-align: center;">
                 <a href="https://youtube.com/shorts/NyS4RLkn3Gg?feature=share"
-                   target="_blank"
-                   rel="noopener"
-                   class="video-button"
-                   title="Zobacz film na YouTube">
+                    target="_blank"
+                    rel="noopener"
+                    class="video-button"
+                    title="Zobacz film na YouTube">
                     ▶️ Obejrzyj film: Kilka słów o Aplikacji MedOpiekun
                 </a>
             </div>
         `;
         document.getElementById("tekst-appinfo").innerHTML = tekstAppInfo;
-
         // --- Sekcja: Leki ---
         const tekstLeki = `
             <h3>Sekcja: Leki</h3>
@@ -410,15 +419,41 @@
 
             <div class="video-button-container" style="margin-top: 20px; text-align: center;">
                 <a href="https://www.youtube.com/watch?v=JXLyobwxpPU"
-                   target="_blank"
-                   rel="noopener"
-                   class="video-button"
-                   title="Zobacz film instruktażowy na YouTube">
+                    target="_blank"
+                    rel="noopener"
+                    class="video-button"
+                    title="Zobacz film instruktażowy na YouTube">
                     ▶️ Obejrzyj film: Informacje medyczne
                 </a>
             </div>
         `;
         document.getElementById("tekst-info").innerHTML = tekstInfo;
+
+        // --- Sekcja: Eksport PDF ---
+        const tekstPdfExport = `
+            <h3>Funkcja Eksportu Danych do PDF 📄</h3>
+            <p>Aplikacja <b>MedOpiekun</b> daje Ci możliwość generowania i eksportowania kluczowych danych medycznych do profesjonalnych plików PDF. Dzięki temu masz zawsze pod ręką uporządkowany wykaz najważniejszych informacji, który możesz wydrukować lub przesłać dalej.</p>
+
+            <h4>Trzy typy eksportu:</h4>
+            <ul>
+                <li>
+                    💊 <strong>Eksport leków</strong>
+                    <p>Generuje listę wszystkich przyjmowanych leków wraz z dawkowaniem. Jest to nieoceniona pomoc w nagłych sytuacjach, np. gdy trafiasz do szpitala i musisz szybko przedstawić personelowi medycznemu pełny i aktualny <strong>wykaz leków</strong>.</p>
+                </li>
+                <li>
+                    🩸 <strong>Eksport badań</strong>
+                    <p>Tworzy czytelny dokument ze wszystkimi zapisanymi wynikami pomiarów (ciśnienie, cukier, saturacja, temperatura). Jest to idealne rozwiązanie na <strong>wizytę lekarską</strong>, ponieważ pozwala lekarzowi na szybką analizę Twojej historii pomiarów.</p>
+                    <p>Dodatkowo, eksport badań umożliwia **comiesięczne archiwizowanie danych**. Po wygenerowaniu pliku PDF możesz bezpiecznie usunąć stare wpisy z aplikacji, zachowując porządek i odciążając bazę danych, a nowy miesiąc zacząć z czystą historią.</p>
+                </li>
+                <li>
+                    🧑‍⚕️ <strong>Eksport informacji medycznych</strong>
+                    <p>Pozwala na szybkie wygenerowanie pliku zawierającego Twoje podstawowe informacje medyczne, takie jak grupa krwi, schorzenia, alergie czy dane kontaktowe do bliskiej osoby. Bardzo przydatne podczas każdej <strong>wizyty u specjalisty</strong>, gdy trzeba wypełnić formalności lub w sytuacji, gdy liczy się każda minuta.</p>
+                </li>
+            </ul>
+
+            <p><strong>Zadbaj o porządek w swojej dokumentacji medycznej z MedOpiekun!</strong></p>
+        `;
+        document.getElementById("tekst-pdf-export").innerHTML = tekstPdfExport;
 
 
         // --- Sekcja: Bezpieczeństwo i prywatność ---
