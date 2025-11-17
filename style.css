@@ -321,6 +321,35 @@ section p {
 }
 
 /* ===============================
+   DEDYKOWANE STYLISTYKI DLA KALENDARZA
+================================= */
+.calendar-gallery {
+    /* Nadpisujemy flex-wrap na desktopie, by ułatwić zarządzanie 3 kolumnami */
+    display: flex;
+    justify-content: space-between; /* Równomierny odstęp */
+    flex-wrap: nowrap; /* Upewniamy się, że nie zawija przed czasem */
+    gap: 15px; /* Mniejszy odstęp, aby zmieścić 3 obok siebie */
+}
+
+/* Dostosowanie wielkości elementów, aby zmieściły się 3 w rzędzie na dużych ekranach */
+.calendar-gallery img.mockup {
+    /* 33.33% - (2 * 15px/3) = ~30.33% */
+    max-width: calc(33.33% - 10px); 
+}
+
+/* REAGOWANIE NA MNIEJSZE EKRANY (poniżej 1000px, gdy .feature-section staje się kolumną) */
+@media (max-width: 1000px) {
+    .calendar-gallery {
+        flex-direction: column; /* Wszystko w kolumnie */
+        flex-wrap: wrap; /* Przywracamy wrap na wszelki wypadek */
+    }
+    .calendar-gallery img.mockup {
+        max-width: 90%; /* Znowu pełna szerokość, wyśrodkowane */
+        margin: 0 auto;
+    }
+}
+
+/* ===============================
    ABOUT (GLASS) (NOWY)
 ================================= */
 .about-section {
@@ -864,6 +893,4 @@ section p {
         order: 2; 
         margin-bottom: 0; /* Usuwamy potencjalne podwójne marginesy */
     }
-    
-    /* ... reszta stylów ... */
 }
