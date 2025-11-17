@@ -98,3 +98,57 @@ mobileTocLinks.forEach(link => {
         document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
     });
 });
+
+
+// ===============================
+// Logika Lightbox (Powiększenie zdjęć)
+// ===============================
+
+const lightboxModal = document.getElementById('lightbox-modal');
+const lightboxImage = document.getElementById('lightbox-image');
+const lightboxClose = document.querySelector('.lightbox-close');
+
+// Wybieramy wszystkie zdjęcia z klasy .mockup, które są w galeriach funkcjonalności
+const mockupImages = document.querySelectorAll('.feature-media img.mockup');
+
+// 1. Otwieranie lightboxa
+mockupImages.forEach(image => {
+    image.style.cursor = 'zoom-in'; // Zmień kursor, by sugerować powiększenie
+    
+    image.addEventListener('click', function() {
+        // Pobierz ścieżkę źródłową klikniętego obrazka
+        const imageSrc = this.getAttribute('src');
+        
+        // Ustaw ścieżkę w obrazku lightboxa
+        lightboxImage.setAttribute('src', imageSrc);
+        
+        // Pokaż lightbox (ustaw display: flex)
+        lightboxModal.style.display = 'flex';
+        
+        // Zablokuj scroll tła, aby tylko modal był przewijalny (jeśli duży)
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+// 2. Zamykanie lightboxa przez przycisk 'X'
+lightboxClose.addEventListener('click', () => {
+    lightboxModal.style.display = 'none';
+    document.body.style.overflow = ''; // Przywracanie scrolla tła
+});
+
+// 3. Zamykanie lightboxa przez kliknięcie poza obrazem (na tło modalu)
+lightboxModal.addEventListener('click', (e) => {
+    // Sprawdź, czy kliknięcie nastąpiło dokładnie na tło modalu, a nie na samo zdjęcie
+    if (e.target === lightboxModal) {
+        lightboxModal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+});
+
+// 4. Zamykanie lightboxa przez klawisz ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightboxModal.style.display === 'flex') {
+        lightboxModal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+});
