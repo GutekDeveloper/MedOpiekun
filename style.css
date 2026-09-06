@@ -94,7 +94,7 @@ body {
 .main-content {
   text-align: center;
   padding: 0 20px 60px; 
-  margin-top: 80px; /* Margines górny chroni pierwszą kartę przed nachodzeniem nagłówka */
+  margin-top: 110px; /* Zwiększono margines, aby nagłówek nie zasłaniał pierwszej karty na PC */
   margin-left: 240px; 
   max-width: 100%;
 }
@@ -103,7 +103,7 @@ body {
    SEKCJA HERO (MEDOPIEKUN GŁÓWNA)
 ================================= */
 .hero-section {
-    padding: 60px 50px; 
+    padding: 40px 50px 60px 50px; 
     max-width: 1300px;
     margin: 0 auto 60px auto;
     display: flex;
@@ -111,6 +111,7 @@ body {
     justify-content: space-between;
     gap: 40px;
     text-align: left;
+    scroll-margin-top: 110px; /* Zabezpieczenie dla nawigacji z linków menu */
 }
 
 .hero-text {
@@ -259,6 +260,7 @@ section {
   opacity: 0;
   transition: all 0.8s ease;
   text-align: left;
+  scroll-margin-top: 110px; /* Zapis chroniący nagłówki sekcji przed zasłanianiem przy przewijaniu */
 }
 
 section.visible {
@@ -607,13 +609,14 @@ section p {
 
     .main-content {
         margin-left: 0; 
-        margin-top: 70px;
+        margin-top: 100px; /* Dostosowano dla średnich ekranów */
     }
     
     .hero-section {
         flex-direction: column;
         text-align: center;
-        padding-top: 40px;
+        padding-top: 30px;
+        scroll-margin-top: 100px;
     }
 
     .hero-section h2 {
@@ -640,11 +643,20 @@ section p {
         order: 2; 
         margin-bottom: 0;
     }
+    
+    section {
+        scroll-margin-top: 100px;
+    }
 }
 
 @media (max-width: 768px) {
+    .main-content {
+        margin-top: 90px; /* Dostosowano dla szerokości telefonów */
+    }
+
     .hero-section {
-        padding: 40px 20px;
+        padding: 20px 20px 40px 20px;
+        scroll-margin-top: 90px;
     }
     
     .hero-section h2 {
@@ -720,6 +732,10 @@ section p {
     .social-links {
         justify-content: center;
         flex-wrap: wrap;
+    }
+    
+    section {
+        scroll-margin-top: 90px;
     }
 }
 
