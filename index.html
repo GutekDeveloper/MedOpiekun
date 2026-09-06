@@ -3,50 +3,42 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MedOpiekun - Aplikacja zdrowotna</title>
+    <title>Gutek Developer - MedOpiekun & ZapiszTo</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     
+    <!-- Sidebar / Nawigacja Główna -->
     <nav id="toc-sidebar">
-        <h4>Spis Treści</h4>
-        <a href="#hero-section" class="toc-link active">🏠 Start</a>
-        <a href="#about-section" class="toc-link">❤️ O Deweloperze</a>
-        <a href="#appinfo-section" class="toc-link">ℹ️ O Aplikacji</a>
-        <a href="#leki-section" class="toc-link">💊 Leki (Przegląd)</a>
-        <a href="#dodaj-lek-section" class="toc-link">💊 Leki (Dodawanie)</a>
-        <a href="#badania-section" class="toc-link">🩸 Badania (Przegląd)</a>
-        <a href="#dodaj-badanie-section" class="toc-link">🩸 Badania (Dodawanie)</a>
-        <a href="#wizyty-section" class="toc-link">📅 Wizyty (Przegląd)</a>
-        <a href="#dodaj-wizyte-section" class="toc-link">📅 Wizyty (Dodawanie)</a>
-        <a href="#info-section" class="toc-link">🧑‍⚕️ Informacje Medyczne</a>
-        <a href="#pdf-export-section" class="toc-link">📄 Eksport do PDF</a>
-        <a href="#bezpieczenstwo-section" class="toc-link">🔐 Bezpieczeństwo</a>
-        <a href="#calendar-section" class="toc-link">🗓️ Kalendarz</a>
-        <a href="#dowiedz-sie-wiecej-section" class="toc-link">💡 Więcej Funkcji</a>
+        <h4>Nawigacja</h4>
+        <a href="#about-section" class="toc-link active">❤️ O Deweloperze</a>
+        <a href="#apps-overview" class="toc-link">📱 Moje Aplikacje</a>
+        <a href="#hero-section" class="toc-link">💊 MedOpiekun</a>
+        <a href="#zapiszto-section" class="toc-link">📝 ZapiszTo</a>
     </nav>
-/test/
+
+    <!-- Header -->
     <header class="header">
         <div class="top-bar">
-            <div class="app-info">
-                <img src="images/moikon.png" alt="Logo aplikacji MedOpiekun" class="app-logo" />
-                <h1>MedOpiekun</h1>
-            </div>
             <div class="developer-info">
                 <img src="images/gutekikon.png" alt="Logo Gutek Developer" class="dev-logo" />
-                <p>Gutek Developer</p>
+                <h1>Gutek Developer</h1>
             </div>
-             <button id="mobile-menu-toggle" class="video-button">☰ Menu</button>
+            <button id="mobile-menu-toggle" class="video-button">☰ Menu</button>
         </div>
     </header>
     
+    <!-- Menu Mobilne -->
     <div id="mobile-menu-overlay">
         <button id="mobile-menu-close">✕ Zamknij</button>
         <nav id="mobile-toc">
             <h4>Spis Treści</h4>
-            <a href="#hero-section" class="toc-link">🏠 Start</a>
             <a href="#about-section" class="toc-link">❤️ O Deweloperze</a>
-            <a href="#appinfo-section" class="toc-link">ℹ️ O Aplikacji</a>
+            <a href="#apps-overview" class="toc-link">📱 Moje Aplikacje</a>
+            <a href="#hero-section" class="toc-link">💊 MedOpiekun</a>
+            <a href="#zapiszto-section" class="toc-link">📝 ZapiszTo</a>
+            <hr />
+            <a href="#appinfo-section" class="toc-link">ℹ️ O Aplikacji MedOpiekun</a>
             <a href="#leki-section" class="toc-link">💊 Leki (Przegląd)</a>
             <a href="#dodaj-lek-section" class="toc-link">💊 Leki (Dodawanie)</a>
             <a href="#badania-section" class="toc-link">🩸 Badania (Przegląd)</a>
@@ -54,15 +46,71 @@
             <a href="#wizyty-section" class="toc-link">📅 Wizyty (Przegląd)</a>
             <a href="#dodaj-wizyte-section" class="toc-link">📅 Wizyty (Dodawanie)</a>
             <a href="#info-section" class="toc-link">🧑‍⚕️ Informacje Medyczne</a>
-            <a href="#pdf-export-section" class="toc-link">📄 Eksport do PDF</a>
             <a href="#bezpieczenstwo-section" class="toc-link">🔐 Bezpieczeństwo</a>
-            <a href="#calendar-section" class="toc-link">🗓️ Kalendarz</a>
             <a href="#dowiedz-sie-wiecej-section" class="toc-link">💡 Więcej Funkcji</a>
         </nav>
     </div>
 
     <main class="main-content">
         
+        <!-- 1. O Deweloperze -->
+        <section class="about-section two-column" id="about-section">
+            <div class="about-text">
+                <div class="about-card">
+                    <h2>Cześć! Nazywam się Gutek! 👋</h2>
+            <p>
+                Jestem niezależnym deweloperem, który tworzy proste, praktyczne i bezpłatne aplikacje mobilne ułatwiające codzienne życie. Projektuję narzędzia do organizacji codziennych zadań, wyznaczania rutyn oraz wspomagania zdrowia.
+            </p>
+            <p>
+                Jeden z moich flagowych projektów — <b>MedOpiekun</b> — powstał z bardzo osobistej potrzeby, gdy szukałem prostego rozwiązania pomagającego w codziennej opiece nad moją babcią. Z czasem rozwinąłem tę aplikację i udostępniłem ją wszystkim, którzy potrzebują niezawodnego asystenta medycznego do przypominania o lekach czy wizytach.
+            </p>
+            <p>
+                Tworzę oprogramowanie z myślą o prywatności, przejrzystości i wygodzie użytkowników. Poniżej znajdziesz linki, gdzie możesz śledzić moje projekty i się ze mną skontaktować.
+            </p>
+            
+            <p class="contact">📧 Kontakt e-mail: <a href="mailto:gutek.developer@gmail.com">gutek.developer@gmail.com</a></p>
+            
+            <p class="signature">Pozdrawiam ❤️<br /><b>Gutek Developer</b></p>
+                </div>
+            </div>
+            
+            <div class="about-media">
+                <img src="images/profilowe.png" alt="Zdjęcie dewelopera Gutka" class="gutek-photo" />
+                
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61581176047073" target="_blank" rel="noopener" class="social facebook" title="Facebook">Facebook</a>
+                    <a href="https://www.instagram.com/medopiekun" target="_blank" rel="noopener" class="social instagram" title="Instagram">Instagram</a>
+                    <a href="https://www.youtube.com/@yGutek" target="_blank" rel="noopener" class="social youtube" title="YouTube">YouTube</a>
+                    <a href="https://www.tiktok.com/@gutowianin?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" class="social tiktok" title="TikTok">TikTok</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Przegląd Aplikacji (Karty) -->
+        <section class="apps-overview" id="apps-overview">
+            <h2>Moje Aplikacje</h2>
+            <div class="apps-grid">
+                <!-- Karta MedOpiekun -->
+                <div class="app-card">
+                    <img src="images/moikon.png" alt="MedOpiekun Logo" />
+                    <h3>MedOpiekun</h3>
+                    <p>Aplikacja ułatwiająca zarządzanie lekami, pomiarami zdrowotnymi i wizytami u lekarza.</p>
+                    <span class="badge badge-success">Dostępna w Google Play</span>
+                    <a href="#hero-section" class="btn-primary">Zobacz szczegóły</a>
+                </div>
+
+                <!-- Karta ZapiszTo -->
+                <div class="app-card">
+                    <img src="images/zapisztoikon.jpg" alt="ZapiszTo Logo" />
+                    <h3>ZapiszTo</h3>
+                    <p>Twoje centrum szybkich notatek, zadań i organizacji dnia.</p>
+                    <span class="badge badge-warning">W trakcie tworzenia</span>
+                    <a href="#zapiszto-section" class="btn-primary">Dowiedz się więcej</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Hero Section & Szczegóły: MedOpiekun -->
         <section class="hero-section" id="hero-section">
             <div class="hero-text">
                 <h2 class="gradient-text">Twoje zdrowie pod pełną kontrolą</h2>
@@ -79,236 +127,187 @@
             </div>
         </section>
 
-        <section class="about-section two-column" id="about-section">
-    
-    <div class="about-text">
-        <div class="about-card">
-            <h2>Cześć! Nazywam się Gutek!</h2>
-            <p>
-                Na początku była to aplikacja, która miała pomóc mi w opiece nad babcią.
-                Z biegiem czasu, zaczynając ją ulepszać, stwierdziłem, że warto podzielić się nią z innymi.
-                I oto ona — <b>MedOpiekun!</b>
-            </p>
-            <p>
-                Mam nadzieję, że nigdy nie będziecie musieli jej używać,
-                ale jeśli już potrzebujecie takiego organizera, to aplikacja dla Was.
-                U mnie się sprawdza i jestem pewien, że sprawdzi się również u Was.
-            </p>
-            <p>Poniżej znajdziesz linki, gdzie możesz mnie znaleźć i się ze mną skontaktować.</p>
-            
-            <p class="contact">📧 Kontakt e-mail: <a href="mailto:medopiekun.gutek@gmail.com">medopiekun.gutek@gmail.com</a></p>
-            
-            <p class="signature">Pozdrawiam ❤️<br /><b>Gutek Developer</b></p>
-        </div>
-    </div>
-    
-    <div class="about-media">
-        <img src="images/profilowe.png" alt="Zdjęcie dewelopera Gutka" class="gutek-photo" />
-        
-        <div class="social-links">
-            <a href="https://www.facebook.com/profile.php?id=61581176047073" target="_blank" rel="noopener" class="social facebook" title="Facebook">Facebook</a>
-            <a href="https://www.instagram.com/medopiekun" target="_blank" rel="noopener" class="social instagram" title="Instagram">Instagram</a>
-            <a href="https://www.youtube.com/@yGutek" target="_blank" rel="noopener" class="social youtube" title="YouTube">YouTube</a>
-            <a href="https://www.tiktok.com/@gutowianin?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" class="social tiktok" title="TikTok">TikTok</a>
-        </div>
-    </div>
-    
-</section>
-        
-        <section class="feature-section reverse" id="appinfo-section">
-            <div class="feature-text" id="tekst-appinfo"></div>
-            <div class="feature-media appinfo-gallery">
-                <img src="images/moikon.png" alt="Logo aplikacji MedOpiekun" class="mockup" />
+        <!-- Sekcja Główna: MedOpiekun Detale -->
+        <section id="medopiekun-section" class="app-details-container">
+            <div class="section-header">
+                <h2>💊 MedOpiekun — Szczegóły i instrukcje</h2>
             </div>
-        </section>
 
-        <section class="feature-section reverse" id="leki-section">
-            <div class="feature-media gallery-2-up">
-                 <img src="images/leki1.jpg" alt="Zrzut ekranu - Lista leków" class="mockup" />
-                 <img src="images/leki2.jpg" alt="Zrzut ekranu - Szczegóły leku" class="mockup" />
-            </div>
-            <div class="feature-text" id="tekst-leki"></div>
-        </section>
-
-        <section class="feature-section reverse" id="dodaj-lek-section">
-            <div class="feature-text" id="tekst-dodaj-lek">
-                <h3>Jak dodać lek</h3>
-                <p>Na ekranie <strong>Lista leków</strong> naciśnij przycisk <strong>+Lek</strong>. Zostaniesz przeniesiony do formularza dodawania leku.</p>
-                <p>W formularzu:</p>
-                <ul>
-                    <li>Wpisz nazwę leku i wybierz jego typ: <em>Tabletka, Maść, Krople lub Syrop</em>.</li>
-                    <li>Wpisz łączną dzienną dawkę leku (np. 2 tabletki dziennie).</li>
-                    <li>Opcjonalnie dodaj informację o sposobie dawkowania.</li>
-                    <li>Wpisz obecną ilość leku oraz ilość w opakowaniu. Po zakupie nowego opakowania kliknij <strong>+opak.</strong>, aby zaktualizować stan leku.</li>
-                    <li>Zaznacz dni przyjmowania leku. Aplikacja odejmuje dzienną dawkę tylko w zaznaczonych dniach.</li>
-                    <li>Wybierz pory dnia, w których bierzesz lek. Standardowe: <em>Rano, Popołudniu, Wieczorem, Na noc</em>. Można dodać 4 dodatkowe pory.</li>
-                    <li>Godziny i nazwy pór można zmieniać w sekcji <strong>"Godziny powiadomień o lekach"</strong>. Pamiętaj, aby po zmianie kliknąć <strong>Zapisz</strong>.</li>
-                </ul>
-
-                <div class="video-button-container">
-                    <a href="https://www.youtube.com/watch?v=oW0XK44XFGk" 
-                        target="_blank" 
-                        rel="noopener" 
-                        class="video-button" 
-                        title="Zobacz film instruktażowy na YouTube">
-                        ▶️ Obejrzyj film: Jak dodać lek
-                    </a>
+            <section class="feature-section reverse" id="appinfo-section">
+                <div class="feature-text" id="tekst-appinfo"></div>
+                <div class="feature-media appinfo-gallery">
+                    <img src="images/moikon.png" alt="Logo aplikacji MedOpiekun" class="mockup" />
                 </div>
-            </div>
+            </section>
 
-            <div class="feature-media gallery-3-up leki-gallery">
-                <img src="images/form1.jpg" alt="Formularz dodawania leku 1" class="mockup" />
-                <img src="images/form2.jpg" alt="Formularz dodawania leku 2" class="mockup" />
-                <img src="images/form3.jpg" alt="Formularz dodawania leku 3" class="mockup" />
-                <img src="images/powiadgodzin.jpg" alt="Ustawienia godzin powiadomień" class="mockup" />
-            </div>
+            <section class="feature-section reverse" id="leki-section">
+                <div class="feature-media gallery-2-up">
+                     <img src="images/leki1.jpg" alt="Zrzut ekranu - Lista leków" class="mockup" />
+                     <img src="images/leki2.jpg" alt="Zrzut ekranu - Szczegóły leku" class="mockup" />
+                </div>
+                <div class="feature-text" id="tekst-leki"></div>
+            </section>
+
+            <section class="feature-section reverse" id="dodaj-lek-section">
+                <div class="feature-text" id="tekst-dodaj-lek">
+                    <h3>Jak dodać lek</h3>
+                    <p>Na ekranie <strong>Lista leków</strong> naciśnij przycisk <strong>+Lek</strong>. Zostaniesz przeniesiony do formularza dodawania leku.</p>
+                    <p>W formularzu:</p>
+                    <ul>
+                        <li>Wpisz nazwę leku i wybierz jego typ: <em>Tabletka, Maść, Krople lub Syrop</em>.</li>
+                        <li>Wpisz łączną dzienną dawkę leku (np. 2 tabletki dziennie).</li>
+                        <li>Opcjonalnie dodaj informację o sposobie dawkowania.</li>
+                        <li>Wpisz obecną ilość leku oraz ilość w opakowaniu. Po zakupie nowego opakowania kliknij <strong>+opak.</strong>, aby zaktualizować stan leku.</li>
+                        <li>Zaznacz dni przyjmowania leku. Aplikacja odejmuje dzienną dawkę tylko w zaznaczonych dniach.</li>
+                        <li>Wybierz pory dnia, w których bierzesz lek. Standardowe: <em>Rano, Popołudniu, Wieczorem, Na noc</em>. Można dodać 4 dodatkowe pory.</li>
+                        <li>Godziny i nazwy pór można zmieniać w sekcji <strong>"Godziny powiadomień o lekach"</strong>. Pamiętaj, aby po zmianie kliknąć <strong>Zapisz</strong>.</li>
+                    </ul>
+
+                    <div class="video-button-container">
+                        <a href="https://www.youtube.com/watch?v=oW0XK44XFGk" 
+                           target="_blank" 
+                           rel="noopener" 
+                           class="video-button" 
+                           title="Zobacz film instruktażowy na YouTube">
+                            ▶️ Obejrzyj film: Jak dodać lek
+                        </a>
+                    </div>
+                </div>
+
+                <div class="feature-media gallery-3-up leki-gallery">
+                    <img src="images/form1.jpg" alt="Formularz dodawania leku 1" class="mockup" />
+                    <img src="images/form2.jpg" alt="Formularz dodawania leku 2" class="mockup" />
+                    <img src="images/form3.jpg" alt="Formularz dodawania leku 3" class="mockup" />
+                    <img src="images/powiadgodzin.jpg" alt="Ustawienia godzin powiadomień" class="mockup" />
+                </div>
+            </section>
+
+            <section class="feature-section reverse" id="badania-section">
+                <div class="feature-media">
+                    <img src="images/badania.jpg" alt="Zrzut ekranu - Badania" class="mockup" />
+                </div>
+                <div class="feature-text" id="tekst-badania"></div>
+            </section>
+
+            <section class="feature-section reverse" id="dodaj-badanie-section">
+                <div class="feature-text" id="tekst-dodaj-badanie">
+                    <h3>Jak dodać badanie</h3>
+                    <p>Na ekranie <strong>Lista Badań</strong> kliknij przycisk w prawym dolnym rogu <strong>+Badanie</strong>. Zostaniesz przeniesiony do formularza dodawania badania.</p>
+                    <p>Do wyboru są następujące typy badań:</p>
+                    <ul>
+                        <li>Ciśnienie krwi</li>
+                        <li>Poziom cukru</li>
+                        <li>Saturacja</li>
+                        <li>Temperatura</li>
+                    </ul>
+                    <p>Po wpisaniu danych kliknij przycisk <strong>Zapisz</strong>, a dane zostaną dodane do bazy i pojawią się na ekranie z listą badań.</p>
+
+                    <div class="video-button-container">
+                        <a href="https://www.youtube.com/watch?v=UyM8A0PURAg"
+                           target="_blank"
+                           rel="noopener"
+                           class="video-button"
+                           title="Zobacz film instruktażowy na YouTube">
+                            ▶️ Obejrzyj film: Jak dodać badanie
+                        </a>
+                    </div>
+                </div>
+
+                <div class="feature-media gallery-2-up badania-gallery">
+                    <img src="images/cisnienie.jpg" alt="Badanie ciśnienia krwi" class="mockup" />
+                    <img src="images/cukier.jpg" alt="Badanie poziomu cukru" class="mockup" />
+                    <img src="images/saturacja.jpg" alt="Badanie saturacji" class="mockup" />
+                    <img src="images/temperatura.jpg" alt="Badanie temperatury" class="mockup" />
+                </div>
+            </section>
+
+            <section class="feature-section reverse" id="wizyty-section">
+                <div class="feature-media">
+                    <img src="images/wizyty.jpg" alt="Zrzut ekranu - Wizyty" class="mockup" />
+                </div>
+                <div class="feature-text" id="tekst-wizyty"></div>
+            </section>
+
+            <section class="feature-section reverse" id="dodaj-wizyte-section">
+                <div class="feature-text" id="tekst-dodaj-wizyte">
+                    <h3>Jak dodać wizytę</h3>
+                    <p>Na ekranie <strong>Lista wizyt</strong> kliknij przycisk w prawym dolnym rogu <strong>+Wizytę</strong>. Zostaniesz przeniesiony do formularza dodawania wizyty.</p>
+                    <p>W formularzu należy:</p>
+                    <ul>
+                        <li>Wpisać do jakiego lekarza, specjalisty lub rehabilitanta jest wizyta.</li>
+                        <li>Wpisać rodzaj wizyty.</li>
+                        <li>Ustawić godzinę i datę wizyty.</li>
+                        <li>Opcjonalnie dodać miejsce wizyty i dodatkowe informacje.</li>
+                    </ul>
+                    <p>Po kliknięciu <strong>Zapisz</strong> wizyta zostanie zapisana do bazy i pojawi się na ekranie <strong>Lista wizyt</strong>.</p>
+
+                    <div class="video-button-container">
+                        <a href="https://www.youtube.com/watch?v=KVDeGTfF54k"
+                           target="_blank"
+                           rel="noopener"
+                           class="video-button"
+                           title="Zobacz film instruktażowy na YouTube">
+                            ▶️ Obejrzyj film: Jak dodać wizytę
+                        </a>
+                    </div>
+                </div>
+
+                <div class="feature-media wizyty-gallery">
+                    <img src="images/dodajwizyte.jpg" alt="Dodawanie wizyty" class="mockup" />
+                </div>
+            </section>
+
+            <section class="feature-section reverse" id="info-section">
+                <div class="feature-media gallery-2-up info-gallery">
+                    <img src="images/info1.jpg" alt="Zrzut ekranu - Informacje medyczne 1" class="mockup" />
+                    <img src="images/info2.jpg" alt="Zrzut ekranu - Informacje medyczne 2" class="mockup" />
+                </div>
+                <div class="feature-text" id="tekst-info"></div>
+            </section>
+
+            <section class="feature-section reverse" id="bezpieczenstwo-section">
+                <div class="feature-text" id="tekst-bezpieczenstwo"></div>
+                <div class="feature-media gallery-2-up bezpieczenstwo-gallery">
+                    <img src="images/pin.png" alt="Ustawienie PIN" class="mockup">
+                    <img src="images/bezpieczenstwo.png" alt="Bezpieczeństwo danych" class="mockup">
+                </div>
+            </section>
+
+            <section class="feature-section" id="dowiedz-sie-wiecej-section">
+                <div class="feature-text" id="tekst-dowiedz-sie-wiecej" style="text-align: center;">
+                    <h3>Dowiedz się więcej o ustawieniach i funkcjach aplikacji</h3>
+                    <p>Jeśli chcesz dowiedzieć się więcej o ustawieniach i innych możliwościach aplikacji, zapraszam do obejrzenia tego filmu:</p>
+
+                    <div class="video-button-container">
+                        <a href="https://www.youtube.com/watch?v=o55eoQBjsbw"
+                           target="_blank"
+                           rel="noopener"
+                           class="video-button"
+                           title="Zobacz film instruktażowy na YouTube">
+                            ▶️ Obejrzyj film: Ustawienia i inne funkcje
+                        </a>
+                    </div>
+                </div>
+            </section>
         </section>
 
-        <section class="feature-section reverse" id="badania-section">
+        <!-- 4. Sekcja Główna: ZapiszTo -->
+        <section class="feature-section" id="zapiszto-section">
             <div class="feature-media">
-                <img src="images/badania.jpg" alt="Zrzut ekranu - Badania" class="mockup" />
+                <img src="images/zapisztoikon.jpg" alt="ZapiszTo Ikona" class="mockup app-logo-large" />
             </div>
-            <div class="feature-text" id="tekst-badania"></div>
-        </section>
-
-        <section class="feature-section reverse" id="dodaj-badanie-section">
-            <div class="feature-text" id="tekst-dodaj-badanie">
-                <h3>Jak dodać badanie</h3>
-                <p>Na ekranie <strong>Lista Badań</strong> kliknij przycisk w prawym dolnym rogu <strong>+Badanie</strong>. Zostaniesz przeniesiony do formularza dodawania badania.</p>
-                <p>Do wyboru są następujące typy badań:</p>
-                <ul>
-                    <li>Ciśnienie krwi</li>
-                    <li>Poziom cukru</li>
-                    <li>Saturacja</li>
-                    <li>Temperatura</li>
-                </ul>
-                <p>Po wpisaniu danych kliknij przycisk <strong>Zapisz</strong>, a dane zostaną dodane do bazy i pojawią się na ekranie z listą badań.</p>
-
-                <div class="video-button-container">
-                    <a href="https://www.youtube.com/watch?v=UyM8A0PURAg"
-                        target="_blank"
-                        rel="noopener"
-                        class="video-button"
-                        title="Zobacz film instruktażowy na YouTube">
-                        ▶️ Obejrzyj film: Jak dodać badanie
-                    </a>
-                </div>
-            </div>
-
-            <div class="feature-media gallery-2-up badania-gallery">
-                <img src="images/cisnienie.jpg" alt="Badanie ciśnienia krwi" class="mockup" />
-                <img src="images/cukier.jpg" alt="Badanie poziomu cukru" class="mockup" />
-                <img src="images/saturacja.jpg" alt="Badanie saturacji" class="mockup" />
-                <img src="images/temperatura.jpg" alt="Badanie temperatury" class="mockup" />
-            </div>
-        </section>
-
-        <section class="feature-section reverse" id="wizyty-section">
-            <div class="feature-media">
-                <img src="images/wizyty.jpg" alt="Zrzut ekranu - Wizyty" class="mockup" />
-            </div>
-            <div class="feature-text" id="tekst-wizyty"></div>
-        </section>
-
-        <section class="feature-section reverse" id="dodaj-wizyte-section">
-            <div class="feature-text" id="tekst-dodaj-wizyte">
-                <h3>Jak dodać wizytę</h3>
-                <p>Na ekranie <strong>Lista wizyt</strong> kliknij przycisk w prawym dolnym rogu <strong>+Wizytę</strong>. Zostaniesz przeniesiony do formularza dodawania wizyty.</p>
-                <p>W formularzu należy:</p>
-                <ul>
-                    <li>Wpisać do jakiego lekarza, specjalisty lub rehabilitanta jest wizyta.</li>
-                    <li>Wpisać rodzaj wizyty.</li>
-                    <li>Ustawić godzinę i datę wizyty.</li>
-                    <li>Opcjonalnie dodać miejsce wizyty i dodatkowe informacje.</li>
-                </ul>
-                <p>Po kliknięciu <strong>Zapisz</strong> wizyta zostanie zapisana do bazy i pojawi się na ekranie <strong>Lista wizyt</strong>.</p>
-
-                <div class="video-button-container">
-                    <a href="https://www.youtube.com/watch?v=KVDeGTfF54k"
-                        target="_blank"
-                        rel="noopener"
-                        class="video-button"
-                        title="Zobacz film instruktażowy na YouTube">
-                        ▶️ Obejrzyj film: Jak dodać wizytę
-                    </a>
-                </div>
-            </div>
-
-            <div class="feature-media wizyty-gallery">
-                <img src="images/dodajwizyte.jpg" alt="Dodawanie wizyty" class="mockup" />
-            </div>
-        </section>
-
-        <section class="feature-section reverse" id="info-section">
-            <div class="feature-media gallery-2-up info-gallery">
-                <img src="images/info1.jpg" alt="Zrzut ekranu - Informacje medyczne 1" class="mockup" />
-                <img src="images/info2.jpg" alt="Zrzut ekranu - Informacje medyczne 2" class="mockup" />
-            </div>
-            <div class="feature-text" id="tekst-info">
-                 </div>
-        </section>
-        
-        <section class="feature-section" id="pdf-export-section">
-            <div class="feature-media gallery-3-up pdf-export-gallery">
-                <img src="images/leki_pdf.png" alt="Eksport do PDF listy leków" class="mockup" />
-                <img src="images/badanie_pdf.png" alt="Eksport do PDF wyników badań" class="mockup" />
-                <img src="images/info_pdf.png" alt="Eksport do PDF informacji medycznych" class="mockup" />
-            </div>
-            <div class="feature-text" id="tekst-pdf-export"></div>
-        </section>
-        <section class="feature-section" id="bezpieczenstwo-section">
-            <div class="feature-text" id="tekst-bezpieczenstwo"></div>
-            <div class="feature-media gallery-2-up bezpieczenstwo-gallery">
-                <img src="images/pin.png" alt="Ustawienie PIN" class="mockup">
-                <img src="images/bezpieczenstwo.png" alt="Bezpieczeństwo danych" class="mockup">
-            </div>
-        </section>
-<section class="feature-section" id="calendar-section">
-            <div class="feature-media gallery-3-up calendar-gallery">
-                <img src="images/kalendarz1.png" alt="Zrzut ekranu - Kalendarz: Wynik Badania" class="mockup" />
-                <img src="images/kalendarz2.png" alt="Zrzut ekranu - Kalendarz: Zaplanowana Wizyta" class="mockup" />
-                <img src="images/kalendarz3.png" alt="Zrzut ekranu - Kalendarz: Koniec Leki i Wizyty" class="mockup" />
-            </div>
-            <div class="feature-text" id="tekst-calendar">                <h3>🗓️ Kalendarz – Pełny Przegląd</h3>
-                <p>Zakładka Kalendarz to centralne miejsce, w którym szybko sprawdzisz, co czeka Cię w najbliższym czasie. Stanowi graficzny przegląd wszystkich Twoich medycznych zobowiązań.</p>
-
-                <p>Główne funkcje:</p>
-                <ul>
-                    <li>• Kolorowe oznaczenia — Dni z wydarzeniami są oznaczone kropkami w różnych kolorach (Leki 🟠, Badania 🟢, Wizyty 🔵), co pozwala na natychmiastową identyfikację typu zdarzenia.</li>
-                    <li>• Szczegóły zdarzeń — Po kliknięciu w konkretny dzień, Kalendarz wyświetla wszystkie zapisane na ten dzień dane:
-                        <ul>
-                            <li>- Badania: Wyniki pomiarów (Ciśnienie, Cukier, Tętno, itp.).</li>
-                            <li>- Wizyty: Daty i godziny umówionych kontroli.</li>
-                            <li>- Leki: Informację o dacie końca leku.</li>
-                        </ul>
-                    </li>
-                    <li>• Miesiąc i nawigacja — Umożliwia łatwe przełączanie między miesiącami w celu planowania i przeglądania historii.</li>
-                </ul>
-                
-                <p><b>Kalendarz to Twoja medyczna oś czasu — wszystko w jednym, intuicyjnym widoku.</b></p>
-            </div>
-        </section>
-
-        <section class="feature-section reverse" id="info-section">
-
-        <section class="feature-section" id="dowiedz-sie-wiecej-section">
-            <div class="feature-text" id="tekst-dowiedz-sie-wiecej" style="text-align: center;">
-                <h3>Dowiedz się więcej o ustawieniach i funkcjach aplikacji</h3>
-                <p>Jeśli chcesz dowiedzieć się więcej o ustawieniach i innych możliwościach aplikacji, zapraszam do obejrzenia tego filmu:</p>
-
-                <div class="video-button-container">
-                    <a href="https://www.youtube.com/watch?v=o55eoQBjsbw"
-                        target="_blank"
-                        rel="noopener"
-                        class="video-button"
-                        title="Zobacz film instruktażowy na YouTube">
-                        ▶️ Obejrzyj film: Ustawienia i inne funkcje
-                    </a>
+            <div class="feature-text">
+                <h3>📝 ZapiszTo — Nadchodząca aplikacja</h3>
+                <p><b>ZapiszTo</b> to twój nowy, podręczny asystent do organizacji zadań, planowania dnia oraz tworzenia szybkich notatek.</p>
+                <p>Aplikacja jest obecnie w fazie aktywnego rozwoju. Została zaprojektowana z myślą o prostocie, szybkości działania i pełnej prywatności.</p>
+                <div class="status-box">
+                    <span class="badge badge-warning">Projekt w trakcie realizacji 🛠️</span>
+                    <p style="margin-top: 10px;">Śledź profil, aby być na bieżąco z informacjami o premierze!</p>
                 </div>
             </div>
         </section>
 
-        </main>
+    </main>
 
     <footer class="footer">
         <div class="footer-inner">
@@ -321,14 +320,14 @@
         // --- Sekcja: Podstawowe informacje o aplikacji ---
         const tekstAppInfo = `
             <h3>Informacje o aplikacji „MedOpiekun”</h3>
-            <p>„MedOpiekun” to intuicyjna i praktyczna aplikacja mobilna stworzona z myślą o osobach, które chcą lepiej zarządzać swoim zdrowiem i lekami.</p>
+            <p>„MedOpiekun” to intuicyjna i practical aplikacja mobilna stworzona z myślą o osobach, które chcą lepiej zarządzać swoim zdrowiem i lekami.</p>
             
             <p>Sprawdzi się idealnie dla:</p>
             <ul>
                 <li>• osób przyjmujących leki regularnie (np. osoby starsze, chorujące przewlekle),</li>
                 <li>• osób opiekujących się bliskimi i potrzebujących kontroli nad ich leczeniem,</li>
                 <li>• każdego, kto chce śledzić swoje wyniki badań (np. ciśnienie, cukier, saturacja),</li>
-                <li>• • osób dbających o profilaktykę zdrowotną.</li>
+                <li>• osób dbających o profilaktykę zdrowotną.</li>
             </ul>
 
             <p>Aplikacja pozwala:</p>
@@ -343,18 +342,9 @@
             <p>„MedOpiekun” działa w pełni offline i nie wymaga zakładania konta — Twoje dane są bezpieczne i dostępne tylko na Twoim urządzeniu.</p>
 
             <p>Aplikacja została zaprojektowana z myślą o prostocie i wygodzie, aby każdy – niezależnie od wieku czy doświadczenia z technologią – mógł z niej korzystać bez problemu.</p>
-            
-            <div class="video-button-container" style="margin-top: 20px; text-align: center;">
-                <a href="https://youtube.com/shorts/NyS4RLkn3Gg?feature=share"
-                    target="_blank"
-                    rel="noopener"
-                    class="video-button"
-                    title="Zobacz film na YouTube">
-                    ▶️ Obejrzyj film: Kilka słów o Aplikacji MedOpiekun
-                </a>
-            </div>
         `;
         document.getElementById("tekst-appinfo").innerHTML = tekstAppInfo;
+
         // --- Sekcja: Leki ---
         const tekstLeki = `
             <h3>Sekcja: Leki</h3>
@@ -420,7 +410,7 @@
         `;
         document.getElementById("tekst-wizyty").innerHTML = tekstWizyty;
 
-       // --- Sekcja: Informacje medyczne ---
+        // --- Sekcja: Informacje medyczne ---
         const tekstInfo = `
             <h3>Sekcja: Informacje medyczne</h3>
             <p>W aplikacji możesz zapisać podstawowe i najważniejsze dane o sobie, dzięki czemu w każdej chwili masz szybki dostęp do informacji medycznych.</p>
@@ -448,42 +438,15 @@
 
             <div class="video-button-container" style="margin-top: 20px; text-align: center;">
                 <a href="https://www.youtube.com/watch?v=JXLyobwxpPU"
-                    target="_blank"
-                    rel="noopener"
-                    class="video-button"
-                    title="Zobacz film instruktażowy na YouTube">
+                   target="_blank"
+                   rel="noopener"
+                   class="video-button"
+                   title="Zobacz film instruktażowy na YouTube">
                     ▶️ Obejrzyj film: Informacje medyczne
                 </a>
             </div>
         `;
         document.getElementById("tekst-info").innerHTML = tekstInfo;
-
-        // --- Sekcja: Eksport PDF ---
-        const tekstPdfExport = `
-            <h3>Funkcja Eksportu Danych do PDF 📄</h3>
-            <p>Aplikacja <b>MedOpiekun</b> daje Ci możliwość generowania i eksportowania kluczowych danych medycznych do profesjonalnych plików PDF. Dzięki temu masz zawsze pod ręką uporządkowany wykaz najważniejszych informacji, który możesz wydrukować lub przesłać dalej.</p>
-
-            <h4>Trzy typy eksportu:</h4>
-            <ul>
-                <li>
-                    💊 <strong>Eksport leków</strong>
-                    <p>Generuje listę wszystkich przyjmowanych leków wraz z dawkowaniem. Jest to nieoceniona pomoc w nagłych sytuacjach, np. gdy trafiasz do szpitala i musisz szybko przedstawić personelowi medycznemu pełny i aktualny <strong>wykaz leków</strong>.</p>
-                </li>
-                <li>
-                    🩸 <strong>Eksport badań</strong>
-                    <p>Tworzy czytelny dokument ze wszystkimi zapisanymi wynikami pomiarów (ciśnienie, cukier, saturacja, temperatura). Jest to idealne rozwiązanie na <strong>wizytę lekarską</strong>, ponieważ pozwala lekarzowi na szybką analizę Twojej historii pomiarów.</p>
-                    <p>Dodatkowo, eksport badań umożliwia **comiesięczne archiwizowanie danych**. Po wygenerowaniu pliku PDF możesz bezpiecznie usunąć stare wpisy z aplikacji, zachowując porządek i odciążając bazę danych, a nowy miesiąc zacząć z czystą historią.</p>
-                </li>
-                <li>
-                    🧑‍⚕️ <strong>Eksport informacji medycznych</strong>
-                    <p>Pozwala na szybkie wygenerowanie pliku zawierającego Twoje podstawowe informacje medyczne, takie jak grupa krwi, schorzenia, alergie czy dane kontaktowe do bliskiej osoby. Bardzo przydatne podczas każdej <strong>wizyty u specjalisty</strong>, gdy trzeba wypełnić formalności lub w sytuacji, gdy liczy się każda minuta.</p>
-                </li>
-            </ul>
-
-            <p><strong>Zadbaj o porządek w swojej dokumentacji medycznej z MedOpiekun!</strong></p>
-        `;
-        document.getElementById("tekst-pdf-export").innerHTML = tekstPdfExport;
-
 
         // --- Sekcja: Bezpieczeństwo i prywatność ---
         const tekstBezpieczenstwo = `
@@ -509,11 +472,6 @@
         console.log("Zawartość sekcji załadowana poprawnie.");
     </script>
 
-    <div id="lightbox-modal">
-        <span class="lightbox-close">&times;</span>
-        <img id="lightbox-image" src="" alt="Powiększony obraz MedOpiekun" />
-    </div>
-
-    <script src="script.js"></script> 
+    <script src="script.js"></script>
 </body>
 </html>
