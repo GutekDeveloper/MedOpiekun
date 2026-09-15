@@ -93,7 +93,7 @@ body {
 ================================= */
 .main-content {
   text-align: center;
-  padding: 0 20px 60px; 
+  padding: 0 10px 60px; 
   margin-top: 110px; /* Zwiększono margines, aby nagłówek nie zasłaniał pierwszej karty na PC */
   margin-left: 240px; 
   max-width: 100%;
@@ -217,9 +217,11 @@ body {
    PRZYCISKI
 ================================= */
 .download-button img {
-  width: 220px;
-  transition: transform 0.3s ease;
-  margin-bottom: 0;
+    width: 220px;
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    margin-bottom: 0;
 }
 
 .download-button img:hover {
@@ -736,6 +738,27 @@ section p {
     
     section {
         scroll-margin-top: 90px;
+    }
+   
+   .hero-text {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .hero-section .description {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    section {
+        width: 100%;
+        max-width: 100%;
+        padding: 35px 20px;
+    }
+
+    .app-details-container {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 
