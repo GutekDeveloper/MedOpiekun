@@ -896,7 +896,7 @@ body {
 }
 
 .dev-logo {
-    border-radius: 12px;
+    border-radius: 0;
 }
 
 .developer-info h1 {
