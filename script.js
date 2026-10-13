@@ -26,7 +26,7 @@
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.06, rootMargin: "0px 0px -35px 0px" });
+            }, { threshold: 0, rootMargin: "0px" });
 
             sections.forEach((section) => revealObserver.observe(section));
         } else {
@@ -122,3 +122,4 @@
         initPage();
     }
 })();
+
