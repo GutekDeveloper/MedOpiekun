@@ -2,9 +2,10 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8" />
+    <title>Gutek Developer — aplikacje tworzone z pomysłem</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Gutek Developer — niezależny twórca aplikacji mobilnych. Poznaj MedOpiekun i rozwijany projekt Za.PiszTo." />
-    <meta name="theme-color" content="#1565c0" />
+    <meta name="theme-color" content="#07111f" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Gutek Developer — MedOpiekun & Za.PiszTo" />
@@ -19,6 +20,9 @@
 
     <link rel="icon" type="image/png" href="images/gutekikon.png" />
     <link rel="apple-touch-icon" href="images/gutekikon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -26,11 +30,28 @@
 
     <!-- Sidebar / Nawigacja Główna -->
     <nav id="toc-sidebar">
+        <div class="sidebar-brand">
+            <span class="sidebar-brand-mark">G.</span>
+            <div><strong>Gutek Developer</strong><small>INDEPENDENT MAKER</small></div>
+        </div>
         <h4>Nawigacja</h4>
-        <a href="#about-section" class="toc-link active">❤️ O Deweloperze</a>
-        <a href="#apps-overview" class="toc-link">📱 Moje Aplikacje</a>
-        <a href="#hero-section" class="toc-link">💊 MedOpiekun</a>
-        <a href="#zapiszto-section" class="toc-link">📝 Za.PiszTo</a>
+        <a href="#about-section" class="toc-link active">✦ O deweloperze</a>
+        <a href="#apps-overview" class="toc-link">▦ Moje aplikacje</a>
+        <a href="#hero-section" class="toc-link">✚ MedOpiekun</a>
+        <a href="#medopiekun-section" class="toc-link">Instrukcje i funkcje</a>
+        <a href="#zapiszto-section" class="toc-link">↗ Za.PiszTo</a>
+        <div class="sidebar-divider"></div>
+        <p class="sidebar-label">PRZEWODNIK MEDOPIEKUNA</p>
+        <a href="#appinfo-section" class="toc-link">O aplikacji</a>
+        <a href="#leki-section" class="toc-link">Leki</a>
+        <a href="#dodaj-lek-section" class="toc-link">Dodawanie leku</a>
+        <a href="#badania-section" class="toc-link">Pomiary i badania</a>
+        <a href="#dodaj-badanie-section" class="toc-link">Dodawanie badania</a>
+        <a href="#wizyty-section" class="toc-link">Wizyty</a>
+        <a href="#dodaj-wizyte-section" class="toc-link">Dodawanie wizyty</a>
+        <a href="#info-section" class="toc-link">Informacje medyczne</a>
+        <a href="#bezpieczenstwo-section" class="toc-link">Bezpieczeństwo</a>
+        <a href="#dowiedz-sie-wiecej-section" class="toc-link">Więcej funkcji</a>
     </nav>
 
     <!-- Header -->
@@ -40,7 +61,8 @@
                 <img src="images/gutekikon.png" alt="Logo Gutek Developer" class="dev-logo" />
                 <h1>Gutek Developer</h1>
             </div>
-            <button id="mobile-menu-toggle" class="video-button">☰ Menu</button>
+            <div class="header-note"><span class="live-dot"></span> Niezależnie tworzone. Z myślą o ludziach.</div>
+            <button id="mobile-menu-toggle" class="video-button" aria-label="Otwórz menu nawigacyjne">☰ <span>Menu</span></button>
         </div>
     </header>
 
@@ -54,6 +76,7 @@
             <a href="#about-section" class="toc-link">❤️ O Deweloperze</a>
             <a href="#apps-overview" class="toc-link">📱 Moje Aplikacje</a>
             <a href="#hero-section" class="toc-link">💊 MedOpiekun</a>
+            <a href="#medopiekun-section" class="toc-link">📚 Instrukcje i funkcje</a>
             <a href="#zapiszto-section" class="toc-link">📝 Za.PiszTo</a>
 
             <hr />
@@ -229,13 +252,18 @@
 
                 <div class="hero-eyebrow">GUTEK DEVELOPER • MEDOPIEKUN</div>
                 <h2 class="gradient-text">
-                    Twoje zdrowie pod pełną kontrolą
+                    Codzienne sprawy zdrowotne.<br />Wreszcie w jednym miejscu.
                 </h2>
 
                 <p class="description">
-                    MedOpiekun to nowoczesna aplikacja pomagająca w zarządzaniu lekami,
-                    wizytami i badaniami. Wszystko w jednym miejscu — zawsze pod ręką.
+                    Leki, pomiary, wizyty i ważne informacje — bez chaosu i bez szukania po notatkach.
+                    MedOpiekun działa bez internetu i nie wymaga zakładania konta.
                 </p>
+                <div class="hero-points" aria-label="Najważniejsze cechy MedOpiekuna">
+                    <span><i>✓</i> Bez internetu</span>
+                    <span><i>✓</i> Bez konta</span>
+                    <span><i>✓</i> Twoje dane na urządzeniu</span>
+                </div>
 
                 <a
                     href="https://play.google.com/store/apps/details?id=com.gutowianin.mojezdrowie"
@@ -262,7 +290,9 @@
         <section id="medopiekun-section" class="app-details-container">
 
             <div class="section-header">
-                <h2>💊 MedOpiekun — Szczegóły i instrukcje</h2>
+                <span class="section-kicker">POZNAJ MOŻLIWOŚCI</span>
+                <h2>MedOpiekun — szczegóły i instrukcje</h2>
+                <p>Przejdź przez funkcje krok po kroku i zobacz, jak działają.</p>
             </div>
 
             <section class="feature-section reverse" id="appinfo-section">
